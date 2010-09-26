@@ -1,0 +1,54 @@
+============================== RELEASE HISTORY ============================
+* 
+===========================================================================
+
+
+============================== Change Log =================================
+* -------------------------
+* March 23, 2004 - Peter Foot
+* -------------------------
+* - Made fields protected.
+*
+* -------------------------
+* Junary 24, 2005 - Neil Cowburn
+* -------------------------
+* Checked into Vault.
+* 
+* -------------------------
+* December 4, 2004 - Peter Foot
+* -------------------------
+* - Renamed TextDataAdapter
+* - New Split logic using a Regular Expression
+*
+* -------------------------
+* Aug 25, 2004 - Peter Foot
+* -------------------------
+* - Removed FileInfo so Adapter can be created for a file which does not yet exist
+* - Added support to override the delimiting character e.g. Tab etc
+*
+* -------------------------
+* July 13, 2004 - Peter Foot
+* -------------------------
+* - Changed Fill code to add null handling to avoid raising exceptions - should greatly improve performance
+*
+* -------------------------
+* January 19, 2004 - Peter Foot
+* -------------------------
+* - Fixed bug #000090 in BuildRow function
+* - Fixed bug #000091 in Fill function
+* -------------------------
+* November 24, 03 - Neil Cowburn
+* -------------------------
+* - Changed AssemblyInfo.cs to use delayed signing and static version number
+* -------------------------
+* November 14, 03 - Peter Foot
+* -------------------------
+* - Set CLS Compliance True
+*
+* -------------------------
+* November 7, 03 - Neil Cowburn
+* -------------------------
+* - Initial check-in
+*
+===========================================================================
+ 

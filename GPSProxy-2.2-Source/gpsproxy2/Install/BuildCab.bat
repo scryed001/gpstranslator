@@ -1,0 +1,1 @@
+"C:\Program Files\Microsoft Visual Studio .NET 2003\CompactFrameworkSDK\v1.0.5000\bin\cabwiz.exe" "c:\Data\Source\GPSProxy2\Install\GPSProxy_PPC.inf" /dest "c:\Data\Source\GPSProxy2\Install\" /err CabWiz.PPC.log /cpu ARM

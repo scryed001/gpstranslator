@@ -1,0 +1,24 @@
+[Settings]
+GPS Provider Dll=GPSProxy.Extension.NMEAInput.dll
+Num Active Extensions=3
+Virtual COM Ports=
+
+[Active Extension 0]
+Extension ID=1
+Extension Dll=GPSProxy.Extension.FixInfo.dll
+
+[Active Extension 1]
+Extension ID=2
+Extension Dll=GPSProxy.Extension.SatelliteInfo.dll
+
+[Active Extension 2]
+Extension ID=3
+Extension Dll=GPSProxy.Extension.GarminProtocolOutput.dll
+
+[Extension 1]
+
+[Extension 2]
+
+[Extension 3]
+
+[GPSProxy.Extension.NMEAInput.dll]

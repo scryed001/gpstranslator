@@ -1,0 +1,402 @@
+============================== RELEASE HISTORY ============================
+*  Feb 16, 04 - SDF 1.0 Released
+===========================================================================
+
+
+============================== Change Log =================================
+* -------------------------
+* April 24, 2005 - Sergey Bogdanov
+* -------------------------
+* VoiceRecorder:
+* - Reimplemented to behave as non modal 
+* - Added behaviour styles 
+* - Documented public events/properties/methods 
+* - Now based from ControlEx
+*
+* -------------------------
+* April 14, 2005 - Tim Wilson
+* -------------------------
+* ButtonEx:
+* - Restructured most of the code. Major change.
+* - The derivation hierarchy now follows the desktop framework.
+* - The control will now visually indicate when it has focus.
+* - Lots of other things were done. Like I said, major change.
+*
+* -------------------------
+* April 8, 2005 - Sergey Bogdanov
+* -------------------------
+* - Added ApplicationEx.ShowDialog static method that supports IMessageFilters
+*
+* -------------------------
+* April 2, 2005 - Peter Foot
+* -------------------------
+* Added OpenNETCF.Win32.Win32Window.Handle property
+*
+* -------------------------
+* Mar 30, 2005 - Peter Foot
+* -------------------------
+* OpenNETCF.Win32.LVM:
+* - Added missing constants to this enumeration - Thanks to forum member Elmer Miller
+*
+* -------------------------
+* Mar 25, 2005 - Thomas Hansen
+* -------------------------
+* Signature:
+* - Added up GetSignatureEx and LoadSignatureEx which significantly reduces the size of the signature data
+* - Added up BackgroundBitmap property to make rendering of background images on the control
+*
+* -------------------------
+* Mar 22, 2005 - Tim Wilson
+* -------------------------
+* GroupBox:
+* - Fixed the Tab support issue.
+* - Added attributes to allow a proper design-time experience.
+* - Cleaned up and restructured the code.
+*
+* -------------------------
+* Mar 4, 2005 - Tim Wilson
+* -------------------------
+* - Added attributes to the BackgroundImage property of the ButtonEx control.
+*
+* -------------------------
+* Feb 20, 2005 - Peter Foot
+* -------------------------
+* - Added new Clipboard image support and improvements from Sergey Bogdanov
+* - Added Clipboard.Clear method and further documentation.
+*
+* -------------------------
+* Feb 17, 2005 - Peter Foot
+* -------------------------
+* - Changed BatteryLife control to use the new power APIs
+* - Added loads of common system metrics to SystemInformationEx
+*
+* -------------------------
+* Feb 14, 2005 - Tim Wilson
+* -------------------------
+* Changed painting to use Graphics.FillRectangle() instead of Graphics.Clear() to paint 
+* the background for the following controls:
+*  - BatteryLife
+*  - ButtonEx
+*  - CheckBoxEx
+*  - GroupBox
+*  - LinkLabel
+*  - OwnerDrawnList
+*  - RoundGauge
+*  - Signature
+*
+* -------------------------
+* Feb 10, 2005 - Tim Wilson
+* -------------------------
+* ButtonEx:
+*  - Added the ability to handle navigation using the up, down, left, and right keys by simulating Tab and Shift+Tab.
+*
+* -------------------------
+* Jan 23, 2005 - Peter Foot
+* -------------------------
+* Moved windows P/Invokes and constants from OpenNETCF.dll
+* Removed duplicate windowmessage definitions from TextBoxEx, ComboBoxEx
+*
+* -------------------------
+* Aug 25, 2004 - Peter Foot
+* -------------------------
+* Added CreateParams Class
+* Some more work on ControlEx
+*
+* -------------------------
+* July 19, 2004 - Peter Foot
+* -------------------------
+* Added HTMLViewer.JumpToAnchor method
+*
+* -------------------------
+* July 17, 2004 - Peter Foot
+* -------------------------
+* Added ControlEx class
+* Added IWindowTarget interface
+*
+* -------------------------
+* July 12, 2004 - Peter Foot
+* -------------------------
+* SoundPlayer:
+* - Added this new Component- follows desktop framework v2.0 model
+* SystemSounds
+* - Added new class - follows desktop framework v2.0
+*
+* -------------------------
+* July 12, 2004 - Tim Wilson
+* -------------------------
+* ButtonEx:
+* - Marked a truck load of properties as obsolete as this will mess with code compatibility between the SDF and the DFx.
+* - Modified the OnMouseDown and OnMouseMove methods and removed the OnMouseUp method.
+* - Allowed the control to be focused when the button is clicked.
+* - Noted: Should BorderStyle be replaced by FlatStyle? Questions to ponder.
+*
+* -------------------------
+* July 8, 2004 - Peter Foot
+* -------------------------
+* - Changed Help.ShowHelp to match v2.0 signatures.
+*
+* -------------------------
+* June 17, 2004 - Tim Wilson
+* -------------------------
+* - Changed OnPaint to draw the LinkLabel text so that it will word wrap, if necessary.
+*
+* -------------------------
+* June 17, 2004 - Mark Arteaga
+* -------------------------
+* - Added ProgressBarEx
+*
+* -------------------------
+* June 10, 2004 - Mark Arteaga
+* -------------------------
+* - Fixed designer bug with AnimateCtl
+*
+* -------------------------
+* May 24, 04 - Peter Foot
+* -------------------------
+* - Fixed ColorDialog.ShowDialog bug
+* - Added Example code to doc comments
+*
+* -------------------------
+* May 21, 04 - Maarten Struys
+* -------------------------
+* - Fixed 'adding StatusBarPanel in design mode' bug
+*
+* -------------------------
+* May 19, 04 - Alex Yakhnin
+* -------------------------
+* - Updated SmartList to support keyboard: Added FullKeyboard property
+* - Fixed selection bug
+*
+* -------------------------
+* May 18, 04 - Peter Foot
+* -------------------------
+* - Added Bitmaps for InkX and MonthCalendar controls
+* - Renamed bitmap for StatusBarEx
+*
+* -------------------------
+* May 15, 04 - Peter Foot
+* -------------------------
+* - Hid ControlMessageWindow.BorderStyle implementation from NDOC 
+*
+* -------------------------
+* May 14, 04 - Peter Foot
+* -------------------------
+* - Added BorderStyle setting to ControlMessageWindow
+* - Added BorderStyle properties to HTMLViewer and InkX
+* - Fixed drawing logic in HTMLViewer and InkX (inc drawing of border at designtime)
+* - Added Attributes to HTMLViewer and InkX properties for Design time Property window experience
+* - Replaced MonthCalendar design time logic by inheriting System.Windows.Forms.MonthCalendar (desktop)
+* - Override Events in MonthCalendar to deal with namespace differences
+* - Hidded unsupported properties in MonthCalendar so unavailable in designer
+* - Hooked up FirstDayOfWeek to translate between System.Windows.Forms.Day (desktop) and OpenNETCF.Windows.Forms.Day
+* - Removed border from MonthCalendar control for consistency with desktop
+* - Hid MonthCalendar.CalendarDimensions property from designer (support only 1x1)
+* - Added hidden placeholder properties for BoldedDates (to implement in a future version).
+* - Added designtime attributes for Properties pane to CheckBoxEx, ListViewEx, OwnerDrawnControl, ButtonEx
+* - Removed ability to resize the MonthCalendar in designer (restricted to single month at runtime)
+* -------------------------
+* May 5, 04 - Chris Tacke
+* -------------------------
+* - Added PerformClick to ButtonEx
+*
+* -------------------------
+* May 3, 04 - Chris Tacke
+* -------------------------
+* - Minor changes in RoundGauge to prevent some error cases in designer
+*
+* -------------------------
+* April, 30 - Maarten Struys
+* -------------------------
+* - Changed the name of StatusBar to StatusBarEx.
+* - Added [ToolboxItemAttribute(false)] to hide the StatusBarPanel from
+*   the toolbox at design time.
+* -------------------------
+* April, 30 - Alex Yakhnin
+* -------------------------
+* - Fixed selected bug in the SmartList and added KeyMappings property.
+* -------------------------
+* April, 28 - Alex Yakhnin
+* -------------------------
+* - Fixed a few nasty bugs in the SmartList and added FilteringStarted and FilteringComplete events.
+* -------------------------
+* April, 26 - Alex Yakhnin
+* -------------------------
+* - Updated SmartList control to support autonumbering menus
+* -------------------------
+* April, 20 - Maarten Struys
+* -------------------------
+* - Assign the hosting StatusBar object as parent to a StatusBarPanel
+* - Invalidate both StatusBar and StatusBarPanel controls when properties are changed
+* - Changed the StatusBar parent member from private to internal
+* - Default text = name of StatusBar / StatusBarPanel
+* - Added <value> tags to all properties
+
+* -------------------------
+*
+* -------------------------
+* April, 16 - Mark Arteaga
+* -------------------------
+* - Added a transparent property to make the Image transparent
+* - Added BackgroundImagePressed and BackgroundImageDisabled properties
+* - Added AutoSize property to autosize the button to the size of the backgroundImage
+* -------------------------
+
+* -------------------------
+* April 13, 04 - Tim Wilson
+* -------------------------
+* - Removed some designer code (ControlModeEnum, CustomURLEditor, ResetAll method) from the LinkLabel.
+* - Changed LinkLabelDesigner and LinkDataConverter scope from public to internal.
+* - Implemented IWin32Window on the LinkLabel.
+* - Removed UrlEditor.cs from the workspace.
+*
+* -------------------------
+* April, 13 - Peter Foot
+* -------------------------
+* - Added Clipboard support to TextBoxEx (Cut, Copy, Paste, Clear, Undo methods)
+* - Replaced DateTimePicker ColorToABGR with calls to shared OpenNETCF.Drawing.ColorTranslator class
+*
+* -------------------------
+* April, 13 - Alex Yakhnin
+* -------------------------
+* - Added SmartList control to the project
+* -------------------------
+* -------------------------
+* April, 12 - Mark Arteaga
+* -------------------------
+* - Fixed a bug in drawing a vertical animation
+* -------------------------
+*
+* -------------------------
+* April, 05 - Mark Arteaga
+* -------------------------
+* - Added Image property to AnimateCtl for designer support
+* - Added various code to improve designer support
+* -------------------------
+*
+* -------------------------
+* Mar 29, 04 - Alex Yakhnin
+* -------------------------
+* - Fixed bug on the ItemCollection.Clear()
+* - A lot of performance twicking in OwnerDrawnList.cs
+* -------------------------
+*
+* -------------------------
+* Mar 26, 04 - Chris Tacke
+* -------------------------
+* - Changed GetExecutingAssembly to GetCallingAssembly in ApplicationEx.StartupPath 
+* - Changed calls to Core.StringToPtr to use MarshalEx StringToHGlobalUni in Clipboard and HTMLViewer
+*
+* -------------------------
+* Mar 17, 04 - Alex Yakhnin
+* -------------------------
+* - Fixed bug when assigning DataSource = null in the OwnerDrawnList.cs 
+* -------------------------
+* Mar 13, 04 - Peter Foot
+* -------------------------
+* - Added ColorDialog.ShowDialog(IWin32Window) so you can create the dialog with a parent form specified
+* - Fixed default ColorDialog.ShowDialog() to use the active window as parent.
+* - Added example code to IWin32Window to demonstrate how to implement the interface
+* - Added in Mark Arteaga's ListGrid files which have become detatched from the project.
+* -------------------------
+* Mar 12, 04 - Peter Foot
+* -------------------------
+* - Added IDisposable support to NotifyIcon
+* -------------------------
+* Mar 04, 04 - Alex Yakhnin
+* -------------------------
+* - Fixed bug in ListViewEx OnDrawItem to use item's font. 
+* - Added textBrush disposing in ListViewEx OnDrawItem.
+* -------------------------
+* Feb 28, 04 - Peter Foot
+* -------------------------
+* - Added IWin32Window support to AnimateCtl
+* - Added "New in v1.1" to post v1.0 functionality and rebuilt documentation
+* - Completed MonthCalendar functionality - inc events support
+*
+* -------------------------
+* Feb 27, 04 - Mark Arteaga
+* -------------------------
+* - Added Animation Control
+* - Added ListGrid control
+* 
+* -------------------------
+* Feb 26, 04 - Peter Foot
+* -------------------------
+* - Added MonthCalendar, InkX and VoiceControl controls (ncomplete)
+* - Fixed bug in HTMLViewer HotSpotEventArgs string marshalling
+* - Updated ControlMessageWindow to hook into the Disposed event of the parent control
+* - Added integrated support for obtaining parent control handle to ControlMessageWindow
+* 
+* -------------------------
+* Feb 25, 04 - Chris Tacke
+* -------------------------
+* - Added RoundGauge control (with Lamp and Needle classes)
+* 
+* -------------------------
+* Feb 15, 04 - Peter Foot
+* -------------------------
+* - Added new Functionality ControlMessageWindow and INotifiable to support hosting native controls
+* - Replaced HTMLViewer with ControlMessageWindow based version (old version archived as oldHTMLViewer for reference)
+* 
+* -------------------------
+* Feb 4, 04 - Peter Foot
+* -------------------------
+* - Added conditional compilation to HTMLViewer and ApplicationEx to support building NDoc documentation
+* 
+* -------------------------
+* Feb 3, 04 - Tim Wilson
+* -------------------------
+* - Added the BatteryMonitor component (BatteryMonitor.cs)
+* 
+* -------------------------
+* Feb 3, 04 - Peter Foot
+* -------------------------
+* - Added IWin32Window interface to specify support for Handle property for custom controls
+*   Added to GroupBox and TextBoxEx
+* 
+* -------------------------
+* Feb 3, 04 - Chris Tacke
+* -------------------------
+* - Complete replacement of HTMLViewer.cs to add support for hotspots and designer
+*   (code submission from Kevin Hutchison)
+* 
+* -------------------------
+* December 3, 03 - Neil Cowburn
+* -------------------------
+* - Fixed ambiguous reference to ContentAlignment in Button.cs, Line 563
+* - Fixed 'invisible' reference to OpenNETCF.Drawing. 
+*   This was preventing the Windows.Forms project from building successfully.
+* 
+* -------------------------
+* November 27, 03 - Peter Foot
+* -------------------------
+* - Fixed bug in ColorDialog causing it to fail on ShowDialog()
+*
+* -------------------------
+* November 25, 03 - Neil Cowburn
+* -------------------------
+* - Implemented IDisposable on SocketBarcodeScanner
+* -------------------------
+* November 24, 03 - Neil Cowburn
+* -------------------------
+* - Changed AssemblyInfo to delay signing and use static version number
+* -------------------------
+* November 21, 03 - Neil Cowburn
+* -------------------------
+* - Removed ItemCollectionEditor
+* - Removed StatusBarPanelCollectionEditor
+* - Added conditional directive to HTMLViewer for design-time support
+* -------------------------
+* November 14, 03 - Peter Foot
+* -------------------------
+* - CLS Compliant
+* - NDoc Compliant
+*
+* -------------------------
+* November 7, 03 - Neil Cowburn
+* -------------------------
+* - Initial check-in
+*
+===========================================================================
+ 
+ 

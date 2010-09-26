@@ -1,0 +1,440 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EB28E2E6-CE24-4D4A-8F38-C892D09783C2}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OpenNETCF.Windows.Forms</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <OutputFileFolder>\Program Files\OpenNETCF.Windows.Forms</OutputFileFolder>
+    <RootNamespace>OpenNETCF.Windows.Forms</RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <NativePlatformName>Windows CE</NativePlatformName>
+    <FormFactorID>
+    </FormFactorID>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <DeployDirSuffix>$(AssemblyName)</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>0</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\NDoc\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>0</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;NDOC</DefineConstants>
+    <DocumentationFile>OpenNETCF.Windows.Forms.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'NDoc|AnyCPU' ">
+    <OutputPath>bin\NDoc\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>0</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;NDOC</DefineConstants>
+    <DocumentationFile>OpenNETCF.Windows.Forms.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsCE.Forms">
+      <Name>Microsoft.WindowsCE.Forms</Name>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Name>MSCorLib</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\OpenNETCF.Drawing\OpenNETCF.Drawing.csproj">
+      <Name>OpenNETCF.Drawing</Name>
+      <Project>{FA15C437-D0AA-4C99-A1F2-5581CAB8F7B8}</Project>
+      <Package>{20D4826A-C6FA-45DB-90F4-C717570B9F32}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenNETCF\OpenNETCF.csproj">
+      <Name>OpenNETCF</Name>
+      <Project>{EEE28D3C-9C36-4968-8AD1-0DE97C42B6B6}</Project>
+      <Package>{20D4826A-C6FA-45DB-90F4-C717570B9F32}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnimateCtl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApplicationEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BatteryChargeStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BatteryLife.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BatteryMonitor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Clipboard.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ColorDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComboBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CreateParams.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DateRangeEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Day.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Help.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IButtonControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IMessageFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IWin32Window.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lamp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LinkLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MonthCalendar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Needle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NotifyIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OwnerDrawnList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PictureBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PowerLineStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PowerStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProgressBarEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoundGauge.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelectionRange.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SmartList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SoundPlayer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StatusBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StatusBarPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SystemInformation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SystemSounds.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThreadWindow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VoiceRecorder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\CB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\CBS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\DTM.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\DTN.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\DTS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\EM.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\ES.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\GDTR.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\GW.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\GWL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\HS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\HWND.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\LBS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\LVM.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\MCM.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\MCN.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\MCS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\MCSC.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\SWP.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\TCN.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\Win32Window.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\WM.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\WS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\WS_EX.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.BatteryLife.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.BatteryLife.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.BatteryMonitor.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.ButtonEx.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.CheckBoxEx.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.ColorDialog.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.DateTimePicker.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.GroupBox.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.HTMLViewer.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.InkX.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.LinkLabel.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.ListBoxEx.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.MonthCalendar.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.NotifyIcon.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.ProgressBarEx.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.RoundGauge.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.Signature.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.SmartList.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.SoundPlayer.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.StatusBar.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.StatusBarEx.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bitmaps\OpenNETCF.Windows.Forms.TextBoxEx.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ChangeLog.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EULA.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Bitmaps\OpenNETCF.Windows.Forms.ComboBoxEx.bmp" />
+    <None Include="SendKeys.cs">
+      <SubType>Code</SubType>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v3.5'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+</Project>

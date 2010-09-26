@@ -1,0 +1,31 @@
+OpenNETCF.Phone Changelog
+=========================
+
+
+Feb 19, 2005 - Peter Foot
+==========================
+- Sms.GetStatus removed current timeout and provided an overload with timeout parameter
+
+Feb 4, 2005 - Peter Foot
+==========================
+- CallLogEntry now returns local times
+
+Feb 3, 2005 - Peter Foot
+==========================
+- Changed CallLog so it doesn't throw an exception if the device call log is empty
+- Fixed CallLog.Count property
+- Removed Phone.EmergencyNumbers
+
+Aug 10, 2004 - Peter Foot
+==========================
+- Added override for SendMessage to include TextProviderSpecificData
+- Removed preliminary doc tags
+- Added SmsMessageProtocol enumeration
+
+May 18, 2004 - Peter Foot
+===========================
+- Fixed recursive constructor call on Sms class
+
+April 24, 2004 - Peter Foot
+===========================
+- Repaired project - checked in all files again to fix incorrect namespaces and missing updates

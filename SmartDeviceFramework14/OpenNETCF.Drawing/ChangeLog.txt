@@ -1,0 +1,80 @@
+============================== RELEASE HISTORY ============================
+* Feb 16, 04 - SDF 1.0 Released
+===========================================================================
+
+
+============================== Change Log =================================
+* -------------------------
+* April 24, 2005 - Sergey Bogdanov
+* -------------------------
+* - Added fix for bug #50
+* - GDIPlus.CreateFontIndirect fixes:
+*   - fixed incorrect P/Invoke declaration
+*   - added documentation 
+*   - error handling 
+*
+* -------------------------
+* April 2, 2005 - Peter Foot
+* -------------------------
+* - Added GraphicsEx.GetHdc() method
+* - Added fix for GraphicsEx.DrawImage bug #42 submitted by Sergey Bogdanov
+*
+* -------------------------
+* February 16, 2005 - Peter Foot
+* -------------------------
+* - Removed updated P/Invokes, will standardise on GraphicsEx and related managed API
+*
+* -------------------------
+* February 16, 2005 - Peter Foot
+* -------------------------
+* - Updated ColorTranslator from Sergey Bogdanov fixes bug #17 and adds support for #rgb formmated names
+*
+* -------------------------
+* February 6, 2005 - Peter Foot
+* -------------------------
+* - Added Drawing2D and Imaging namespaces to match full framework
+* - Changed PenStyle to DashStyle
+* - Internal changes to adjust for the above
+*
+* -------------------------
+* January 24, 2005 - Neil Cowburn
+* -------------------------
+* Checked into Vault.
+* 
+* -------------------------
+* Jan 23, 05 - Peter Foot
+* -------------------------
+* - Moved drawing related structures and P/Invokes to the OpenNETCF.Drawing assembly.
+* - Standardised on int type for all P/Invokes taking a COLOR
+* - Replaced GDIPlusRGB() calls with ColorTranslator.ToWin32()
+* -------------------------
+* Aug 25, 04 - Peter Foot
+* -------------------------
+* - FontEx.cs
+* - Added Name, Style and Size properties and ToHfont() to retrieve internal pointer
+*
+* -------------------------
+* May 24, 04 - Alex Yakhnin
+* -------------------------
+* - Added GraphicsEx.cs, FontEx.cs, PenEx.cs and GDIPlus.cs
+* -------------------------
+* November 27, 03 - Peter Foot
+* -------------------------
+* - Moved ContentAlignment enumeration for consistency with desktop
+* -------------------------
+* November 24, 03 - Neil Cowburn
+* -------------------------
+* - Changed AssemblyInfo.cs to use delayed signing and static version number
+* -------------------------
+* November 14, 03 - Peter Foot
+* -------------------------
+* - CLS Compliant
+*
+* -------------------------
+* November 7, 03 - Neil Cowburn
+* -------------------------
+* - Initial check-in
+*
+===========================================================================
+ 
+ 
