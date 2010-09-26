@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpenNETCF.Xml</name>
+    </assembly>
+    <members>
+        <member name="T:OpenNETCF.Xml.XPath">
+            <summary>
+            Replicate the some  Functionality of Xpath for Compact Framework.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Xml.XPath.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Xml.XPath.SelectNodes(System.Xml.XmlNode,System.String)">
+            <summary>
+            Selects child nodes from a parent node satisfying the xpath
+            </summary>
+            <param name="xmlNode"></param>
+            <param name="xpath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Xml.XPath.GetChildNodeFromParent(System.Xml.XmlNode,System.String)">
+            <summary>
+            Gets Child Node for a Parent node.
+            </summary>
+            <param name="parent">Parent XmlNode</param>
+            <param name="xpath">xpath expression of the Child XmlNode</param>
+            <returns>Child XmlNode</returns>
+        </member>
+        <member name="T:OpenNETCF.Xml.Serialization.XmlSerializer">
+            <summary>
+            Serializes and deserializes objects into and from XML documents. The OpenNETCF.Xml.Serialization.XmlSerializer enables you to control how objects are encoded into XML. 
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Xml.Serialization.XmlSerializer.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the System.Xml.Serialization.XmlSerializer class that can serialize objects of the specified type into XML documents, and vice versa. 
+            </summary>
+            <param name="type">The type of the object that this OpenNETCF.Xml.Serialization.XmlSerializer can serialize.</param>
+        </member>
+        <member name="M:OpenNETCF.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlTextWriter,System.Object)">
+            <summary>
+            Serializes the specified System.Object and writes the XML document to a file using the specified System.Xml.XmlWriter.
+            </summary>
+            <param name="w">The System.xml.XmlWriter used to write the XML document.</param>
+            <param name="graph">The System.Object to serialize.</param>
+        </member>
+        <member name="M:OpenNETCF.Xml.Serialization.XmlSerializer.Serialize(System.IO.TextWriter,System.Object)">
+            <summary>
+            Serializes the specified System.Object and writes the XML document to a file using the specified System.IO.TextWriter.
+            </summary>
+            <param name="textWriter">The System.IO.TextWriter used to write the XML document.</param>
+            <param name="graph">The System.Object to serialize.</param>
+        </member>
+        <member name="M:OpenNETCF.Xml.Serialization.XmlSerializer.Serialize(System.IO.Stream,System.Object)">
+            <summary>
+            Serializes the specified System.Object and writes the XML document to a file using the specified System.IO.Stream.
+            </summary>
+            <param name="stream">The System.IO.Stream used to write the XML document.</param>
+            <param name="graph">The System.Object to serialize.</param>
+        </member>
+        <member name="M:OpenNETCF.Xml.Serialization.XmlSerializer.SerializeGraph(System.Xml.XmlTextWriter,System.Object)">
+            <summary>
+            Recursive internal method that loops through the object's properties and builds an XML tree.
+            </summary>
+            <param name="graph">The object graph to serialize.</param>
+            <param name="w">The XmlTextWriter used to build the XML tree.</param>
+        </member>
+        <member name="M:OpenNETCF.Xml.Serialization.XmlSerializer.Deserialize(System.Xml.XmlTextReader,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="xmlReader"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Xml.Serialization.XmlSerializer.DeserializeGraph(System.Xml.XmlTextReader,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="r"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

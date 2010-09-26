@@ -1,0 +1,39 @@
+============================== Change Log =================================
+* -------------------------
+* May, 15 - Peter Foot
+* -------------------------
+* - Altered some of the document tags (VBCommenter output was partially missing) - no code changes
+*
+* -------------------------
+* May, 11 - Peter Foot
+* -------------------------
+* - Removed preliminary doc tags
+* - Wired up WindowStyle support for Shell()
+* - Commented out unsupported window styles
+*
+* -------------------------
+* May, 3 - Peter Foot
+* -------------------------
+* - Added RmDir method
+* - Added VB style Error/Exception handling
+* - Added examples to documentation for all methods
+* - Made registry code more consistent with desktop
+*
+* -------------------------
+* April, 27 - Peter Foot
+* -------------------------
+* - Added Shell method body (doesn't actually support AppWinStyles but uses desktop signature)
+*
+* -------------------------
+* April, 25 - Peter Foot
+* -------------------------
+* - Added AppWinStyle to support Shell method
+*
+* -------------------------
+* April, 13 - Peter Foot
+* -------------------------
+* - Created new VisualBasic Library
+* - Added GetSetting / SaveSetting / DeleteSetting submissions
+* - Added basic file manipulation methods
+
+

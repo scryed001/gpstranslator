@@ -1,0 +1,35 @@
+============================== RELEASE HISTORY ============================
+* 
+===========================================================================
+
+
+============================== Change Log =================================
+* -------------------------
+* November 24, 03 - Neil Cowburn
+* -------------------------
+* - Changed AssemblyInfo.cs to use delayed signing and static version number
+* -------------------------
+* November 17, 03 - Neil Cowburn
+* -------------------------
+* - Deserialization of objects derived from CollectionBase now working
+* - Still need to tidy up deserialization of value and other reference types
+* - Happy with serialization of value types, reference types, and collections.
+* -------------------------
+* November 14, 03 - Neil Cowburn
+* -------------------------
+* - Heavy refactoring of SerializeGraph
+* - Serialization of objects derived from CollectionBase now working
+*
+* -------------------------
+* November 14, 03 - Peter Foot
+* -------------------------
+* - CLS Compliant
+*
+* -------------------------
+* November 7, 03 - Neil Cowburn
+* -------------------------
+* - Initial check-in
+*
+===========================================================================
+ 
+ 

@@ -1,0 +1,11 @@
+Portrait
+--------
+Form Size: 246x326
+Client Area Size: 246x294
+Extension Panel Size: 240x256
+
+Landscape
+---------
+Form Size: 326x246
+Client Area Size: 320x214
+Extension Panel Size: 320x176

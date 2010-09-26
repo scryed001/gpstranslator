@@ -1,0 +1,193 @@
+============================== RELEASE HISTORY ============================
+* 
+===========================================================================
+
+
+============================== Change Log =================================
+* -------------------------
+* June 6, 05 - Paul Tobey
+* -------------------------
+* - FtpDataStream.cs
+*		- Fixed bug in CanWrite property.  It must return true or you won't be able
+*		  to upload files to an FTP server from a client application.
+*
+* -------------------------
+* May 22, 05 - Chris Tacke
+* -------------------------
+* - Adapter.cs
+*		- Added WZCFallbackEnabled property based on submission from Maxim Gueivandov
+*
+* -------------------------
+* April 25, 05 - Paul Tobey
+* -------------------------
+* - AdapterStatupMonitor.cs
+*		- Fixed bug in size of NDISUIO_DEVICE_NOTIFICATION
+*
+* -------------------------
+* April 7, 05 - Chris Tacke
+* -------------------------
+* - Adapter.cs
+*		- Added Release and Renew methods
+*		- Added IpReleaseAdapter and IpRenewAdapter P/Invokes
+*		- Added IP_ADAPTER_INDEX_MAP class
+*
+* -------------------------
+* March 25, 05 - Thomas Hansen
+* -------------------------
+* 		- Removed the old FTP classes and added up FtpWebRequest and FtpWebRespons 
+*		  to make the object model be more similar to the .Net Fr. 2.0 version.
+* 		  There are also several other classes to support these classes.
+*		  Non complete!
+*
+* -------------------------
+* February 15, 05 - Paul Tobey
+* -------------------------
+* 		- Fixed a bug that shows up with three or more adapters.
+*		  Also eliminated an unnecessary local variable.
+*
+* -------------------------
+* February 09, 05 - Paul Tobey
+* -------------------------
+* 		- Revised the Adapter.IsWireless property to use WZCQueryInterface, 
+*		  rather than an attempted SignalStrength query to decide if the 
+*		  adapter is a wireless adapter.  This seems more reliable.
+*
+* -------------------------
+* Februarr, 08 - Peter Foot
+* -------------------------
+* - Further classes from Sergey Bogdanov - Ping etc
+*
+* -------------------------
+* January 26, 05 - Peter Foot
+* -------------------------
+* - Added new namespace OpenNETCF.Net.NetworkInformation - submission from Sergey Bogdanov
+*		- Added documentation and file headers to above
+* -------------------------
+* January 26, 05 - Chris Tacke
+* -------------------------
+* - Improvements:
+*		- Added the FTP, FTPException, FTPFile and FTPFiles classes
+*		- Modified NetworkAdapter to use MarshalEx for all memory allocations
+*		- Adapter now inherits from StreamInterfaceDriver
+*
+* -------------------------
+* November 15, 04 - Paul Tobey
+* -------------------------
+* - Improvements:
+*		- Added the ability to change the IP address, subnet mask, 
+*		  default gateway, and dhcp configuration option for an 
+*		  Adapter.  To actually make the changes, you have to call
+*		  the RebindAdapter method on the Adapter.
+*
+*		- Added AdapterStatusMonitor class which allows for asynchronous
+*		  notification, via events, when adapters change their bindings,
+*		  lose and establish connections, etc.
+*
+* -------------------------
+* August 30, 04 - Paul Tobey
+* -------------------------
+* - Bugs fixed:
+*		- Fixed enumeration bug that might show up when only one network
+*		  adapter is present in the device.
+*
+* - Improvements:
+*		- Added support for controlling association of a wireless network
+*		  adapter with an access point.
+*
+* -------------------------
+* June 14, 04 - Neil Cowburn
+* -------------------------
+* - Improvements to ConnectionManager:
+*		- Made it thread-safe *yay!*
+*		- Changed State -> Status, and implemented ConnMgrConnectionStatus
+*		- Fixed handle leakage on disconnect
+*		- Added overloads to Connect method so that connection could be 
+*		  exclusive or non-exclusive.
+*		- Added support for synchronous connection initialization
+*
+* - FOR THE FUTURE: 
+*		- Scheduled connections
+*		- Runtime manipulation of Priority
+*		- Retrieval of proxy information
+*
+* -------------------------
+* June 10, 04 - Neil Cowburn
+* -------------------------
+* - Value of FileAccess.Read is not an int, therefore:
+*		- Changed return type of FileAccess (FileEx.cs) to uint
+*		- Changed CLSCompliant attribute to false
+* 
+* -------------------------
+* May 27, 04 - Paul Tobey
+* -------------------------
+* - Restored some functionality to signal strength checking (ability to
+*	get an enumerated type indicating the strength, as well as the dB
+*	value and the string).
+* - Fixed bug in case where IP_ADAPTER_INFO size might not apply to all
+*	adapters in the list returned by GetAdaptersInfo().
+*
+* -------------------------
+* May 16, 04 - Peter Foot
+* -------------------------
+* - Added /unsafe to NDOC configuration
+*
+* -------------------------
+* May 15, 04 - Neil Cowburn
+* -------------------------
+* - Major rework of RFUtils including:
+*	+ separating out of classes into individual files (not all classes)
+*	+ Changes to API design for RFUtils, specifically to Adapter with the 
+*	  addition of some new classes, and renaming of existing 
+*	  (e.g. SSID -> AccessPoint, SSIDList -> AccessPointCollection)
+* - Marked NetworkAdapter as obsolete
+* - Marked AdapterInfo as obsolete
+* - Added AdapterException
+* -------------------------
+* April 28, 04 - Paul Tobey
+* -------------------------
+* - Added RFUtils class.  This necessitated allowing unsafe code blocks in this
+*	project.
+* -------------------------
+* April 23, 04 - Peter Foot
+* -------------------------
+* - Removed Bluetooth.cs to separate project.
+* -------------------------
+* February 22, 04 - Peter Foot
+* -------------------------
+* - Added Bluetooth class (for setting radio mode)
+* -------------------------
+* November 25, 03 - Neil Cowburn
+* -------------------------
+* - Change NetworkAdapter.cs to use OpenNETCF.Runtime.InteropServices.MarshalEx
+* -------------------------
+* November 24, 03 - Neil Cowburn
+* -------------------------
+* - Changed AssemblyInfo.cs to use delayed signing and static version number
+* -------------------------
+* November 14, 03 - Peter Foot
+* -------------------------
+* - Added NDoc configuration and conditions around message window
+*
+* -------------------------
+* November 14, 03 - Neil Cowburn
+* -------------------------
+* - Changed the following to use the updated MarshalEx (formerly 'InteropMarshal') class:
+*		:: ConnectionInfo.cs
+*		:: ConnectionManager.cs
+*		:: DestinationInfo.cs
+* - Renamed NetConnectionState enum -> ConnectionManagerState
+* - Completed ConnectionManager documentation
+* - OpenNETCF.Net is now CLS compliant.
+* -------------------------
+* November 10, 03 - Chris Tacke
+* -------------------------
+* - Added NetworkAdapter class with following method:
+*   - GetAdaptersInfo()
+*
+* -------------------------
+* November 7, 03 - Neil Cowburn
+* -------------------------
+* - Initial check-in
+*
+===========================================================================
+ 

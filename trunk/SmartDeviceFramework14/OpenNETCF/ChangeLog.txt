@@ -1,0 +1,616 @@
+============================== RELEASE HISTORY ============================*
+* Feb 16, 04 - SDF 1.0 Released
+===========================================================================*
+* May 17, 04 - SDF 1.1 Released
+===========================================================================
+* July 15, 04 - SDF 1.2 Released
+===========================================================================
+
+
+============================== Change Log =================================
+* -------------------------
+* July 19, 2005 - Sergey Bogdanov
+* -------------------------
+* - EnumEx.cs
+*   - Added Enum.Format method 
+*   - Added additional output format "v" for Enum.Format
+*
+* -------------------------
+* July 15, 2005 - Chris Tacke
+* -------------------------
+* - ThreadEx.cs
+*   - Added RealTimePriority property
+*
+* -------------------------
+* June 22, 2005 - Chris Tacke
+* -------------------------
+* - Cleaned up comments that threw compiler warnings
+* - Updated GPS classes to use OpenNETCF file and class naming conventions
+* - Added DebugMessage.cs
+* - Added ReleaseMessage.cs
+*
+* -------------------------
+* May 23, 2005 - Neil Cowburn
+* -------------------------
+* Cleaning up the mess I created:
+*   - Updated machine.config to reference SDF 1.3 assemblies. 
+*
+* -------------------------
+* May 11, 2005 - Neil Cowburn
+* -------------------------
+* GuidEx.cs
+* - Added constructors, ToString and ToGuid
+* - Added GuidEx.Empty
+*
+* -------------------------
+* April 25, 2005 - Sergey Bogdanov
+* -------------------------
+* OpenNETCF.Win32.Core
+* - Fixed bug #1 "Overlapped IO on desktop throws exception" - Thanks to forum member Geoff McIlraith
+*
+* -------------------------
+* March 30, 2005 - Peter Foot
+* -------------------------
+* OpenNETCF.Win32.Core
+* - Fixed GetDeviceID to return unique values
+*
+* -------------------------
+* March 28, 2005 - Chris Tacke
+* -------------------------
+* StreamInterfaceDriver.cs
+*  - Fixed bug in CLose method
+*  - Made clase derive from IDisposable
+*  - Added a Write overload to allow no. of bytes to be specified
+*
+* -------------------------
+* March 10, 2005 - Chris Tacke
+* -------------------------
+* StreamInterfaceDriver.cs
+*  - changed m_hPort from private to protected
+*
+* -------------------------
+* March 8, 2005 - Chris Tacke
+* -------------------------
+* Bug fixes in FFTReal in TrigonometricLUT
+*
+* -------------------------
+* March 3, 2005 - Peter Foot
+* -------------------------
+* Added support for COM ports > 9 to SerialPort class (haven't changed the legacy Port class)
+*
+* -------------------------
+* March 2, 2005 - Peter Foot
+* -------------------------
+* Added Designer support for BackgroundWorker, FileSystemWatcher, Process and SerialPort
+*
+* -------------------------
+* February 20, 2005 - Peter Foot
+* -------------------------
+* Fixed the GCHandle problems with the Notify APIs 
+* Added additional event identifiers (not supported on all platforms)
+* SetUserNotification correctly support null notification argument
+* 
+* -------------------------
+* February 16, 2005 - Peter Foot
+* -------------------------
+* Fixed garbage data returned from registry string values (replaced trim end with substring) fixed bug 18/19
+* Replaced obsolete members
+*
+* -------------------------
+* February 10, 2005 - Tim Wilson
+* -------------------------
+* Added a public enum named KeyActionState to the Core class.
+* Added a third overload to the SendKeyboardKey method of the Core class.
+*
+* -------------------------
+* February 4, 2005 - Peter Foot
+* -------------------------
+* Improved GuidEx logic. CE.NET 4.2 and higher call OleGuid, prior versions use Crypto or Random
+*
+* -------------------------
+* February 3, 2005 - Neil Cowburn
+* -------------------------
+* Added ProtectedData.cs -- a DPAPI implemention (ported from .NET Fx 2.0)
+* 
+* -------------------------
+* February 2, 2005 - Chris Tacke
+* -------------------------
+* Added IO.Ports classes to match CF 2.0
+* Updated Serial.DCB and CommAPI for requirements from Ports
+*
+* -------------------------
+* January 27, 2005 - Peter Foot
+* -------------------------
+* Sealed EnvironmentEx
+* Sealed GuidEx
+* Sealed MathEx
+* Marked MathEx Sinh, Cosh, Tanh, BigMul as static
+*
+* -------------------------
+* January 26, 2005 - Neil Cowburn
+* -------------------------
+* Marked ConfigurationSettings::GetConfig(string, string) as obsolete.
+* Changed "system.diagnostics" config section to "opennetcf.diagnostics"
+*
+* -------------------------
+* January 26, 2005 - Peter Foot
+* -------------------------
+* Tidied formatting in Core
+* Added MK enumeration (mouse key flags)
+* Made a couple of P/Invokes internal rather than private e.g. DeviceIOControl
+* Added some missing documentation for GetModuleHandle etc
+*
+* -------------------------
+* January 25, 2005 - Chris Tacke
+* -------------------------
+* - Removed LocalFree P/Invoke from Core.dll 
+* - WinAPIException uses MarshalEx now, not Marshal
+* - StreamInterfaceDriver.DeviceIoControl now supports null in or out data params
+*
+* -------------------------
+* January 25, 2005 - Neil Cowburn
+* -------------------------
+* Fixed bug where app.config was not being resolved because of "appBase" 
+* being incorrect. Now using AssemblyEx.GetEntryAssembly to fix the 
+* problem. 
+*
+* -------------------------
+* January 24, 2005 - Neil Cowburn
+* -------------------------
+* Checked into Vault.
+* 
+* -------------------------
+* January 20, 2005 - Peter Foot
+* -------------------------
+* Made EnvironmentEx.WorkingSet static
+* Core.SystemInfo and ProcessorArchitecture now CLS Compliant
+* Moved GDI specific functionality from Core into OpenNETCF.Drawing.dll
+* Moved Windows functionality from Core and Win32Window to OpenNETCF.Windows.Forms.dll
+* Moved audio p/invokes to OpenNETCF.Win32.Wave
+* Added MutexEx, EventWaitHandle, Stopwatch, Semaphore to OpenNETCF.Threading
+* Added AssemblyEx to OpenNETCF.Reflection
+* Added SafeHandle / CriticalHandle and derived classes
+* Refactored SystemPowerStatus and moved to OpenNETCF.Windows.Forms (see SystemInformationEx)
+*
+* -------------------------
+* December 4, 2004 - Peter Foot
+* -------------------------
+* Added ComponentModel\BackgroundWorker.cs submitted by Daniel Moth
+*
+* -------------------------
+* November 27, 2004 - Peter Foot
+* -------------------------
+* Made Core.WaitForSingleObject() CLS Compliant
+* Updated ThreadEx and Process to cater for above change
+*
+* -------------------------
+* November 24, 2004 - Peter Foot
+* -------------------------
+* Fixed recursive function call in MarshalEx.SizeOf(Type)
+*
+* -------------------------
+* November 17, 2004 - Mark Arteaga
+* -------------------------
+* Changed XMLEventLogWriter.cs to use Base64Encoding instead of Unicode
+*
+* -------------------------
+* November 17, 2004 - Neil Cowburn
+* -------------------------
+* Fixed bug in TraceInternalEx.AssertFailure where it was not asserting correctly
+*
+* -------------------------
+* November 15, 2004 - Neil Cowburn
+* -------------------------
+* Fixed bug in ConfigurationSettings.AppSettings where appBase was not being
+* passed to GetConfig
+*
+* -------------------------
+* October 7, 2004 - Peter Foot
+* -------------------------
+* Checked in further registry changes, volatile keys, value type support (.NET 2.0)
+* Removed erroneous OpenProcess call in Process.Kill
+*
+* -------------------------
+* September 7, 2004 - Chris Tacke
+* -------------------------
+* Added GPS classes
+* Added preliminary API class - this is highly subject to change so do not rely on it!
+*
+* -------------------------
+* September 11, 2004 - Peter Foot
+* -------------------------
+* Fixed ToString behaviour of RegistryKey to match desktop
+* Added RegOptions enumeration and overload for CreateSubKey for Volatile support
+*
+* -------------------------
+* September 7, 2004 - Chris Tacke
+* -------------------------
+* Toolhelp/ProcessEntry.cs
+*  - Fixed bug in ExeName (was returning trailing nulls)
+*  - Removed helper functions, APIs and PROCESSENTRY32 class definition
+* Added Toolhelp/PROCESSENTRY32.cs
+* Added Toolhelp/THREADENTRY32.cs
+* Added Toolhelp/ThreadEntry.cs
+* Added Toolhelp/Util.cs
+* Threading/ThreadEx.cs
+*  - changed APIs from private to internal scope
+* Threading/MonitorEx.cs
+*  - modified Exception text
+* IO/Serial/Port.cs
+*  - moved line status checking to after data recevie section in receive thread
+* MathEx.cs
+*  - fixed IsPowerOf2 bug
+*
+* -------------------------
+* August 30, 2004 - Peter Foot
+* -------------------------
+* Commented out obsolete Environment and Enum classes
+* Added EnvironmentEx.WorkingSet property
+* Added conditional compilation for v2 functionality "NETCF2"
+*
+* -------------------------
+* August 25, 2004 - Peter Foot
+* -------------------------
+* Added EventLogTraceListener to OpenNETCF.Diagnostics
+*
+* -------------------------
+* August 25, 2004 - Peter Foot
+* -------------------------
+* Changed behaviour of newly created RegistryKey to be read/write by default
+* Added new functionality to RegistryKey in line with desktop v2.0 features:-
+* RegistryValueKind Enumeration, GetValueKind and additional overload for SetValue etc
+*
+* -------------------------
+* August 4, 2004 - Neil Cowburn
+* -------------------------
+* Fixed Bug #112 in Configuration.
+* 
+* -------------------------
+* July 23, 2004 - Peter Foot
+* -------------------------
+* Modified EULA
+* WindowHelper.cs
+*   - Added DefWindowProc P/Invoke
+*   - Added several new Windows Messages
+* -------------------------
+* July 17, 2004 - Peter Foot
+* -------------------------
+* Added EnvironmentEx.SdfVersion property
+*
+* -------------------------
+* July 15, 2004 - Chris Tacke
+* -------------------------
+* IO.Serial.Port.cs:
+* - Changed eventThread Priority to ThreadPriority.Highest to improve performance
+*
+* -------------------------
+* July 13, 2004 - Neil Cowburn
+* -------------------------
+* Tracing:
+* - Added DiagnosticsConfigurationHandler
+* - Added DiagnosticsConfiguration
+* - Added TraceEx
+* - Added TraceInternalEx
+* Configuration:
+* - Added +1 overload to ConfigurationSettings.GetConfig to take string 'appPath' parameter
+*   This was necessary to get the Tracing working
+* Machine.config
+* - Added "system.diagnostics" section to support Tracing
+*
+* -------------------------
+* July 12, 2004 - Chris Tacke
+* -------------------------
+* Crypto Internal Classes:
+* - Removed _BigInteger class
+* - Removed Dsa.cs dependence on _BigInteger class
+*
+* -------------------------
+* July 11, 2004 - casey chesnut
+* -------------------------
+* PasswordDeriveBytes.cs
+* -added basic GetBytes() implementation, added inheritance
+* System.Security.Cryptography
+* -added DeriveBytes.cs, Rijndael.cs, SHA256.cs abstract classes
+* -broke internal classes into System.Security.Cryptography.NativeMethods namespace
+* -added CipherMode and PaddingMode enums
+*
+* -------------------------
+* July 10, 2004 - casey chesnut
+* -------------------------
+* Crypto.cs:
+* Cipher.cs:
+*  Fixed bug where UnprotectData was not retrieving description from DPAPI
+* 
+* -------------------------
+* July 8, 2004 - Peter Foot
+* -------------------------
+* Process.cs:
+*  Fixed bug where arguments weren't null terminated
+*  Improved hProcess handling
+*  Modified GetCurrentProcess to return a Process object (like desktop)
+*
+* -------------------------
+* July 7, 2004 - Chris Tacke
+* -------------------------
+* Process.cs:
+* - Added support for GetCurrentProcess, GetCurrentThread, GetCurrentProcessID
+*   GetCurrentThreadID
+* - Made OpenProcess, CloseHandle and TerminateProcess internal instead of private
+* - Added the Toolhelp namespace
+*   - ProcessEntry.cs
+*  
+*
+* -------------------------
+* July 6, 2004 - Chris Tacke
+* -------------------------
+* Port.cs:
+* - Added submission from Helge René Urholm
+*   - Added IREnable property
+*
+* -------------------------
+* June 25, 2004 - Mark Arteaga
+* ------------------------- 
+* EventLog.cs
+* - Added overloaded constructor for EventLog to allow users of the EventLog class to implement thier own IEventLogWriter
+*
+* EventLogWriterType.cs
+* - Removed SQLCE and Text from EventLogWriterType
+* - Added Custom to EventLogWriterType
+*
+* -------------------------
+* June 24, 2004 - Chris Tacke
+* ------------------------- 
+* FileVersionInfo.cs:
+* - modified the FileVersionInfo to use the new MarshalEx class instead of obsolete Core methods
+*
+* -------------------------
+* June 24, 2004 - Chris Tacke (submission from Udo Killermann (ukiller))
+* ------------------------- 
+* CommAPI.cs:
+* - added QueryFile method in the CommAPI base class and it's derived classes CECommAPI WinCommAPI as well
+* 	* the QueryFile method maps to the CreateFile method with AccessMask set to zero
+* - added GetCommProperties in CommAPI, CECommAPI, and WinCommAPI
+*	* added DllImport for GetCommProperties in CE and Desktop classes
+*
+* PortCapabilities.cs:
+* - created new PortCapabilities class that maps the access to the port's capabilities as returned by GetCommProperties
+* - mapped the original DEFINEs to BitVector32 definitions and added accessors to the Comm capabilities using BitVector32 masks
+* 
+* Port.cs:
+* - added public member "Capabilities" to access current port's capabilities
+* - added public Query() method to access the port's capabilities without having to Open() it first
+* - added private GetPortProperties() method that is called from Open() and Query() to get the port's capabilities
+* 
+* -------------------------
+* June 22, 2004 - Peter Foot
+* ------------------------- 
+* - Added ReAllocHGlobal to MarshalEx
+* - Created EnvironmentEx and EnumEx classes and marked old as Obsolete
+* - Redirected memory allocation/realloc/free methods to call MarshalEx methods and marked as Obsolete (warning only, not build error)
+* - Replaced calls to Core.LocalAlloc etc with MarshalEx equivalents throughout OpenNETCF.dll
+*
+* -------------------------
+* June 17, 2004 - Peter Foot
+* -------------------------
+* - Fixed bug in QueryPerformanceCounter and QueryPerformanceFrequency - now uses Int64 type
+* - Removed unsupported constants from Environment.SpecialFolders enumeration
+* - Fixed Environment.SystemDirectory error handling
+* - Added new method/properties to Environment - GetLogicalDrives(), MachineName and UserName
+*
+* -------------------------
+* June 16, 2004 - Chris Tacke
+* -------------------------
+* - Added MathEx class
+* - Added BitReversedLUT class
+* - Added TrigonometricLUT class
+*
+* -------------------------
+* June 14, 2004 - Chris Tacke
+* -------------------------
+* - Fixed bugs in Port c'tors to set name of port
+* - Added Udo Killerman's submitted UpdateSettings and calls to it in port.cs so changes made to port setting while the port is open are applied without closing and re-opening
+* - Minor fix to Port.Close to set isOpen to false
+* - changed Port.Name to ensure CE port names are suffixed with a colon
+* - Fixed name typos in EventLog.EventWriter classes
+*
+* -------------------------
+* June 10, 2004 - Mark Arteaga
+* -------------------------
+* - Added OpenNETCF.Diagnostics.EventLog
+*
+* -------------------------
+* May 24, 2004 - Chris Tacke
+* -------------------------
+* - Fixed layout order for DCB.cd
+* - Made FileEx.FileAccess enum CLSCompliant
+* 
+* -------------------------
+* May 18, 2004 - Peter Foot
+* -------------------------
+* - Added "New in v1.1" to all new classes
+* - Implemented some method stubs for Environment
+*
+* -------------------------
+* May 12, 2004 - Neil Cowburn
+* -------------------------
+* - Fixed CLSCompliancy issues in Crypto and others
+*
+* -------------------------
+* May 11, 2004 - Neil Cowburn
+* -------------------------
+* - Added new namespace: Security
+* - Added new namespace: Security.Cryptography
+* - Added Casey's crypto implemented to OpenNETCF.Security.Cryptography
+* 
+* -------------------------
+* May 6, 04 - Chris Tacke
+* -------------------------
+* - Reworked CommAPI class implementations by Udo Killermann to use inherited 
+*   classes for API calls.  This means the pltform difference is checked once
+*   at creation, not with every API call.  This is *much* cleaner
+* - Reworked CommStat class to use BitVector32 instead of bit masking and shifting
+*
+* -------------------------
+* May 3, 04 - Chris Tacke
+* -------------------------
+* - Replaced original DCB with implementation by Udo Killermann to use a 
+*   BitVector32 instead of bit masking and shifting.
+*
+* -------------------------
+* April 30, 04 - Peter Foot
+* -------------------------
+* - Moved ProcessStartInfo to separate code file
+* - Added ProcessWindowStyle enumeration
+* - Added partial support for WindowStyle property to ProcessStartInfo
+*
+* -------------------------
+* April 28, 04 - Neil Cowburn
+* -------------------------
+* - Tidied up code in OpenNETCF.Configuration
+* - Added default machine.config
+*
+* -------------------------
+* April 22, 04 - Neil Cowburn
+* -------------------------
+* - Completion of documentation for CreateMutex
+*
+* -------------------------
+* April 20, 04 - Peter Foot
+* -------------------------
+* - Minor rewrites to Enum documentation
+*
+* -------------------------
+* April 20, 04 - Neil Cowburn
+* -------------------------
+* - Replaced ConfigurationSettings.cs with a complete rewrite
+* - OpenNETCF.Configuration now compatible with full .NET Fx
+*
+* -------------------------
+* April 19, 04 - Chris Tacke
+* -------------------------
+* - Removed event marshallers from port.cs
+* - fixed DataReceived logic bug in thread
+*
+* -------------------------
+* April, 14 - Peter Foot
+* -------------------------
+* - Changed SynchronizationLockException to derive from SystemException
+* - Completed documentation for SynchronisationLockException
+*
+* -------------------------
+* April, 13 - Peter Foot
+* -------------------------
+* - Added missing values to OpenNETCF.Win32.Win32Window.WindowStyleExtended enumeration (http://www.opennetcf.org/forums/topic.asp?TOPIC_ID=1767)
+*
+* -------------------------
+* April, 04 - Peter Foot
+* -------------------------
+* - Replaced GPL header in Enum.cs
+* - Added wrapper functions to base System.Enum methods to Enum.cs
+* - Added wrapper functions to base System.Environment methods in EnvironmentEx.cs
+*
+* -------------------------
+* March, 29 - Chris Tacke
+* -------------------------
+* - Minor Port.cs mods to make it actully work without exceptions
+* - Tested with BulkSerialVB sample app with 1024 block size and up to 115200 baud rate
+*
+* -------------------------
+* March, 26 - Chris Tacke
+* -------------------------
+* - Added Control.Invoke calls to properly achieve what was attempted in the previous build
+* - rearchitected the receive thread to use a Queue as a data FIFO
+* - rewrote the Input method to use the FIFO instead of the byte buffer
+*
+* -------------------------
+* March, 03 - Chris Tacke
+* -------------------------
+* - Added event marshallers to Port.cs to marshal events from the worker
+*   threads to the primary thread so consumers don't have to use Control.Invoke
+* - Added StreamInterfaceDriver.cs
+* - Added enum MoveMethod, SetFilePointer and DeviceIoControl to FileEx.cs
+* - Added WaitForMultipleObjects to Core.cs
+*
+* -------------------------
+* Feb 20, 04 - Peter Foot
+* -------------------------
+* - Added fix submitted by Jon Skeet to MonitorEx.Enter method
+* - Added new string methods to MarshalEx - PtrToStringAuto and overrides for PtrToStringAnsi and PtrToStringUni
+* - Added FILETIME struct to OpenNETCF.Runtime.Interop namespace
+*
+* -------------------------
+* Feb 19, 04 - Chris Tacke
+* -------------------------
+* - Added all methods from full-framework File class to FileEx.cs
+*
+* -------------------------
+* Feb 10, 04 - Peter Foot
+* -------------------------
+* - Fixed VB bug 000081 by making BeepType CLSCompliant and changing the internal implementation
+* - Added BolierPlate to MonitorEx.cs
+*
+* -------------------------
+* Feb 4, 04 - Chris Tacke
+* -------------------------
+* - Added ThreadingEx class, courtesy of Jon Skeet
+*
+* -------------------------
+* January 20, 04 - Chris Tacke
+* -------------------------
+* - Updated IO.Serial.Port class to reflect v. 1.4 changes
+*
+* -------------------------
+* January 8, 04 - Chris Tacke
+* -------------------------
+* - Updated IO.Serial.Port class to reflect v. 1.3 changes
+*
+* -------------------------
+* November 24, 03 - Chris Tacke
+* -------------------------
+* - Updated IO.Serial classes to reflect v. 1.2 (pre SDF release) changes
+*
+* -------------------------
+* November 24, 03 - Neil Cowburn
+* -------------------------
+* - Changed AssemblyInfo.cs to use delayed signing and static version number
+* -------------------------
+* November 17, 03 - Peter Foot
+* -------------------------
+* - Added override for Win32Window GetWindowRect which returns a managed System.Drawing.Rectangle
+*
+* -------------------------
+* November 15, 03 - Peter Foot
+* -------------------------
+* - Added P/Invoke for SystemParametersInfo to Core class (and supporting Enumerations)
+* - Added PlatformName property to OpenNETCF.Environment class using above - used to determine platform at runtime (PocketPC, SmartPhone etc)
+*
+* -------------------------
+* November 14, 03 - Peter Foot
+* -------------------------
+* - Added NDoc support to the project
+* - Improved consistency of RegistryKey.DeleteSubKey method so it is easier to track an error
+*
+* -------------------------
+* November 14, 03 - Neil Cowburn
+* -------------------------
+* - Adding all outstanding Marshal functions to InteropMarshal
+* - Renamed InteropMarshal to MarshalEx
+* - MarshalEx is now has the same functionality as Marshal, and more. 
+* - Marked whole assembly as CLS Compliant (see AssemblyInfo.cs)
+* - Completed comments in MarshalEx.cs
+* - Flagged Win32.Core.Wait enum as CLSCompliant(false)
+* - Flagged Win32.Core.WaitForSingleObject method as CLSCompliant(false)
+* - Flagged Win32.Core.ProcessorArchitecture enum as CLSCompliant(false)
+* - Flagged Win32.Core.SystemInfo.wProcessorArchitecture struct member as CLSCompliant(false)
+* -------------------------
+* November 12, 03 - Peter Foot
+* ----------------------------
+* - Added OpenNETCF/Diagnostics/FileVersionInfo
+* - Separated out BitmapInfoHeader, BitmapFileHeader and DibSection into separate code files
+* - CLS Compliance
+* -------------------------
+* November 7, 03 - Neil Cowburn
+* -------------------------
+* - Initial check-in
+*
+===========================================================================
