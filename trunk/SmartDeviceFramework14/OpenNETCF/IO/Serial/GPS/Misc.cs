@@ -113,7 +113,7 @@ namespace OpenNETCF.IO.Serial.GPS
 		}
 
 		//format (dd.dddd) to decimal minute format (ddmm.mmmm).
-		//Example 58.65375° => 5839.225 (58° 39.225min)
+		//Example 58.65375?=> 5839.225 (58?39.225min)
 		public static decimal DecimalToFractionalDegrees(decimal dec)
 		{
 			decimal d=(Decimal.Truncate(dec)); //58
@@ -150,7 +150,7 @@ namespace OpenNETCF.IO.Serial.GPS
 
 			// seconds = 21.07
 
-			return degrees+"°"+minutes+"'"+decseconds.ToString("00.00")+"\"";
+			return degrees+"?"+minutes+"'"+decseconds.ToString("00.00")+"\"";
 
 
 		}

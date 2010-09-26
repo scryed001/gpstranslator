@@ -16,9 +16,60 @@
             A collection of DimeAttachment objects.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Web.Services2.Ns">
+        <member name="T:OpenNETCF.Web.Services2.Dime.DimeExtension">
             <summary>
-            Summary description for Ns.
+            A soap extension that provides DIME encapsulation of SOAP messages and sending
+            and receiving of DIME attachments.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BeforeSerialize(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+            Collects the the set of DimeAttachment objects to send in the message.
+            For referenced attachments these are collected from the parameter list or return value.
+            For unreferenced attachments these are collected from the IDimeAttachmentContainter
+            collections. The SOAP envelope and attachments are written into the network stream
+            in the AfterSerialize method.
+            If an exception has been thrown, the soap message containing the exception is 
+            not encapsulated.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.AfterSerialize(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+            Encapsulates the SOAP message into a DIME message.  The stored attachments are added as DIME records.
+            If an exception has been thrown, the soap message containing the exception is 
+            not encapsulated.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BeforeDeserialize(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+            Retrieves the SOAP message from the DIME message.  DIME attachments
+            are removed from the stream and stored for future use by the AfterDeserialize
+            method.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.AfterDeSerialize(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+            Sets the method's DimeAttachment parameters and return value to the stored values. 
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.CheckAttachment(OpenNETCF.Web.Services2.Dime.DimeAttachment)">
+            <summary>
+            Validates the attachment.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BinaryCopy(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Binary copy from one stream to another.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Web.Services2.CryptoEx">
+            <summary>
+            for stuff that was in bNb.Sec and hid in OpenNET
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Web.Services2.SecConvHandler">
+            <summary>
+            Summary description for SecConvHandler.
             </summary>
         </member>
         <member name="T:OpenNETCF.Web.Services2.Dime.TypeFormatEnum">
@@ -67,6 +118,27 @@
             The stream for reading and writing the attachment payload data.
             </summary>
         </member>
+        <member name="T:OpenNETCF.Web.Services2.pathHeader">
+            <summary>
+            WS-Routing is a simple, stateless, SOAP-based protocol for routing SOAP messages 
+            over a variety of transports like TCP, UDP, and HTTP. With WS-Routing, the entire 
+            message path for a SOAP message (as well as its return path) can be described 
+            directly within the SOAP envelope. It supports one-way messaging, 
+            two-way messaging such as request/response and peer-to-peer conversations, 
+            and long running dialogs.
+            </summary>
+            <remarks>just keeping this around for WSE 1.0.
+            WSE 2.0 uses WS-Addressing</remarks>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.pathHeader.#ctor(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="action">Element that indicates the intent of the message in a manner 
+            akin to the SOAPAction HTTP header field defined for SOAP (required).</param>
+            <param name="to">The ultimate receiver (required).</param>
+            <param name="relatesTo">Element that indicates a relation with another message (optional).</param>
+        </member>
         <member name="T:OpenNETCF.Web.Services2.Dime.DimeStream">
             <summary>
             DimeStream is used to read or write the record payload data through a Stream
@@ -109,65 +181,19 @@
             Closes the stream.  
             Read-only mode: If the number of bytes read is less than ContentLength, the remaining
             bytes are read from the stream and discarded.  
-            Write-only mode: If number of bytes written doesn’t equal the ContentLength, an 
+            Write-only mode: If number of bytes written doesn抰 equal the ContentLength, an 
             exception is thrown.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Web.Services2.Ns">
+            <summary>
+            Summary description for Ns.
             </summary>
         </member>
         <member name="T:OpenNETCF.Web.Services2.Dime.DimeExtensionAttribute">
             <summary>
             Attribute to be used on the web method on the server and client proxy
             to enable the DimeExtension.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Web.Services2.Dime.DimeExtension">
-            <summary>
-            A soap extension that provides DIME encapsulation of SOAP messages and sending
-            and receiving of DIME attachments.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BeforeSerialize(System.Web.Services.Protocols.SoapMessage)">
-            <summary>
-            Collects the the set of DimeAttachment objects to send in the message.
-            For referenced attachments these are collected from the parameter list or return value.
-            For unreferenced attachments these are collected from the IDimeAttachmentContainter
-            collections. The SOAP envelope and attachments are written into the network stream
-            in the AfterSerialize method.
-            If an exception has been thrown, the soap message containing the exception is 
-            not encapsulated.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.AfterSerialize(System.Web.Services.Protocols.SoapMessage)">
-            <summary>
-            Encapsulates the SOAP message into a DIME message.  The stored attachments are added as DIME records.
-            If an exception has been thrown, the soap message containing the exception is 
-            not encapsulated.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BeforeDeserialize(System.Web.Services.Protocols.SoapMessage)">
-            <summary>
-            Retrieves the SOAP message from the DIME message.  DIME attachments
-            are removed from the stream and stored for future use by the AfterDeserialize
-            method.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.AfterDeSerialize(System.Web.Services.Protocols.SoapMessage)">
-            <summary>
-            Sets the method's DimeAttachment parameters and return value to the stored values. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.CheckAttachment(OpenNETCF.Web.Services2.Dime.DimeAttachment)">
-            <summary>
-            Validates the attachment.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BinaryCopy(System.IO.Stream,System.IO.Stream)">
-            <summary>
-            Binary copy from one stream to another.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Web.Services2.SecConvHandler">
-            <summary>
-            Summary description for SecConvHandler.
             </summary>
         </member>
         <member name="T:OpenNETCF.Web.Services2.Dime.DimeWriter">
@@ -352,32 +378,6 @@
             Close discards the remaining records in the message before closing.
             Close is a blocking call if all records haven't been read since it will
             </summary>
-        </member>
-        <member name="T:OpenNETCF.Web.Services2.CryptoEx">
-            <summary>
-            for stuff that was in bNb.Sec and hid in OpenNET
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Web.Services2.pathHeader">
-            <summary>
-            WS-Routing is a simple, stateless, SOAP-based protocol for routing SOAP messages 
-            over a variety of transports like TCP, UDP, and HTTP. With WS-Routing, the entire 
-            message path for a SOAP message (as well as its return path) can be described 
-            directly within the SOAP envelope. It supports one-way messaging, 
-            two-way messaging such as request/response and peer-to-peer conversations, 
-            and long running dialogs.
-            </summary>
-            <remarks>just keeping this around for WSE 1.0.
-            WSE 2.0 uses WS-Addressing</remarks>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.pathHeader.#ctor(System.String,System.String,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="action">Element that indicates the intent of the message in a manner 
-            akin to the SOAPAction HTTP header field defined for SOAP (required).</param>
-            <param name="to">The ultimate receiver (required).</param>
-            <param name="relatesTo">Element that indicates a relation with another message (optional).</param>
         </member>
     </members>
 </doc>
