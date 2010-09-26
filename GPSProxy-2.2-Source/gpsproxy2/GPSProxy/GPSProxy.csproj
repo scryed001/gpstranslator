@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CFFB7D13-C1EB-4D72-9E20-A050E660C892}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -93,7 +93,7 @@
     </Reference>
     <Reference Include="OpenNETCF, Version=1.3.50123.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SmartDeviceFramework14\OpenNETCF\bin\Debug\OpenNETCF.dll</HintPath>
+      <HintPath>..\..\..\SmartDeviceFramework14\OpenNETCF.Windows.Forms\bin\Debug\OpenNETCF.dll</HintPath>
     </Reference>
     <Reference Include="OpenNETCF.Drawing, Version=1.3.50123.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

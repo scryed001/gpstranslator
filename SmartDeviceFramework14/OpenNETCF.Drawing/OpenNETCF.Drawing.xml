@@ -4,25 +4,269 @@
         <name>OpenNETCF.Drawing</name>
     </assembly>
     <members>
-        <member name="T:OpenNETCF.Win32.BitmapFileHeader">
+        <member name="T:OpenNETCF.Win32.BitmapInfoHeader">
             <summary>
-            This structure contains information about the type, size, and layout of a file that containing a device-independent bitmap (DIB).
+            Contains information about the dimensions and color format of a device-independent bitmap (DIB).
             </summary>
-            <remarks>Wraps the native <b>BITMAPFILEHEADER</b> structure</remarks>
+            <remarks>Wrapper for Win32 <b>BITMAPINFOHEADER</b> structure</remarks>
         </member>
-        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Type">
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Size">
             <summary>
-            Specifies the file type. It must be BM.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Size">
-            <summary>
-            Specifies the size, in bytes, of the bitmap file.
+            Specifies the number of bytes required by the structure.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Win32.BitmapFileHeader.OffBits">
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Width">
             <summary>
-            Specifies the offset, in bytes, from the <b>BitmapFileHeader</b> structure to the bitmap bits.
+            Specifies the width of the bitmap, in pixels.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Height">
+            <summary>
+            Specifies the height of the bitmap, in pixels.
+            If biHeight is positive, the bitmap is a bottom-up DIB and its origin is the lower-left corner.
+            If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner.
+            If biHeight is negative, indicating a top-down DIB, biCompression must be either BI_RGB or BI_BITFIELDS.
+            Top-down DIBs cannot be compressed.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Planes">
+            <summary>
+            Specifies the number of planes for the target device.
+            This value must be set to 1.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.BitCount">
+            <summary>
+            Specifies the number of bits per pixel.
+            The biBitCount member determines the number of bits that define each pixel and the maximum number of colors in the bitmap.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Compression">
+            <summary>
+            Specifies the type of compression for a compressed bottom-up bitmap (top-down DIBs cannot be compressed).
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.SizeImage">
+            <summary>
+            Specifies the size, in bytes, of the image. This may be set to zero for BI_RGB bitmaps.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.XPelsPerMeter">
+            <summary>
+            Specifies the horizontal resolution, in pixels per meter, of the target device for the bitmap.
+            An application can use this value to select a bitmap from a resource group that best matches the characteristics of the current device.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.YPelsPerMeter">
+            <summary>
+            Specifies the vertical resolution, in pixels per meter, of the target device for the bitmap
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.ClrUsed">
+            <summary>
+            Specifies the number of color indexes in the color table that are actually used by the bitmap.
+            If this value is zero, the bitmap uses the maximum number of colors corresponding to the value of the biBitCount member for the compression mode specified by biCompression.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.ClrImportant">
+            <summary>
+            Specifies the number of color indexes required for displaying the bitmap.
+            If this value is zero, all colors are required.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.GDIPlus">
+            <summary>
+            Summary description for GDIPlus.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GDIPlus.CreateFontIndirect(System.IntPtr)">
+            <summary>
+            This function creates a logical font that has the characteristics specified in the specified structure. 
+            An application can subsequently select the font as the current font for any device context (DC). 			
+            </summary>
+            <param name="pLogFont">Long pointer to a <see cref="T:OpenNETCF.Drawing.GDIPlus.LOGFONT"/> that defines the characteristics of the logical font.</param>
+            <returns>A handle to a logical font.</returns>
+        </member>
+        <member name="T:OpenNETCF.Drawing.GDIPlus.LOGFONT">
+            <summary>
+            This structure defines the attributes of a font.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.BitmapEx">
+            <summary>
+            Encapsulates a GDI+ bitmap, which consists of the pixel data for a graphics image and its attributes. A BitmapEx object is an object used to work with images defined by pixel data. 
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.BitmapEx.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the BitmapEx class with the specified size.  
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.BitmapEx.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the System.Drawing.Bitmap class from the specified file.  
+            </summary>
+            <param name="filename"></param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.BitmapEx.GetHbitmap">
+            <summary>
+            Creates a GDI bitmap object from this BitmapEx object.  
+            </summary>
+            <returns>A handle to the GDI bitmap object that this method creates.</returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.BitmapEx.LockBits(System.Drawing.Rectangle,System.Int32,OpenNETCF.Drawing.Imaging.PixelFormat)">
+            <summary>
+            BitmapEx object into system memory.  
+            </summary>
+            <param name="rect">A System.Drawing.Rectangle structure specifying the portion of the BitmapEx to lock.  </param>
+            <param name="flags">Access level (read and write) for the BitmapEx object. ></param>
+            <param name="format">PixelFormat enumeration specifying the data format of this BitmapEx object.</param>
+            <returns>BitmapData object containing information about this lock operation.  </returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.BitmapEx.UnlockBits(OpenNETCF.Drawing.Imaging.BitmapData)">
+            <summary>
+            Unlocks this BitmapEx from system memory.  
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="P:OpenNETCF.Drawing.BitmapEx.Width">
+            <summary>
+            Gets the width of this BitmapEx object.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.BitmapEx.Height">
+            <summary>
+            Gets the height of this BitmapEx object.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.Imaging.BitmapData">
+            <summary>
+            Specifies the attributes of a bitmap image. The BitmapData class is used by the LockBits and UnlockBits methods of the BitmapEx class.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.PixelFormat">
+            <summary>
+            Gets or sets the format of the pixel information.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Scan0">
+            <summary>
+            Gets or sets the address of the first pixel data in the bitmap.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Stride">
+            <summary>
+            Gets or sets the stride width (also called scan width) of the bitmap object.  
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Width">
+            <summary>
+            Gets or sets the pixel width of the BitmapEx object. This can also be thought of as the number of pixels in one scan line.  
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Height">
+            <summary>
+            Gets or sets the pixel height of the BitmapEx object. 
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.ContentAlignment">
+            <summary>
+            Specifies alignment of content on the drawing surface.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomCenter">
+            <summary>
+            Content is vertically aligned at the bottom, and horizontally aligned at the center.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomLeft">
+            <summary>
+            Content is vertically aligned at the bottom, and horizontally aligned on the left.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomRight">
+            <summary>
+            Content is vertically aligned at the bottom, and horizontally aligned on the right.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleCenter">
+            <summary>
+            Content is vertically aligned in the middle, and horizontally aligned at the center.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleLeft">
+            <summary>
+            Content is vertically aligned in the middle, and horizontally aligned on the left.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleRight">
+            <summary>
+            Content is vertically aligned in the middle, and horizontally aligned on the right.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopCenter">
+            <summary>
+            Content is vertically aligned at the top, and horizontally aligned at the center.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopLeft">
+            <summary>
+            Content is vertically aligned at the top, and horizontally aligned on the left.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopRight">
+            <summary>
+            Content is vertically aligned at the top, and horizontally aligned on the right.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.FontEx">
+            <summary>
+            Defines a particular format for text, including font face, size, and style attributes. 
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.FontEx.#ctor(System.String,System.Single,System.Drawing.FontStyle)">
+            <summary>
+            Initializes a new FontEx object that uses the specified attributes.  
+            </summary>
+            <param name="fontName">A string representation of the System.Drawing.FontFamily object.</param>
+            <param name="size">The size of the new FontEx object.</param>
+            <param name="fontStyle">The style of the new FontEx object.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.FontEx.ToHfont">
+            <summary>
+            Returns a handle to this FontEx object.
+            <para><b>New in v1.3</b></para>
+            </summary>
+            <returns>A Windows handle to this FontEx object.</returns>
+        </member>
+        <member name="P:OpenNETCF.Drawing.FontEx.Name">
+            <summary>
+            Gets the face name of this FontEx object.
+            <para><b>New in v1.3</b></para>
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.FontEx.Size">
+            <summary>
+            Gets the em-size of this FontEx object measured in the unit of this FontEx object.
+            <para><b>New in v1.3</b></para>
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.FontEx.Style">
+            <summary>
+            Gets style information for this FontEx object.
+            <para><b>New in v1.3</b></para>
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.FontEx.Angle">
+            <summary>
+            Gets sets the angle for the FontEx.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.FontEx.ClearType">
+            <summary>
+            Gets or sets a clear type for FontEx object.
             </summary>
         </member>
         <member name="T:OpenNETCF.Drawing.ColorTranslator">
@@ -63,6 +307,101 @@
             <param name="win32Color">The Windows color to translate.</param>
             <returns>The <see cref="T:System.Drawing.Color"/> structure that represents the translated Windows color.</returns>
             <seealso cref="M:System.Drawing.ColorTranslator.FromWin32(System.Int32)">System.Drawing.ColorTranslator.FromWin32 Method</seealso>
+        </member>
+        <member name="T:OpenNETCF.Win32.DibSection">
+            <summary>
+            Wrapper for WIN32 <b>DIBSECTION</b> structure
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.DibSection.bmType">
+            <summary>
+            Specifies the bitmap type; set to zero.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.DibSection.bmWidth">
+            <summary>
+            Specifies the width, in pixels, of the bitmap.
+            The width must be greater than zero.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.DibSection.bmHeight">
+            <summary>
+            Specifies the height, in pixels, of the bitmap.
+            The height must be greater than zero.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.DibSection.bmWidthBytes">
+            <summary>
+            Specifies the number of bytes in each scan line.
+            This value must be divisible by 2, because the system assumes that the bit values of a bitmap form an array that is word aligned.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.DibSection.bmBits">
+            <summary>
+            Pointer to the location of the bit values for the bitmap.
+            The bmBits member must be a long pointer to an array of character (1-byte) values.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Win32.BitmapFileHeader">
+            <summary>
+            This structure contains information about the type, size, and layout of a file that containing a device-independent bitmap (DIB).
+            </summary>
+            <remarks>Wraps the native <b>BITMAPFILEHEADER</b> structure</remarks>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Type">
+            <summary>
+            Specifies the file type. It must be BM.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Size">
+            <summary>
+            Specifies the size, in bytes, of the bitmap file.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapFileHeader.OffBits">
+            <summary>
+            Specifies the offset, in bytes, from the <b>BitmapFileHeader</b> structure to the bitmap bits.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.PenEx">
+            <summary>
+            Defines an object used to draw lines and curves.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.Color"/>.  
+            </summary>
+            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the Width.  
+            </summary>
+            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+            <param name="width"></param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,OpenNETCF.Drawing.Drawing2D.DashStyle)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.DashStyle"/>.
+            </summary>
+            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+            <param name="style"></param>
+        </member>
+        <member name="P:OpenNETCF.Drawing.PenEx.Color">
+            <summary>
+            Gets or sets the color of this object.  
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.PenEx.DashStyle">
+            <summary>
+            Gets or sets the style used for dashed lines drawn with this <see cref="T:OpenNETCF.Drawing.PenEx"/> object.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.PenEx.Width">
+            <summary>
+            Gets or sets the Width of this object.
+            </summary>
         </member>
         <member name="T:OpenNETCF.Drawing.GraphicsEx">
             <summary>
@@ -251,213 +590,6 @@
             Specifies a solid line.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Drawing.GDIPlus">
-            <summary>
-            Summary description for GDIPlus.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GDIPlus.CreateFontIndirect(System.IntPtr)">
-            <summary>
-            This function creates a logical font that has the characteristics specified in the specified structure. 
-            An application can subsequently select the font as the current font for any device context (DC). 			
-            </summary>
-            <param name="pLogFont">Long pointer to a <see cref="T:OpenNETCF.Drawing.GDIPlus.LOGFONT"/> that defines the characteristics of the logical font.</param>
-            <returns>A handle to a logical font.</returns>
-        </member>
-        <member name="T:OpenNETCF.Drawing.GDIPlus.LOGFONT">
-            <summary>
-            This structure defines the attributes of a font.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Win32.BitmapInfoHeader">
-            <summary>
-            Contains information about the dimensions and color format of a device-independent bitmap (DIB).
-            </summary>
-            <remarks>Wrapper for Win32 <b>BITMAPINFOHEADER</b> structure</remarks>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Size">
-            <summary>
-            Specifies the number of bytes required by the structure.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Width">
-            <summary>
-            Specifies the width of the bitmap, in pixels.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Height">
-            <summary>
-            Specifies the height of the bitmap, in pixels.
-            If biHeight is positive, the bitmap is a bottom-up DIB and its origin is the lower-left corner.
-            If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner.
-            If biHeight is negative, indicating a top-down DIB, biCompression must be either BI_RGB or BI_BITFIELDS.
-            Top-down DIBs cannot be compressed.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Planes">
-            <summary>
-            Specifies the number of planes for the target device.
-            This value must be set to 1.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.BitCount">
-            <summary>
-            Specifies the number of bits per pixel.
-            The biBitCount member determines the number of bits that define each pixel and the maximum number of colors in the bitmap.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Compression">
-            <summary>
-            Specifies the type of compression for a compressed bottom-up bitmap (top-down DIBs cannot be compressed).
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.SizeImage">
-            <summary>
-            Specifies the size, in bytes, of the image. This may be set to zero for BI_RGB bitmaps.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.XPelsPerMeter">
-            <summary>
-            Specifies the horizontal resolution, in pixels per meter, of the target device for the bitmap.
-            An application can use this value to select a bitmap from a resource group that best matches the characteristics of the current device.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.YPelsPerMeter">
-            <summary>
-            Specifies the vertical resolution, in pixels per meter, of the target device for the bitmap
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.ClrUsed">
-            <summary>
-            Specifies the number of color indexes in the color table that are actually used by the bitmap.
-            If this value is zero, the bitmap uses the maximum number of colors corresponding to the value of the biBitCount member for the compression mode specified by biCompression.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.ClrImportant">
-            <summary>
-            Specifies the number of color indexes required for displaying the bitmap.
-            If this value is zero, all colors are required.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.BitmapEx">
-            <summary>
-            Encapsulates a GDI+ bitmap, which consists of the pixel data for a graphics image and its attributes. A BitmapEx object is an object used to work with images defined by pixel data. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.BitmapEx.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Initializes a new instance of the BitmapEx class with the specified size.  
-            </summary>
-            <param name="width"></param>
-            <param name="height"></param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.BitmapEx.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the System.Drawing.Bitmap class from the specified file.  
-            </summary>
-            <param name="filename"></param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.BitmapEx.GetHbitmap">
-            <summary>
-            Creates a GDI bitmap object from this BitmapEx object.  
-            </summary>
-            <returns>A handle to the GDI bitmap object that this method creates.</returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.BitmapEx.LockBits(System.Drawing.Rectangle,System.Int32,OpenNETCF.Drawing.Imaging.PixelFormat)">
-            <summary>
-            BitmapEx object into system memory.  
-            </summary>
-            <param name="rect">A System.Drawing.Rectangle structure specifying the portion of the BitmapEx to lock.  </param>
-            <param name="flags">Access level (read and write) for the BitmapEx object. ></param>
-            <param name="format">PixelFormat enumeration specifying the data format of this BitmapEx object.</param>
-            <returns>BitmapData object containing information about this lock operation.  </returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.BitmapEx.UnlockBits(OpenNETCF.Drawing.Imaging.BitmapData)">
-            <summary>
-            Unlocks this BitmapEx from system memory.  
-            </summary>
-            <param name="data"></param>
-        </member>
-        <member name="P:OpenNETCF.Drawing.BitmapEx.Width">
-            <summary>
-            Gets the width of this BitmapEx object.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.BitmapEx.Height">
-            <summary>
-            Gets the height of this BitmapEx object.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.BitmapData">
-            <summary>
-            Specifies the attributes of a bitmap image. The BitmapData class is used by the LockBits and UnlockBits methods of the BitmapEx class.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.PixelFormat">
-            <summary>
-            Gets or sets the format of the pixel information.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Scan0">
-            <summary>
-            Gets or sets the address of the first pixel data in the bitmap.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Stride">
-            <summary>
-            Gets or sets the stride width (also called scan width) of the bitmap object.  
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Width">
-            <summary>
-            Gets or sets the pixel width of the BitmapEx object. This can also be thought of as the number of pixels in one scan line.  
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Height">
-            <summary>
-            Gets or sets the pixel height of the BitmapEx object. 
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.PenEx">
-            <summary>
-            Defines an object used to draw lines and curves.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.Color"/>.  
-            </summary>
-            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the Width.  
-            </summary>
-            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-            <param name="width"></param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,OpenNETCF.Drawing.Drawing2D.DashStyle)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.DashStyle"/>.
-            </summary>
-            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-            <param name="style"></param>
-        </member>
-        <member name="P:OpenNETCF.Drawing.PenEx.Color">
-            <summary>
-            Gets or sets the color of this object.  
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.PenEx.DashStyle">
-            <summary>
-            Gets or sets the style used for dashed lines drawn with this <see cref="T:OpenNETCF.Drawing.PenEx"/> object.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.PenEx.Width">
-            <summary>
-            Gets or sets the Width of this object.
-            </summary>
-        </member>
         <member name="T:OpenNETCF.Win32.GDI">
             <summary>
             GDI P/Invokes and definitions.
@@ -593,138 +725,6 @@
         <member name="F:OpenNETCF.Win32.GDI.BackgroundMode.OPAQUE">
             <summary>
             Background is Opaque.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.FontEx">
-            <summary>
-            Defines a particular format for text, including font face, size, and style attributes. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.FontEx.#ctor(System.String,System.Single,System.Drawing.FontStyle)">
-            <summary>
-            Initializes a new FontEx object that uses the specified attributes.  
-            </summary>
-            <param name="fontName">A string representation of the System.Drawing.FontFamily object.</param>
-            <param name="size">The size of the new FontEx object.</param>
-            <param name="fontStyle">The style of the new FontEx object.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.FontEx.ToHfont">
-            <summary>
-            Returns a handle to this FontEx object.
-            <para><b>New in v1.3</b></para>
-            </summary>
-            <returns>A Windows handle to this FontEx object.</returns>
-        </member>
-        <member name="P:OpenNETCF.Drawing.FontEx.Name">
-            <summary>
-            Gets the face name of this FontEx object.
-            <para><b>New in v1.3</b></para>
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.FontEx.Size">
-            <summary>
-            Gets the em-size of this FontEx object measured in the unit of this FontEx object.
-            <para><b>New in v1.3</b></para>
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.FontEx.Style">
-            <summary>
-            Gets style information for this FontEx object.
-            <para><b>New in v1.3</b></para>
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.FontEx.Angle">
-            <summary>
-            Gets sets the angle for the FontEx.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.FontEx.ClearType">
-            <summary>
-            Gets or sets a clear type for FontEx object.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.ContentAlignment">
-            <summary>
-            Specifies alignment of content on the drawing surface.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomCenter">
-            <summary>
-            Content is vertically aligned at the bottom, and horizontally aligned at the center.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomLeft">
-            <summary>
-            Content is vertically aligned at the bottom, and horizontally aligned on the left.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomRight">
-            <summary>
-            Content is vertically aligned at the bottom, and horizontally aligned on the right.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleCenter">
-            <summary>
-            Content is vertically aligned in the middle, and horizontally aligned at the center.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleLeft">
-            <summary>
-            Content is vertically aligned in the middle, and horizontally aligned on the left.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleRight">
-            <summary>
-            Content is vertically aligned in the middle, and horizontally aligned on the right.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopCenter">
-            <summary>
-            Content is vertically aligned at the top, and horizontally aligned at the center.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopLeft">
-            <summary>
-            Content is vertically aligned at the top, and horizontally aligned on the left.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopRight">
-            <summary>
-            Content is vertically aligned at the top, and horizontally aligned on the right.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Win32.DibSection">
-            <summary>
-            Wrapper for WIN32 <b>DIBSECTION</b> structure
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.DibSection.bmType">
-            <summary>
-            Specifies the bitmap type; set to zero.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.DibSection.bmWidth">
-            <summary>
-            Specifies the width, in pixels, of the bitmap.
-            The width must be greater than zero.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.DibSection.bmHeight">
-            <summary>
-            Specifies the height, in pixels, of the bitmap.
-            The height must be greater than zero.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.DibSection.bmWidthBytes">
-            <summary>
-            Specifies the number of bytes in each scan line.
-            This value must be divisible by 2, because the system assumes that the bit values of a bitmap form an array that is word aligned.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.DibSection.bmBits">
-            <summary>
-            Pointer to the location of the bit values for the bitmap.
-            The bmBits member must be a long pointer to an array of character (1-byte) values.
             </summary>
         </member>
     </members>
