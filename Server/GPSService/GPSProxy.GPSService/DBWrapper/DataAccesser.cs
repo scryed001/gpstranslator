@@ -12,6 +12,7 @@ using GPSProxy.GPSService;
 
 // Use the following code to generate the linq wrapper.
 // "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\Sqlmetal.exe" "D:\GPSService\GPSProxy.GPSService\GPS.sdf" /code:"D:\GPSService\GPSProxy.GPSService\DBWrapper\GPSLinqWrapper.cs"
+// "C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin\Sqlmetal.exe" "G:\sunzhongkui\code\gpstranslator\Server\GPSService\GPSProxy.GPSService\GPS.sdf" /code:"G:\sunzhongkui\code\gpstranslator\Server\GPSService\GPSProxy.GPSService\DBWrapper\GPSLinqWrapper.cs"
 // Reference: http://blogs.msdn.com/b/sqlservercompact/archive/2007/08/21/linq-with-sql-server-compact-a-ka-dlinq-over-sql-ce.aspx
 
 namespace GPSProxy.GPSService.DBWrapper
@@ -45,8 +46,12 @@ namespace GPSProxy.GPSService.DBWrapper
                 gpsPath.Name = Encode(pathName);
                 gpsPath.Password = Encode(pathPwd);
                 gpsPath.Added_By = Encode(creator);
+                gpsPath.Added_On = DateTime.Now;
+                gpsPath.Visible = true;
 
                 mGPSDB.Path.InsertOnSubmit(gpsPath);
+
+                mGPSDB.SubmitChanges();
 
                 pathID = GetPathID(pathName);
                 if (-1 == pathID)
@@ -76,7 +81,7 @@ namespace GPSProxy.GPSService.DBWrapper
 
                 pathList.AddRange(paths);
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
             }
@@ -100,6 +105,22 @@ namespace GPSProxy.GPSService.DBWrapper
             return -1;
         }
 
+        public Int32 GetPathID(String pathName, String pathPwd)
+        {
+            try
+            {
+                Path gpsPath = mGPSDB.Path.ToList().SingleOrDefault(x => (x.Name == Encode(pathName) && x.Password == Encode(pathPwd) && x.Visible == true));
+                if (gpsPath != null)
+                    return gpsPath.ID;
+            }
+            catch (System.Exception)
+            {
+
+            }
+
+            return -1;
+        }
+
         public bool AddGPSSentence(String sentence, String creator, Int32 pathID)
         {
             try
@@ -109,6 +130,8 @@ namespace GPSProxy.GPSService.DBWrapper
                 pathDetail.Added_by = Encode(creator);
                 pathDetail.Pathid = pathID;
                 mGPSDB.PathDetail.InsertOnSubmit(pathDetail);
+
+                mGPSDB.SubmitChanges();
             }
             catch (System.Exception)
             {
@@ -127,6 +150,7 @@ namespace GPSProxy.GPSService.DBWrapper
             {
                 var datas = (from item in mGPSDB.PathDetail.ToList()
                             where (item.Id > lastID) && (item.Pathid == path.ID)
+                            orderby item.Id descending
                             select new GPSDownloadData() { ID = item.Id, NMEASentence = Decode(item.Gpssentence) }).Take(maxReturnedSentence);
 
                 gpsDataList.AddRange(datas);

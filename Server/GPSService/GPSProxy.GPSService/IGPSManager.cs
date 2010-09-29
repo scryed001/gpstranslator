@@ -18,10 +18,13 @@ namespace GPSProxy.GPSService
         List<String> GetPathList(String searchString, UserInfo user);
 
         [OperationContract]
-        bool UploadGPSData(GPSUploadData data, PathInfo path);
+        bool UploadGPSData(GPSUploadData data);
 
         [OperationContract]
         List<GPSDownloadData> GetGPSData(PathInfo path, Int32 lastID);
+
+        [OperationContract]
+        Int32 GetPathID(PathInfo path);
     }
 
     [DataContract]
@@ -45,7 +48,6 @@ namespace GPSProxy.GPSService
             set { mPassword = value; }
         }
 
-        [DataMember]
         public Int32 ID
         {
             get { return mID; }
@@ -79,6 +81,8 @@ namespace GPSProxy.GPSService
     {
         private String mNMEASentence = "";
         private String mProvider = "anonymous";
+        private Int32 mPathID;
+        private String mPathPassword;
 
         [DataMember]
         public String NMEASentence
@@ -92,6 +96,20 @@ namespace GPSProxy.GPSService
         {
             get { return mProvider; }
             set { mProvider = value; }
+        }
+
+        [DataMember]
+        public Int32 PathID
+        {
+            get { return mPathID; }
+            set { mPathID = value; }
+        }
+
+        [DataMember]
+        public String PathPassword
+        {
+            get { return mPathPassword; }
+            set { mPathPassword = value; }
         }
     }
 
