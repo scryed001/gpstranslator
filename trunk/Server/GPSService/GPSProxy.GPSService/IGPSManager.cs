@@ -29,6 +29,7 @@ namespace GPSProxy.GPSService
     {
         private String mName = "";
         private String mPassword = "";
+        private Int32 mID = -1;
 
         [DataMember]
         public String Name
@@ -42,6 +43,13 @@ namespace GPSProxy.GPSService
         {
             get { return mPassword; }
             set { mPassword = value; }
+        }
+
+        [DataMember]
+        public Int32 ID
+        {
+            get { return mID; }
+            set { mID = value; }
         }
     }
 
@@ -91,7 +99,7 @@ namespace GPSProxy.GPSService
     public class GPSDownloadData
     {
         private String mNMEASentence = "";
-        private Int32 mID = -1;
+        private Int32 mID = -1; // ToDo - maybe we need a large number to avoid overflow if there are many many data.
 
         [DataMember]
         public String NMEASentence
