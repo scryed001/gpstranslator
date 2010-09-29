@@ -17,7 +17,7 @@ namespace GPSProxy.GPSService
         {
             if (null == path || null == user)
                 return false;
-            if (null == path.Name || null == path.Password
+            if (null == path.Name
                 || null == user.Name) // user password can be null
                 return false;
 
@@ -25,18 +25,22 @@ namespace GPSProxy.GPSService
             if (pathName.Length == 0)
                 return false;
 
+            String pathPassword = "";
+            if(null != path.Password)
+                pathPassword = path.Password;
+
             // Verify the user.
 
             // Create path
 
-            return mDataAccesser.AddNewPath(pathName, path.Password, user.Name);
+            return mDataAccesser.AddNewPath(pathName, pathPassword, user.Name);
         }
 
         public List<String> GetPathList(String searchString, UserInfo user)
         {
             // Verify the user.
             if (null == searchString)
-                return null;
+                searchString = "";
 
             // ToDo - we need check the user validation.
 
@@ -45,13 +49,31 @@ namespace GPSProxy.GPSService
             return mDataAccesser.GetPathList(searchString);
         }
 
-        public bool UploadGPSData(GPSUploadData data, PathInfo path)
+        public Int32 GetPathID(PathInfo path)
+        {
+            if (null == path)
+                return -1;
+            if (null == path.Name) // user password can be null
+                return -1;
+
+            String pathName = path.Name.Trim();
+            if (pathName.Length == 0)
+                return -1;
+
+            String pathPwd = "";
+            if (null != path.Password)
+                pathPwd = path.Password;
+
+            return mDataAccesser.GetPathID(pathName, pathPwd);
+        }
+
+        public bool UploadGPSData(GPSUploadData data)
         {
             // Verify the path info. 
-            if (null == data || null == path)
+            if (null == data)
                 return false;
 
-            if (-1 == path.ID)
+            if (-1 == data.PathID)
                 return false;
             // ToDo we need check the id and password.
 
@@ -62,7 +84,7 @@ namespace GPSProxy.GPSService
                 return false;
 
             // Save the gps data.
-            return mDataAccesser.AddGPSSentence(data.NMEASentence, data.Provider, path.ID);
+            return mDataAccesser.AddGPSSentence(data.NMEASentence, data.Provider, data.PathID);
         }
 
         /// <summary>
