@@ -26,7 +26,7 @@ namespace GPSProxy.GPSService.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=G:\\Temp\\GPSService\\GPSProxy.GPSService\\GPS.sdf")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=D:\\GPSService\\GPSProxy.GPSService\\GPS.sdf")]
         public string GPSConnectionString {
             get {
                 return ((string)(this["GPSConnectionString"]));

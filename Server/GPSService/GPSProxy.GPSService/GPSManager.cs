@@ -35,23 +35,34 @@ namespace GPSProxy.GPSService
         public List<String> GetPathList(String searchString, UserInfo user)
         {
             // Verify the user.
+            if (null == searchString)
+                return null;
+
+            // ToDo - we need check the user validation.
 
             // Get the valid path list
-            List<String> pathList = new List<string>();
 
-            pathList.Add("Shuttle 1");
-
-            return pathList;
-
+            return mDataAccesser.GetPathList(searchString);
         }
 
         public bool UploadGPSData(GPSUploadData data, PathInfo path)
         {
             // Verify the path info. 
+            if (null == data || null == path)
+                return false;
+
+            if (-1 == path.ID)
+                return false;
+            // ToDo we need check the id and password.
+
+            if (null == data.NMEASentence || null == data.Provider)
+                return false;
+
+            if (data.NMEASentence.Length == 0)
+                return false;
 
             // Save the gps data.
-
-            return true;
+            return mDataAccesser.AddGPSSentence(data.NMEASentence, data.Provider, path.ID);
         }
 
         /// <summary>
@@ -63,14 +74,18 @@ namespace GPSProxy.GPSService
         public List<GPSDownloadData> GetGPSData(PathInfo path, Int32 lastID)
         {
             // Verify the path info. 
+            if (null == path)
+                return null;
+
+            if (-1 == path.ID)
+                return null;
+
+            // ToDo we need check the id and password.
 
             // Get the gps data.
 
-            List<GPSDownloadData> gpsDataList = new List<GPSDownloadData>();
-            GPSDownloadData data = new GPSDownloadData() { NMEASentence = "GPAVR", ID = 123 };
-            gpsDataList.Add(data);
+            return mDataAccesser.GetGPSData(path, lastID);
 
-            return gpsDataList;
         }
     }
 }

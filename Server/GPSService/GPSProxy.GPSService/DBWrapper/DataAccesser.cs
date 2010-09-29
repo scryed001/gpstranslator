@@ -2,7 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using GPSProxy.GPSService.DBWrapper.GPSDBTableAdapters;
+
+using System.Data.Linq;
+using System.Data.Linq.Mapping;
+using System.Linq.Expressions;
+using System.Reflection;
+
+using GPSProxy.GPSService;
+
+// Use the following code to generate the linq wrapper.
+// "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\Sqlmetal.exe" "D:\GPSService\GPSProxy.GPSService\GPS.sdf" /code:"D:\GPSService\GPSProxy.GPSService\DBWrapper\GPSLinqWrapper.cs"
+// Reference: http://blogs.msdn.com/b/sqlservercompact/archive/2007/08/21/linq-with-sql-server-compact-a-ka-dlinq-over-sql-ce.aspx
 
 namespace GPSProxy.GPSService.DBWrapper
 {
@@ -10,20 +20,151 @@ namespace GPSProxy.GPSService.DBWrapper
     {
         public DataAccesser()
         {
-            mPathTableAdapter = new PathTableAdapter();
             String assName = System.Reflection.Assembly.GetExecutingAssembly().Location;
             String ApplicationPath = System.IO.Path.GetDirectoryName(assName);
-            mPathTableAdapter.Connection.ConnectionString = "Data Source=" + ApplicationPath + "\\GPS.sdf";
+            String connectionString = "Data Source=" + ApplicationPath + "\\GPS.sdf";
+
+            // Just for test
+            //connectionString = GPSProxy.GPSService.Properties.Settings.Default.GPSConnectionString;
+
+            mGPSDB = new GPS(connectionString);
         }
 
-        PathTableAdapter mPathTableAdapter;
+        private GPS mGPSDB;
+        private static int maxReturnedSentence = 2;         
 
         public bool AddNewPath(String pathName, String pathPwd, String creator)
         {
+            try
+            {
+                Int32 pathID = GetPathID(pathName);
+                if (-1 != pathID)
+                    return false;
 
-            // ToDo - update the table definition.
-            mPathTableAdapter.Insert(0, pathName, pathPwd, creator, null ,"", null, true);
+                Path gpsPath = new Path();
+                gpsPath.Name = Encode(pathName);
+                gpsPath.Password = Encode(pathPwd);
+                gpsPath.Added_By = Encode(creator);
+
+                mGPSDB.Path.InsertOnSubmit(gpsPath);
+
+                pathID = GetPathID(pathName);
+                if (-1 == pathID)
+                    return false;
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
             
+            return true;
+        }
+
+        public List<String> GetPathList(String searchString)
+        {
+            // Get the valid path list
+            List<String> pathList = new List<string>();
+
+            try
+            {
+                searchString = Encode(searchString);
+
+                var paths = from item in mGPSDB.Path.ToList()
+                              where item.Visible == true
+                              && (item.Name.Contains(searchString))
+                              select item.Name;
+
+                pathList.AddRange(paths);
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+
+            return pathList;
+        }
+
+        public Int32 GetPathID(String pathName)
+        {
+            try
+            {
+                Path gpsPath = mGPSDB.Path.ToList().SingleOrDefault(x => (x.Name == Encode(pathName) && x.Visible == true));
+                if (gpsPath != null)
+                    return gpsPath.ID;
+            }
+            catch (System.Exception)
+            {
+               
+            }
+
+            return -1;
+        }
+
+        public bool AddGPSSentence(String sentence, String creator, Int32 pathID)
+        {
+            try
+            {
+                PathDetail pathDetail = new PathDetail();
+                pathDetail.Gpssentence = Encode(sentence);
+                pathDetail.Added_by = Encode(creator);
+                pathDetail.Pathid = pathID;
+                mGPSDB.PathDetail.InsertOnSubmit(pathDetail);
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public List<GPSDownloadData> GetGPSData(PathInfo path, Int32 lastID)
+        {
+            
+            List<GPSDownloadData> gpsDataList = new List<GPSDownloadData>();
+
+            try
+            {
+                var datas = (from item in mGPSDB.PathDetail.ToList()
+                            where (item.Id > lastID) && (item.Pathid == path.ID)
+                            select new GPSDownloadData() { ID = item.Id, NMEASentence = Decode(item.Gpssentence) }).Take(maxReturnedSentence);
+
+                gpsDataList.AddRange(datas);
+            }
+            catch (System.Exception)
+            {
+            	
+            }
+
+            return gpsDataList;
+        }
+
+        private String GetPathDetailTableName(Int32 pathID )
+        {
+            String prefix = "_PathDetail_";
+            return prefix + pathID.ToString();
+        }
+
+        // Reference: http://www.cnblogs.com/ansiboy/archive/2009/02/08/1386088.html
+        private bool CreatePathDetailTable(Int32 pathID)
+        {            
+            String tablleName = GetPathDetailTableName(pathID);
+            String templateTableName = "PathDetailTemplate";
+            try
+            {
+                MetaTable metaTable = mGPSDB.Mapping.GetTable(typeof(PathDetail /*PathDetailTemplate*/));
+                var typeName = "System.Data.Linq.SqlClient.SqlBuilder";
+                var type = typeof(DataContext).Assembly.GetType(typeName);
+                var bf = BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.InvokeMethod;
+                var sql = type.InvokeMember("GetCreateTableCommand", bf, null, null, new[] { metaTable });
+                String sqlState = sql.ToString().ToLower();
+                sqlState = sqlState.ToString().Replace(templateTableName.ToLower(), tablleName.ToLower());
+                mGPSDB.ExecuteCommand(sqlState);
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
             return true;
         }
 
