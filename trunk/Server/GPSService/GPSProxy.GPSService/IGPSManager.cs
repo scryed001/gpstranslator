@@ -21,7 +21,7 @@ namespace GPSProxy.GPSService
         bool UploadGPSData(GPSUploadData data);
 
         [OperationContract]
-        List<GPSDownloadData> GetGPSData(PathInfo path, Int32 lastID);
+        List<GPSDownloadData> GetGPSData(GPSDataRequestParameter para);
 
         [OperationContract]
         Int32 GetPathID(PathInfo path);
@@ -52,6 +52,50 @@ namespace GPSProxy.GPSService
         {
             get { return mID; }
             set { mID = value; }
+        }
+    }
+
+    [DataContract]
+    public class GPSDataRequestParameter
+    {
+        private Int32 mPathID = -1;
+        private String mPathPassword = "";
+        private bool mbIsLatestDataOnly = true;
+        private Int32 mMaxLines = 10;
+        private Int32 mLastDataID = -1;
+
+        public Int32 PathID
+        {
+            get { return mPathID; }
+            set { mPathID = value; }
+        }
+
+        [DataMember]
+        public bool LatestDataOnly
+        {
+            get { return mbIsLatestDataOnly; }
+            set { mbIsLatestDataOnly = value; }
+        }
+
+        [DataMember]
+        public String PathPassword
+        {
+            get { return mPathPassword; }
+            set { mPathPassword = value; }
+        }
+
+        [DataMember]
+        public Int32 MaxLines
+        {
+            get { return mMaxLines; }
+            set { mMaxLines = value; }
+        }
+
+        [DataMember]
+        public Int32 LastDataID
+        {
+            get { return mLastDataID; }
+            set { mLastDataID = value; }
         }
     }
 

@@ -141,19 +141,32 @@ namespace GPSProxy.GPSService.DBWrapper
             return true;
         }
 
-        public List<GPSDownloadData> GetGPSData(PathInfo path, Int32 lastID)
+        public List<GPSDownloadData> GetGPSData(GPSDataRequestParameter para)
         {
             
             List<GPSDownloadData> gpsDataList = new List<GPSDownloadData>();
 
             try
             {
-                var datas = (from item in mGPSDB.PathDetail.ToList()
-                            where (item.Id > lastID) && (item.Pathid == path.ID)
-                            orderby item.Id descending
-                            select new GPSDownloadData() { ID = item.Id, NMEASentence = Decode(item.Gpssentence) }).Take(maxReturnedSentence);
+                if(para.LatestDataOnly)
+                {
+                    var datas = (from item in mGPSDB.PathDetail.ToList()
+                                 where (item.Id > para.LastDataID) && (item.Pathid == para.PathID)
+                                 orderby item.Id descending
+                                 select new GPSDownloadData() { ID = item.Id, NMEASentence = Decode(item.Gpssentence) }).Take(maxReturnedSentence);
 
-                gpsDataList.AddRange(datas);
+                    gpsDataList.AddRange(datas);
+                }
+                else
+                {
+                    var datas = (from item in mGPSDB.PathDetail.ToList()
+                                 where (item.Id > para.LastDataID) && (item.Pathid == para.PathID)
+                                 orderby item.Id ascending
+                                 select new GPSDownloadData() { ID = item.Id, NMEASentence = Decode(item.Gpssentence) }).Take(maxReturnedSentence);
+
+                    gpsDataList.AddRange(datas);
+                }
+
             }
             catch (System.Exception)
             {
