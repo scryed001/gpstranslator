@@ -153,16 +153,17 @@ namespace GPSProxy.GPSService.DBWrapper
                     var datas = (from item in mGPSDB.PathDetail.ToList()
                                  where (item.Id > para.LastDataID) && (item.Pathid == para.PathID)
                                  orderby item.Id descending
-                                 select new GPSDownloadData() { ID = item.Id, NMEASentence = Decode(item.Gpssentence) }).Take(maxReturnedSentence);
+                                 select new GPSDownloadData() { ID = item.Id, NMEASentence = Decode(item.Gpssentence) }).Take(para.MaxLines);
 
                     gpsDataList.AddRange(datas);
+                    gpsDataList.Reverse(); // We must keep the sequence of the data the same as that we received.
                 }
                 else
                 {
                     var datas = (from item in mGPSDB.PathDetail.ToList()
                                  where (item.Id > para.LastDataID) && (item.Pathid == para.PathID)
                                  orderby item.Id ascending
-                                 select new GPSDownloadData() { ID = item.Id, NMEASentence = Decode(item.Gpssentence) }).Take(maxReturnedSentence);
+                                 select new GPSDownloadData() { ID = item.Id, NMEASentence = Decode(item.Gpssentence) }).Take(para.MaxLines);
 
                     gpsDataList.AddRange(datas);
                 }

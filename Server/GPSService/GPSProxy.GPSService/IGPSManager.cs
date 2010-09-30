@@ -64,6 +64,7 @@ namespace GPSProxy.GPSService
         private Int32 mMaxLines = 10;
         private Int32 mLastDataID = -1;
 
+        [DataMember]
         public Int32 PathID
         {
             get { return mPathID; }
