@@ -93,20 +93,23 @@ namespace GPSProxy.GPSService
         /// <param name="path"></param>
         /// <param name="lastID">if it is -1,qurey from the first sentence</param>
         /// <returns></returns>
-        public List<GPSDownloadData> GetGPSData(PathInfo path, Int32 lastID)
+        public List<GPSDownloadData> GetGPSData(GPSDataRequestParameter para)
         {
             // Verify the path info. 
-            if (null == path)
+            if (null == para)
                 return null;
 
-            if (-1 == path.ID)
+            if (-1 == para.PathID)
+                return null;
+
+            if (para.MaxLines < 1)
                 return null;
 
             // ToDo we need check the id and password.
 
             // Get the gps data.
 
-            return mDataAccesser.GetGPSData(path, lastID);
+            return mDataAccesser.GetGPSData(para);
 
         }
     }
