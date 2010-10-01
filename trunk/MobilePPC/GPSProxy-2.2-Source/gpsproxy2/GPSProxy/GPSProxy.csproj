@@ -131,6 +131,10 @@
       <Project>{1580E29F-8311-4262-A219-22BEA79B905B}</Project>
       <Package>{20D4826A-C6FA-45DB-90F4-C717570B9F32}</Package>
     </ProjectReference>
+    <ProjectReference Include="..\GPSProxy.SerialPort\GPSProxy.SerialPort.csproj">
+      <Project>{50B9328C-F6BC-47F1-8B1C-ECE5332F0268}</Project>
+      <Name>GPSProxy.SerialPort</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs">

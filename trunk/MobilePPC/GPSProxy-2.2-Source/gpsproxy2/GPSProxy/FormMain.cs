@@ -38,6 +38,8 @@ namespace GPSProxy
 	using GPSProxy.Extension;
 	using Nini.Config;
 
+    using GPSProxy.SerialPort;
+
 	/// <summary>
 	/// Summary description for FormMain.
 	/// </summary>
@@ -446,6 +448,11 @@ namespace GPSProxy
 			{
 				// Regular COM port.
 				case "comport":
+                    // Begin test code ToDO - just for test. delete the code later
+                    return new WebServiceBasedPort(3, "", "WM", true, true);
+
+                    // End test code
+
 					if (! settings.ContainsKey("port_name"))
 						throw new Exception("No COM port name specified");
 					if (! settings.ContainsKey("baud_rate"))
@@ -454,6 +461,8 @@ namespace GPSProxy
 
 				// File
 				case "file":
+
+
 					if (! settings.ContainsKey("file_name"))
 						throw new Exception("No file name specified");
 					if (! settings.ContainsKey("file_mode"))
