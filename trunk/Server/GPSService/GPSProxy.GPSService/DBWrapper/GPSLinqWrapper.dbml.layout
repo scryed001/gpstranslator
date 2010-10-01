@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="GPSLinqWrapper">
+  <DataContextMoniker Name="/GPSLinqWrapperDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fab67fd6-4cfb-4dfd-b1e2-b71a2633d89e" absoluteBounds="1.375, 1.125, 2, 1.7855859375">
+      <DataClassMoniker Name="/GPSLinqWrapperDataContext/Path" />
+      <nestedChildShapes>
+        <elementListCompartment Id="65949ec0-3d63-4be2-be9d-ddc129635755" absoluteBounds="1.3900000000000001, 1.585, 1.9700000000000002, 1.2255859375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d069f9ee-0776-42cb-a144-adb4b9aa3460" absoluteBounds="1.125, 3.5, 2, 1.4483463541666666">
+      <DataClassMoniker Name="/GPSLinqWrapperDataContext/PathDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c658b49-3289-4aa1-a964-d07e87f9b14e" absoluteBounds="1.1400000000000001, 3.96, 1.9700000000000002, 0.88834635416666663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

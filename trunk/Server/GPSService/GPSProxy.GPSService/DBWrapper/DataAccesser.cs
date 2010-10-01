@@ -21,18 +21,10 @@ namespace GPSProxy.GPSService.DBWrapper
     {
         public DataAccesser()
         {
-            String assName = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            String ApplicationPath = System.IO.Path.GetDirectoryName(assName);
-            String connectionString = "Data Source=" + ApplicationPath + "\\GPS.sdf";
-
-            // Just for test
-            //connectionString = GPSProxy.GPSService.Properties.Settings.Default.GPSConnectionString;
-
-            mGPSDB = new GPS(connectionString);
+            mGPSDB = new GPSLinqWrapperDataContext();
         }
 
-        private GPS mGPSDB;
-        private static int maxReturnedSentence = 2;         
+        private GPSLinqWrapperDataContext mGPSDB;      
 
         public bool AddNewPath(String pathName, String pathPwd, String creator)
         {
@@ -46,10 +38,9 @@ namespace GPSProxy.GPSService.DBWrapper
                 gpsPath.Name = Encode(pathName);
                 gpsPath.Password = Encode(pathPwd);
                 gpsPath.Added_By = Encode(creator);
-                gpsPath.Added_On = DateTime.Now;
                 gpsPath.Visible = true;
 
-                mGPSDB.Path.InsertOnSubmit(gpsPath);
+                mGPSDB.Paths.InsertOnSubmit(gpsPath);
 
                 mGPSDB.SubmitChanges();
 
@@ -74,7 +65,7 @@ namespace GPSProxy.GPSService.DBWrapper
             {
                 searchString = Encode(searchString);
 
-                var paths = from item in mGPSDB.Path.ToList()
+                var paths = from item in mGPSDB.Paths
                               where item.Visible == true
                               && (item.Name.Contains(searchString))
                               select item.Name;
@@ -93,7 +84,7 @@ namespace GPSProxy.GPSService.DBWrapper
         {
             try
             {
-                Path gpsPath = mGPSDB.Path.ToList().SingleOrDefault(x => (x.Name == Encode(pathName) && x.Visible == true));
+                Path gpsPath = mGPSDB.Paths.SingleOrDefault(x => (x.Name == Encode(pathName) && x.Visible == true));
                 if (gpsPath != null)
                     return gpsPath.ID;
             }
@@ -109,7 +100,7 @@ namespace GPSProxy.GPSService.DBWrapper
         {
             try
             {
-                Path gpsPath = mGPSDB.Path.ToList().SingleOrDefault(x => (x.Name == Encode(pathName) && x.Password == Encode(pathPwd) && x.Visible == true));
+                Path gpsPath = mGPSDB.Paths.SingleOrDefault(x => (x.Name == Encode(pathName) && x.Password == Encode(pathPwd) && x.Visible == true));
                 if (gpsPath != null)
                     return gpsPath.ID;
             }
@@ -126,14 +117,14 @@ namespace GPSProxy.GPSService.DBWrapper
             try
             {
                 PathDetail pathDetail = new PathDetail();
-                pathDetail.Gpssentence = Encode(sentence);
-                pathDetail.Added_by = Encode(creator);
-                pathDetail.Pathid = pathID;
-                mGPSDB.PathDetail.InsertOnSubmit(pathDetail);
+                pathDetail.GPSSentence = Encode(sentence);
+                pathDetail.Added_By = Encode(creator);
+                pathDetail.PathID = pathID;
+                mGPSDB.PathDetails.InsertOnSubmit(pathDetail);
 
                 mGPSDB.SubmitChanges();
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
                 return false;
             }
@@ -150,20 +141,20 @@ namespace GPSProxy.GPSService.DBWrapper
             {
                 if(para.LatestDataOnly)
                 {
-                    var datas = (from item in mGPSDB.PathDetail.ToList()
-                                 where (item.Id > para.LastDataID) && (item.Pathid == para.PathID)
-                                 orderby item.Id descending
-                                 select new GPSDownloadData() { ID = item.Id, NMEASentence = Decode(item.Gpssentence) }).Take(para.MaxLines);
+                    var datas = (from item in mGPSDB.PathDetails
+                                 where (item.ID > para.LastDataID) && (item.PathID == para.PathID)
+                                 orderby item.ID descending
+                                 select new GPSDownloadData() { ID = item.ID, NMEASentence = Decode(item.GPSSentence) }).Take(para.MaxLines);
 
                     gpsDataList.AddRange(datas);
                     gpsDataList.Reverse(); // We must keep the sequence of the data the same as that we received.
                 }
                 else
                 {
-                    var datas = (from item in mGPSDB.PathDetail.ToList()
-                                 where (item.Id > para.LastDataID) && (item.Pathid == para.PathID)
-                                 orderby item.Id ascending
-                                 select new GPSDownloadData() { ID = item.Id, NMEASentence = Decode(item.Gpssentence) }).Take(para.MaxLines);
+                    var datas = (from item in mGPSDB.PathDetails
+                                 where (item.ID > para.LastDataID) && (item.PathID == para.PathID)
+                                 orderby item.ID ascending
+                                 select new GPSDownloadData() { ID = item.ID, NMEASentence = Decode(item.GPSSentence) }).Take(para.MaxLines);
 
                     gpsDataList.AddRange(datas);
                 }
