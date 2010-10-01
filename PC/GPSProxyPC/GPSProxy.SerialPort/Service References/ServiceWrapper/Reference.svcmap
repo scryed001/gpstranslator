@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c1c4e423-2633-43f1-8576-7a8e7d4b097b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2481/GPSManager.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GPSManager.xsd" MetadataType="Schema" ID="272f8989-e4cc-4dad-bd01-8fe075944267" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="GPSManager1.xsd" MetadataType="Schema" ID="eb5c19c1-b628-4e3e-947f-60688867d59b" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="GPSManager.disco" MetadataType="Disco" ID="53b44346-55fc-4465-ab2c-76b5e2dec51a" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?disco" />
+    <MetadataFile FileName="GPSManager.wsdl" MetadataType="Wsdl" ID="b50a21a5-5b38-459a-b4db-18a51b9ca64c" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?wsdl" />
+    <MetadataFile FileName="GPSManager2.xsd" MetadataType="Schema" ID="c6f8a587-8d0f-43dd-b979-e7486120a3c3" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="GPSManager3.xsd" MetadataType="Schema" ID="9bfbbeaf-a3e6-452c-a6f4-5d38818f3d84" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

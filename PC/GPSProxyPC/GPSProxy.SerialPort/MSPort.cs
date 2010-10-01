@@ -6,10 +6,13 @@ namespace GPSProxy.SerialPort
 {
     public class MSPort : IPort, IDisposable
     {
+        #region Data members
         private bool disposed = false;
 
         private System.IO.Ports.SerialPort serialPort;
+        #endregion
 
+        #region Ctor
         public MSPort(string portName, int baudRate)
 		{
             serialPort = new System.IO.Ports.SerialPort();
@@ -23,8 +26,28 @@ namespace GPSProxy.SerialPort
             serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
             serialPort.ErrorReceived += new SerialErrorReceivedEventHandler(serialPort_ErrorReceived);
 
-		}
+        }
 
+        ~MSPort()
+        {
+            Dispose(false);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    serialPort.Close();
+                    serialPort.Dispose();
+                }
+                disposed = true;
+            }
+        }
+        #endregion
+
+        #region Data read and write
         void serialPort_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
             // do nothing
@@ -39,24 +62,7 @@ namespace GPSProxy.SerialPort
             if (Read != null && data.Length > 0)
                 Read(this, data);
         }
-
-        ~MSPort()
-		{
-			Dispose(false);
-		}
-		
-		protected virtual void Dispose(bool disposing)
-		{
-			if (! disposed)
-			{
-				if (disposing)
-				{
-                    serialPort.Close();
-					serialPort.Dispose();
-				}
-				disposed = true;
-			}
-		}
+        #endregion
 
         #region IPort Members
 

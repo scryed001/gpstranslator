@@ -10,6 +10,7 @@ namespace GPSProxy.SerialPort
     /// </summary>
     public class FileBasedPort : IPort, IDisposable
     {
+        #region Data members
         private bool disposed = false;
 
         private string fileName;
@@ -25,7 +26,9 @@ namespace GPSProxy.SerialPort
 
         private FileStream stream;
         private StreamReader reader;
+        #endregion
 
+        #region Ctor
         public FileBasedPort(string fileName, string fileMode)
         {
             if (fileMode == "read")
@@ -58,7 +61,9 @@ namespace GPSProxy.SerialPort
                 disposed = true;
             }
         }
+        #endregion
 
+        #region Data read and write
         private void ReadTimerCallback(object state)
         {
             byte[] data = null;
@@ -136,6 +141,7 @@ namespace GPSProxy.SerialPort
                     Read(this, data);
             }
         }
+        #endregion
 
         #region IPort Members
 
