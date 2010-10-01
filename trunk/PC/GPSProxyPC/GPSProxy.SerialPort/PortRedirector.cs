@@ -5,10 +5,13 @@ namespace GPSProxy.SerialPort
 {
     public class PortRedirector : IDisposable
     {
+        #region Data members
         private IPort in_port;
         private IPort out_port;
         private bool disposed = false;
+        #endregion
 
+        #region Ctor
         public PortRedirector(IPort inPort, IPort outPort)
         {
             in_port = inPort;
@@ -46,8 +49,11 @@ namespace GPSProxy.SerialPort
 
 				disposed = true;
 			}
-		}
+        }
 
+        #endregion
+
+        #region start and stop
         public void Start()
         {
             if (disposed)
@@ -126,5 +132,6 @@ namespace GPSProxy.SerialPort
         {
             // do nothing
         }
+        #endregion
     }
 }
