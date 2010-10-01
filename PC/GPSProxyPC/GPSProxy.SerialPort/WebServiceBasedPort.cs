@@ -5,8 +5,10 @@ using GPSProxy.SerialPort.ServiceWrapper;
 
 namespace GPSProxy.SerialPort
 {
+    
     public class WebServiceBasedPort : IPort, IDisposable
     {
+
         #region Data members
         private bool disposed = false;
 
@@ -58,39 +60,58 @@ namespace GPSProxy.SerialPort
         {
             if(IsOpen())
             {
-                GPSDataRequestParameter reqPara = new GPSDataRequestParameter();
-                reqPara.LastDataID = lastDataID;
-                reqPara.MaxLines = 10;
-                reqPara.LatestDataOnly = !bIsReplay;
-                reqPara.PathID = pathInfo.ID;
-                reqPara.PathPassword = pathInfo.Password;
-
-                GPSDownloadData[] receivedDatas = serviceClient.GetGPSData(reqPara);
-                foreach(GPSDownloadData dataItem in receivedDatas)
+                try
                 {
-                    if(dataItem != null)
+                    GPSDataRequestParameter reqPara = new GPSDataRequestParameter();
+                    reqPara.LastDataID = lastDataID;
+                    reqPara.MaxLines = 10;
+                    reqPara.LatestDataOnly = !bIsReplay;
+                    reqPara.PathID = pathInfo.ID;
+                    reqPara.PathPassword = pathInfo.Password;
+
+                    GPSDownloadData[] receivedDatas = serviceClient.GetGPSData(reqPara);
+                    if (receivedDatas != null)
                     {
-                        // Update the id
-                        if (lastDataID < dataItem.ID)
-                            lastDataID = dataItem.ID;
-
-                        if (dataItem.NMEASentence.Length == 0)
-                            continue;
-
-                        byte[] data = new byte[System.Text.Encoding.Default.GetByteCount(dataItem.NMEASentence)];
-                        data = System.Text.Encoding.Default.GetBytes(dataItem.NMEASentence);
-
-                        // Dispatch the received data.
-                        if (data != null)
+                        foreach (GPSDownloadData dataItem in receivedDatas)
                         {
-                            if (Read != null)
-                                Read(this, data);
-                        } 
+                            if (dataItem != null)
+                            {
+                                // Update the id
+                                if (lastDataID < dataItem.ID)
+                                    lastDataID = dataItem.ID;
+
+                                if (dataItem.NMEASentence.Length == 0)
+                                    continue;
+
+                                byte[] data = new byte[System.Text.Encoding.Default.GetByteCount(dataItem.NMEASentence)];
+                                data = System.Text.Encoding.Default.GetBytes(dataItem.NMEASentence);
+
+                                // Dispatch the received data.
+                                if (data != null)
+                                {
+                                    if (Read != null)
+                                        Read(this, data);
+                                }
+                            }
+                        }
                     }
                 }
+                catch (System.Exception )
+                {
+                	// Don't exit if failed.
+                }                  
 
                 // ToDO - for the replay model, we should use the time tamp of the gps data.
-                readTimer.Change( 1000, Timeout.Infinite); // Read data every second
+                try
+                {
+                    // There is exception when close the port during receiving process.
+                    if (!disposed)
+                        readTimer.Change(1000, Timeout.Infinite); // Read data every second
+                }
+                catch (System.Exception)
+                {
+
+                }
             }
         }
         #endregion
@@ -155,18 +176,25 @@ namespace GPSProxy.SerialPort
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
 
-            if (IsOpen() && data.Length > 0)
+            try
             {
-                GPSUploadData gpsData = new GPSUploadData();
-                gpsData.PathID = pathInfo.ID;
-                gpsData.PathPassword = pathInfo.Password;
-                gpsData.Provider = dataProvider;
-                gpsData.NMEASentence = System.Text.Encoding.Default.GetString(data, 0, data.Length);
+                if (IsOpen() && data.Length > 0)
+                {
+                    GPSUploadData gpsData = new GPSUploadData();
+                    gpsData.PathID = pathInfo.ID;
+                    gpsData.PathPassword = pathInfo.Password;
+                    gpsData.Provider = dataProvider;
+                    gpsData.NMEASentence = System.Text.Encoding.Default.GetString(data, 0, data.Length);
 
-                bool ret = serviceClient.UploadGPSData(gpsData);
+                    bool ret = serviceClient.UploadGPSData(gpsData);
 
-                if(ret)
-                    return data.Length;
+                    if (ret)
+                        return data.Length;
+                }
+            }
+            catch (System.Exception e)
+            {
+                // Don't exit if failed.       	
             }
 
             return 0;
