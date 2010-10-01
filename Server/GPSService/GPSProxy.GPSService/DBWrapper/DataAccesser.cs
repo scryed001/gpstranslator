@@ -56,19 +56,19 @@ namespace GPSProxy.GPSService.DBWrapper
             return true;
         }
 
-        public List<String> GetPathList(String searchString)
+        public List<PathInfo> GetPathList(String searchString)
         {
             // Get the valid path list
-            List<String> pathList = new List<string>();
+            List<PathInfo> pathList = new List<PathInfo>();
 
             try
             {
                 searchString = Encode(searchString);
 
                 var paths = from item in mGPSDB.Paths
-                              where item.Visible == true
-                              && (item.Name.Contains(searchString))
-                              select item.Name;
+                            where item.Visible == true
+                            && (item.Name.Contains(searchString))
+                            select new PathInfo() { Name = item.Name, ID = item.ID };
 
                 pathList.AddRange(paths);
             }

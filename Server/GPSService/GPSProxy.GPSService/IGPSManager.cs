@@ -15,7 +15,7 @@ namespace GPSProxy.GPSService
         bool CreateNewPath(PathInfo path, UserInfo user);
 
         [OperationContract]
-        List<String> GetPathList(String searchString, UserInfo user);
+        List<PathInfo> GetPathList(String searchString, UserInfo user);
 
         [OperationContract]
         bool UploadGPSData(GPSUploadData data);

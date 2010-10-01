@@ -37,7 +37,7 @@ namespace GPSProxy.GPSService
             //return true;
         }
 
-        public List<String> GetPathList(String searchString, UserInfo user)
+        public List<PathInfo> GetPathList(String searchString, UserInfo user)
         {
             // Verify the user.
             if (null == searchString)

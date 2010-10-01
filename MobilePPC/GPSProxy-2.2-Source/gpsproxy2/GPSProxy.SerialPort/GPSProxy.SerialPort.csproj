@@ -95,7 +95,9 @@
     <None Include="Web References\ServiceWrapper\GPSManager.disco" />
     <None Include="Web References\ServiceWrapper\GPSManager.wsdl" />
     <None Include="Web References\ServiceWrapper\GPSManager1.xsd" />
-    <None Include="Web References\ServiceWrapper\GPSManager2.xsd" />
+    <None Include="Web References\ServiceWrapper\PathInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\ServiceWrapper\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

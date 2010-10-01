@@ -422,7 +422,7 @@ namespace GPSProxy.SerialPort.ServiceWrapper {
         bool CreateNewPath(GPSProxy.SerialPort.ServiceWrapper.PathInfo path, GPSProxy.SerialPort.ServiceWrapper.UserInfo user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGPSManager/GetPathList", ReplyAction="http://tempuri.org/IGPSManager/GetPathListResponse")]
-        string[] GetPathList(string searchString, GPSProxy.SerialPort.ServiceWrapper.UserInfo user);
+        GPSProxy.SerialPort.ServiceWrapper.PathInfo[] GetPathList(string searchString, GPSProxy.SerialPort.ServiceWrapper.UserInfo user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGPSManager/UploadGPSData", ReplyAction="http://tempuri.org/IGPSManager/UploadGPSDataResponse")]
         bool UploadGPSData(GPSProxy.SerialPort.ServiceWrapper.GPSUploadData data);
@@ -468,7 +468,7 @@ namespace GPSProxy.SerialPort.ServiceWrapper {
             return base.Channel.CreateNewPath(path, user);
         }
         
-        public string[] GetPathList(string searchString, GPSProxy.SerialPort.ServiceWrapper.UserInfo user) {
+        public GPSProxy.SerialPort.ServiceWrapper.PathInfo[] GetPathList(string searchString, GPSProxy.SerialPort.ServiceWrapper.UserInfo user) {
             return base.Channel.GetPathList(searchString, user);
         }
         
