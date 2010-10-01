@@ -4,195 +4,6 @@
         <name>OpenNETCF.WindowsCE.Forms</name>
     </assembly>
     <members>
-        <member name="T:OpenNETCF.WindowsCE.Forms.ScreenOrientation">
-            <summary>
-            Specifies the angle of the device screen that can be accessed by the <see cref="P:OpenNETCF.WindowsCE.Forms.SystemSettings.ScreenOrientation"/> property.
-            <para><b>New in v1.3</b></para>
-            </summary>
-            <remarks>The default portrait orientation is at angle 0.
-            Requires Pocket PC 2003 Second Edition.</remarks>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.ScreenOrientation.Angle0">
-            <summary>
-            Specifies a portrait orientation at 0 degrees.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.ScreenOrientation.Angle90">
-            <summary>
-            Specifies a landscape orientation at 90 degrees.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.ScreenOrientation.Angle180">
-            <summary>
-            Specifies an orientation at 180 degrees.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.ScreenOrientation.Angle270">
-            <summary>
-            Specifies an orientation at 270 degrees.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.NotificationMessageWindow">
-            <summary>
-            Handles messages received from the Notification system and throws events in the parent NotificationEngine object
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.Led">
-            <summary>
-            Represents the collection of Notification Leds on the device.
-            </summary>
-            <remarks>Support varies depending on the device but all devices should include at least 1 notification LED</remarks>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Forms.Led.#ctor">
-            <summary>
-            Initialise the LED collection
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Forms.Led.SetLedStatus(System.Int32,OpenNETCF.WindowsCE.Forms.Led.LedState)">
-            <summary>
-            Set the state of the specified LED
-            </summary>
-            <param name="led">0 based index of the LED</param>
-            <param name="newState">New state of the LED - see LedState enumeration</param>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Forms.Led.Count">
-            <summary>
-            Returns the number of notification Leds in the system
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.Led.LedState">
-            <summary>
-            Defines the possible states for an LED
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.Led.LedState.Off">
-            <summary>
-            LED is off
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.Led.LedState.On">
-            <summary>
-            LED is on
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.Led.LedState.Blink">
-            <summary>
-            LED cycles between On and Off
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.InputMethod">
-            <summary>
-            Provides the name and class ID for a soft input panel method.
-            <para><b>New in v1.3</b></para>
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Forms.InputMethod.FromClsid(System.Guid)">
-            <summary>
-            Returns an instance of InputMethod from a specific Clsid.
-            </summary>
-            <param name="clsid">Class identifier of SIP class.</param>
-            <returns></returns>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Forms.InputMethod.Clsid">
-            <summary>
-            Gets a GUID value that contains a GUID that identifies a specific input method.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Forms.InputMethod.Name">
-            <summary>
-            Gets the name of an input method.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.BalloonChangedEventArgs">
-            <summary>
-            Provides data for the <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.BalloonChanged"/> event.
-            <para><b>New in v1.3</b></para>
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Forms.BalloonChangedEventArgs.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.WindowsCE.Forms.BalloonChangedEventArgs"/> class.
-            </summary>
-            <param name="visible">true to indicate the notification is visible; otherwise, false.</param>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Forms.BalloonChangedEventArgs.Visible">
-            <summary>
-            Gets or sets a value indicating whether the message balloon was changed to visible.
-            </summary>
-            <value>true if the Visible property on the Notification is true; otherwise, false.</value>
-            <remarks>You can use this property to track whenever a notification is displayed or hidden.</remarks>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.BalloonChangedEventHandler">
-            <summary>
-            Represents the method that will handle the <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.BalloonChanged"/> event of a <see cref="T:OpenNETCF.WindowsCE.Forms.Notification"/>.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.SystemSettings">
-            <summary>
-            Provides access to user interface and native Windows CE operating system settings on a device.
-            <para><b>New in v1.3</b></para>
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Forms.SystemSettings.ScreenOrientation">
-            <summary>
-            Gets or sets the current screen orientation of a device.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.InputModeEditor">
-            <summary>
-            Provides access to Smartphone input methods for entering text.
-            <para><b>New in v1.3</b></para>
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Forms.InputModeEditor.SetInputMode(System.Windows.Forms.Control,OpenNETCF.WindowsCE.Forms.InputMode)">
-            <summary>
-            Specifies the input mode on a Smartphone.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Forms.InputModeEditor.SetSymbols(System.Windows.Forms.Control,System.String)">
-            <summary>
-            Sets the symbols to use with the control on Smartphone.
-            </summary>
-            <param name="control">Control for which Symbol collection is to be used.</param>
-            <param name="symbols">Collection of characters to be used as symbols.</param>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.DEVMODE">
-            <summary>
-            DEVMODE struct used with ChangeDisplaySettingsEx
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.ResponseSubmittedEventArgs">
-            <summary>
-            Provides data for the <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.ResponseSubmitted"/> event.
-            <para><b>New in v1.3</b></para>
-            </summary>
-            <remarks>The <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.ResponseSubmitted"/> event occurs when the message balloon is dismissed by user input.
-            You can use the Response property to ascertain values entered into an HTML form in the message balloon or to determine the name of a button or link clicked by the user.</remarks>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Forms.ResponseSubmittedEventArgs.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.WindowsCE.Forms.ResponseSubmittedEventArgs"/> class.
-            </summary>
-            <param name="response"></param>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Forms.ResponseSubmittedEventArgs.Response">
-            <summary>
-            Gets a string containing the name of a selected link or button or the results of a form embedded in the text of the message balloon.
-            </summary>
-            <remarks>The following table describes possible values for this property and the HTML elements that can create them.
-            <list type="table"><listheader><term>Element</term><term></term>HTML example<term>Response value</term></listheader>
-            <item><term>Name of a link</term><term>&lt;a href="helplink"&gt;Help&lt;/a&gt;</term><term>helplink</term></item>
-            <item><term>Name of a button</term><term>&lt;input type=button name=OKbutton value="OK"&gt;</term><term>OKbutton</term></item>
-            <item><term>HTML form results</term><term>&lt;form method=\"GET\" action=notify&gt;</term><term>action=notify</term></item>
-            </list>
-            Note that using cmd:#, where # is an integer, as the name for a HTML element prevents the <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.ResponseSubmitted"/> event from being raised.
-            The cmd:2 identifier performs a special purpose: it displays the notification icon in the title bar making it suitable for Cancel buttons.</remarks>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.ResponseSubmittedEventHandler">
-            <summary>
-            Represents the method that will handle the <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.ResponseSubmitted"/> event of a <see cref="T:OpenNETCF.WindowsCE.Forms.Notification"/>.
-            </summary>
-        </member>
         <member name="F:OpenNETCF.WindowsCE.Forms.SHNOTIFICATIONDATA.csDuration">
             <summary>
             Duration to display the bubble (in seconds).
@@ -250,6 +61,43 @@
             Force the notification to be silent and not vibrate, regardless of Settings. Added for Windows Mobile 2003.
             </summary>
         </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.ResponseSubmittedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.ResponseSubmitted"/> event.
+            <para><b>New in v1.3</b></para>
+            </summary>
+            <remarks>The <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.ResponseSubmitted"/> event occurs when the message balloon is dismissed by user input.
+            You can use the Response property to ascertain values entered into an HTML form in the message balloon or to determine the name of a button or link clicked by the user.</remarks>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Forms.ResponseSubmittedEventArgs.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.WindowsCE.Forms.ResponseSubmittedEventArgs"/> class.
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Forms.ResponseSubmittedEventArgs.Response">
+            <summary>
+            Gets a string containing the name of a selected link or button or the results of a form embedded in the text of the message balloon.
+            </summary>
+            <remarks>The following table describes possible values for this property and the HTML elements that can create them.
+            <list type="table"><listheader><term>Element</term><term></term>HTML example<term>Response value</term></listheader>
+            <item><term>Name of a link</term><term>&lt;a href="helplink"&gt;Help&lt;/a&gt;</term><term>helplink</term></item>
+            <item><term>Name of a button</term><term>&lt;input type=button name=OKbutton value="OK"&gt;</term><term>OKbutton</term></item>
+            <item><term>HTML form results</term><term>&lt;form method=\"GET\" action=notify&gt;</term><term>action=notify</term></item>
+            </list>
+            Note that using cmd:#, where # is an integer, as the name for a HTML element prevents the <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.ResponseSubmitted"/> event from being raised.
+            The cmd:2 identifier performs a special purpose: it displays the notification icon in the title bar making it suitable for Cancel buttons.</remarks>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.ResponseSubmittedEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.ResponseSubmitted"/> event of a <see cref="T:OpenNETCF.WindowsCE.Forms.Notification"/>.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.DEVMODE">
+            <summary>
+            DEVMODE struct used with ChangeDisplaySettingsEx
+            </summary>
+        </member>
         <member name="T:OpenNETCF.WindowsCE.Forms.ConfigurationManager">
             <summary>
             Provides access to the Configuration Manager functionality of Smartphone and Pocket PC Phone Edition devices.
@@ -291,6 +139,69 @@
         <member name="F:OpenNETCF.WindowsCE.Forms.ConfigXmlFlags.MetaData">
             <summary>
             The configuration management service gathers and returns metadata for any XML parm elements it encounters. 
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.Vibrate">
+            <summary>
+            Controls vibration on the device.
+            <para><b>Revised in v1.3</b></para>
+            </summary>
+            <remarks>Supported only on Smartphone. Previously named <b>OpenNETCF.Notification.Vibrate</b>. Vibration equipped Pocket PC devices emulate the Vibration motorl as a notification Led.</remarks>
+            <platform><os>Windows Mobile 2003 for Smartphone</os></platform>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Forms.Vibrate.Play">
+            <summary>
+            Plays the default looping vibration on the device.
+            </summary>
+            <returns>TRUE if vibration started successfully else FALSE.</returns>
+            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
+            <preliminary/>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Forms.Vibrate.Stop">
+            <summary>
+            Stops any current vibration.
+            </summary>
+            <returns>TRUE on success else FALSE.</returns>
+            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
+            <preliminary/>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Forms.Vibrate.GetDeviceCaps(OpenNETCF.WindowsCE.Forms.Vibrate.VibrationCapabilities)">
+            <summary>
+            Gets the current device vibration capabilities.
+            </summary>
+            <param name="caps">Member of the VibrationCapabilities enumeration identifying what capability to query.</param>
+            <returns>0 if the capability is not supported, 1 if a single level is supported or a value between 2 and 7 if multiple levels are supported.</returns>
+            <remarks>This function returns the number of vibration steps (a number from 0 to 7) that the device hardware supports for the requested vibration capability.</remarks>
+            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
+            <preliminary/>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.Vibrate.VibrationCapabilities">
+            <summary>
+            Used by the GetDeviceCaps function to query the device vibration capabilities.
+            <para><b>New in v1.1</b></para>
+            </summary>
+            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
+            <preliminary/>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.Vibrate.VibrationCapabilities.Amplitude">
+            <summary>
+            Query the amplitude that the device supports.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.Vibrate.VibrationCapabilities.Frequency">
+            <summary>
+            Query the frequency that the device supports.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.SystemSettings">
+            <summary>
+            Provides access to user interface and native Windows CE operating system settings on a device.
+            <para><b>New in v1.3</b></para>
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Forms.SystemSettings.ScreenOrientation">
+            <summary>
+            Gets or sets the current screen orientation of a device.
             </summary>
         </member>
         <member name="T:OpenNETCF.WindowsCE.Forms.InkX">
@@ -439,56 +350,81 @@
             Notifications received from the native control
             </summary>
         </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.Vibrate">
+        <member name="T:OpenNETCF.WindowsCE.Forms.Led">
             <summary>
-            Controls vibration on the device.
-            <para><b>Revised in v1.3</b></para>
+            Represents the collection of Notification Leds on the device.
             </summary>
-            <remarks>Supported only on Smartphone. Previously named <b>OpenNETCF.Notification.Vibrate</b>. Vibration equipped Pocket PC devices emulate the Vibration motorl as a notification Led.</remarks>
-            <platform><os>Windows Mobile 2003 for Smartphone</os></platform>
+            <remarks>Support varies depending on the device but all devices should include at least 1 notification LED</remarks>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.Forms.Vibrate.Play">
+        <member name="M:OpenNETCF.WindowsCE.Forms.Led.#ctor">
             <summary>
-            Plays the default looping vibration on the device.
-            </summary>
-            <returns>TRUE if vibration started successfully else FALSE.</returns>
-            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
-            <preliminary/>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Forms.Vibrate.Stop">
-            <summary>
-            Stops any current vibration.
-            </summary>
-            <returns>TRUE on success else FALSE.</returns>
-            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
-            <preliminary/>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Forms.Vibrate.GetDeviceCaps(OpenNETCF.WindowsCE.Forms.Vibrate.VibrationCapabilities)">
-            <summary>
-            Gets the current device vibration capabilities.
-            </summary>
-            <param name="caps">Member of the VibrationCapabilities enumeration identifying what capability to query.</param>
-            <returns>0 if the capability is not supported, 1 if a single level is supported or a value between 2 and 7 if multiple levels are supported.</returns>
-            <remarks>This function returns the number of vibration steps (a number from 0 to 7) that the device hardware supports for the requested vibration capability.</remarks>
-            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
-            <preliminary/>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.Vibrate.VibrationCapabilities">
-            <summary>
-            Used by the GetDeviceCaps function to query the device vibration capabilities.
-            <para><b>New in v1.1</b></para>
-            </summary>
-            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
-            <preliminary/>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.Vibrate.VibrationCapabilities.Amplitude">
-            <summary>
-            Query the amplitude that the device supports.
+            Initialise the LED collection
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.Vibrate.VibrationCapabilities.Frequency">
+        <member name="M:OpenNETCF.WindowsCE.Forms.Led.SetLedStatus(System.Int32,OpenNETCF.WindowsCE.Forms.Led.LedState)">
             <summary>
-            Query the frequency that the device supports.
+            Set the state of the specified LED
+            </summary>
+            <param name="led">0 based index of the LED</param>
+            <param name="newState">New state of the LED - see LedState enumeration</param>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Forms.Led.Count">
+            <summary>
+            Returns the number of notification Leds in the system
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.Led.LedState">
+            <summary>
+            Defines the possible states for an LED
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.Led.LedState.Off">
+            <summary>
+            LED is off
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.Led.LedState.On">
+            <summary>
+            LED is on
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.Led.LedState.Blink">
+            <summary>
+            LED cycles between On and Off
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.NotificationMessageWindow">
+            <summary>
+            Handles messages received from the Notification system and throws events in the parent NotificationEngine object
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.InputMode">
+            <summary>
+            Specifies the input modes that can be set on the Smartphone using an <see cref="T:OpenNETCF.WindowsCE.Forms.InputModeEditor"/>.
+            <para><b>New in v1.3</b></para>
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.InputMode.AlphaABC">
+            <summary>
+            This is the conventional method for entering text, called multi-tap, which requires up to four key presses depending on the letter being entered.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.InputMode.AlphaCurrent">
+            <summary>
+            Maintains the current T9 or ABC selection for entering alpha characters as set by the user by holding down the star key (*) on a Smartphone.
+            This mode is shared across the system so that any text box set with this mode, including text box controls in native Windows CE applications, will adhere to the last T9 or ABC choice as set by the user.
+            This ability to match user preferences makes this the preferred input mode for text boxes that accept alpha characters. 
+            <para>Note that if the user selects a numeric input mode (123) with the star key for a text box set to AlphaCurrent, the text box will only accept numeric characters but will be set to the current alpha input mode (T9 or ABC) when the text box loses and regains focus.</para>
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.InputMode.AlphaT9">
+            <summary>
+            This input mode is the T9 predictive text input feature on the Smartphone.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.InputMode.Numeric">
+            <summary>
+            This input mode accepts only numeric characters and symbols.
             </summary>
         </member>
         <member name="T:OpenNETCF.WindowsCE.Forms.Notification">
@@ -569,6 +505,52 @@
             Occurs when the user clicks a button or link in the message balloon.
             </summary>
         </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.InputModeEditor">
+            <summary>
+            Provides access to Smartphone input methods for entering text.
+            <para><b>New in v1.3</b></para>
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Forms.InputModeEditor.SetInputMode(System.Windows.Forms.Control,OpenNETCF.WindowsCE.Forms.InputMode)">
+            <summary>
+            Specifies the input mode on a Smartphone.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Forms.InputModeEditor.SetSymbols(System.Windows.Forms.Control,System.String)">
+            <summary>
+            Sets the symbols to use with the control on Smartphone.
+            </summary>
+            <param name="control">Control for which Symbol collection is to be used.</param>
+            <param name="symbols">Collection of characters to be used as symbols.</param>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.ScreenOrientation">
+            <summary>
+            Specifies the angle of the device screen that can be accessed by the <see cref="P:OpenNETCF.WindowsCE.Forms.SystemSettings.ScreenOrientation"/> property.
+            <para><b>New in v1.3</b></para>
+            </summary>
+            <remarks>The default portrait orientation is at angle 0.
+            Requires Pocket PC 2003 Second Edition.</remarks>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.ScreenOrientation.Angle0">
+            <summary>
+            Specifies a portrait orientation at 0 degrees.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.ScreenOrientation.Angle90">
+            <summary>
+            Specifies a landscape orientation at 90 degrees.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.ScreenOrientation.Angle180">
+            <summary>
+            Specifies an orientation at 180 degrees.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Forms.ScreenOrientation.Angle270">
+            <summary>
+            Specifies an orientation at 270 degrees.
+            </summary>
+        </member>
         <member name="T:OpenNETCF.WindowsCE.Forms.InputPanelEx">
             <summary>
             Enhances the <see cref="T:Microsoft.WindowsCE.Forms.InputPanel"/> class for controlling the soft input panel (SIP) for entering data on Pocket PCs and other Windows CE.NET devices
@@ -644,33 +626,51 @@
             Gets the number of elements in the <see cref="T:OpenNETCF.WindowsCE.Forms.InputPanelEx.InputMethodCollection"/> class.
             </summary>
         </member>
-        <member name="T:OpenNETCF.WindowsCE.Forms.InputMode">
+        <member name="T:OpenNETCF.WindowsCE.Forms.BalloonChangedEventArgs">
             <summary>
-            Specifies the input modes that can be set on the Smartphone using an <see cref="T:OpenNETCF.WindowsCE.Forms.InputModeEditor"/>.
+            Provides data for the <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.BalloonChanged"/> event.
             <para><b>New in v1.3</b></para>
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.InputMode.AlphaABC">
+        <member name="M:OpenNETCF.WindowsCE.Forms.BalloonChangedEventArgs.#ctor(System.Boolean)">
             <summary>
-            This is the conventional method for entering text, called multi-tap, which requires up to four key presses depending on the letter being entered.
+            Initializes a new instance of the <see cref="T:OpenNETCF.WindowsCE.Forms.BalloonChangedEventArgs"/> class.
+            </summary>
+            <param name="visible">true to indicate the notification is visible; otherwise, false.</param>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Forms.BalloonChangedEventArgs.Visible">
+            <summary>
+            Gets or sets a value indicating whether the message balloon was changed to visible.
+            </summary>
+            <value>true if the Visible property on the Notification is true; otherwise, false.</value>
+            <remarks>You can use this property to track whenever a notification is displayed or hidden.</remarks>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Forms.BalloonChangedEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:OpenNETCF.WindowsCE.Forms.Notification.BalloonChanged"/> event of a <see cref="T:OpenNETCF.WindowsCE.Forms.Notification"/>.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.InputMode.AlphaCurrent">
+        <member name="T:OpenNETCF.WindowsCE.Forms.InputMethod">
             <summary>
-            Maintains the current T9 or ABC selection for entering alpha characters as set by the user by holding down the star key (*) on a Smartphone.
-            This mode is shared across the system so that any text box set with this mode, including text box controls in native Windows CE applications, will adhere to the last T9 or ABC choice as set by the user.
-            This ability to match user preferences makes this the preferred input mode for text boxes that accept alpha characters. 
-            <para>Note that if the user selects a numeric input mode (123) with the star key for a text box set to AlphaCurrent, the text box will only accept numeric characters but will be set to the current alpha input mode (T9 or ABC) when the text box loses and regains focus.</para>
+            Provides the name and class ID for a soft input panel method.
+            <para><b>New in v1.3</b></para>
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.InputMode.AlphaT9">
+        <member name="M:OpenNETCF.WindowsCE.Forms.InputMethod.FromClsid(System.Guid)">
             <summary>
-            This input mode is the T9 predictive text input feature on the Smartphone.
+            Returns an instance of InputMethod from a specific Clsid.
+            </summary>
+            <param name="clsid">Class identifier of SIP class.</param>
+            <returns></returns>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Forms.InputMethod.Clsid">
+            <summary>
+            Gets a GUID value that contains a GUID that identifies a specific input method.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Forms.InputMode.Numeric">
+        <member name="P:OpenNETCF.WindowsCE.Forms.InputMethod.Name">
             <summary>
-            This input mode accepts only numeric characters and symbols.
+            Gets the name of an input method.
             </summary>
         </member>
     </members>

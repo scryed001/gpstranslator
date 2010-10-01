@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:2481/GPSManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GPSProxy.GPSService" />
-  <xs:import schemaLocation="http://localhost:2481/GPSManager.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="CreateNewPath">
     <xs:complexType>
       <xs:sequence>
@@ -28,7 +27,7 @@
   <xs:element name="GetPathListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPathListResult" nillable="true" type="q4:ArrayOfstring" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/GPSProxy.GPSService" minOccurs="0" name="GetPathListResult" nillable="true" type="q4:ArrayOfPathInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
