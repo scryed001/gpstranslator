@@ -11,62 +11,22 @@ using GPSProxy.SerialPort;
 
 namespace GPSProxyPC
 {
+    public delegate void DelegateStandardPattern(String para);
+
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
 
-            inPortFile = new FileBasedPort(@"G:\sunzhongkui\code\gpstranslator\gps.txt", "read");
-            outPortWebService = new WebServiceBasedPort(2,"","PC", false, false);
-
-            portRedtUpload = new PortRedirector(inPortFile, outPortWebService);
-
-            inPortWebService = new WebServiceBasedPort(2, "", "PC", true, false);
-            outPortCOM7 = new MSPort("COM7", 9600);
-            portRedtDownload = new PortRedirector(inPortWebService, outPortCOM7);
 
             UpdateControls();
         }
 
-        // upload the gps data
-        IPort inPortFile;
-        IPort outPortWebService;
-        PortRedirector portRedtUpload;
-
-        // down load the gps data
-        IPort inPortWebService;
-        IPort outPortCOM7;
-        PortRedirector portRedtDownload;
+        PortRedirector portRedt;
 
         IPort inPort;
-        IPort outPort;
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                portRedtUpload.Start();
-
-            }
-            catch (System.Exception ex)
-            {
-            	
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                portRedtDownload.Start();
-
-            }
-            catch (System.Exception ex)
-            {
-
-            }
-        }
+        IPort outPort;  
 
         private void btnInput_Click(object sender, EventArgs e)
         {
@@ -84,7 +44,27 @@ namespace GPSProxyPC
                     inPort = newPort;
 
                     textBoxInputPort.Text = comDlg.GetDisplayString();
+
+                    inPort.Read += new PortReadEvent(inPort_Read);
                 }
+            }
+        }
+
+        void inPort_Read(IPort sender, byte[] data)
+        {
+            AppendLog(System.Text.Encoding.Default.GetString(data, 0, data.Length));
+        }
+
+        private void AppendLog(String msg)
+        {
+            if(this.InvokeRequired)
+            {
+                this.Invoke(new DelegateStandardPattern(AppendLog), msg);
+            }
+            else
+            {
+                richTextLog.Text += msg;
+                richTextLog.SelectionStart = richTextLog.Text.Length;
             }
         }
 
@@ -110,42 +90,66 @@ namespace GPSProxyPC
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if(inPort !=null)
-            {
-                if (inPort.IsOpen())
-                    inPort.Close();
-
-                inPort.Open();
-            }
-
-            if (outPort != null)
-            {
-                if (outPort.IsOpen())
-                    outPort.Close();
-
-                outPort.Open();
-            }
+            if (IsPortWorking(inPort))
+                StopProxy();
+            else
+                StartProxy();
 
             UpdateControls();
-        }
-
-  
-
+        }  
 
         private void UpdateControls()
         {
-            bool bIsPortWorking = false;
-
-            if(inPort != null && inPort.IsOpen())
-            {
-                bIsPortWorking = true;
-            }
+            bool bIsPortWorking = IsPortWorking(inPort);
 
             btnInput.Enabled = !bIsPortWorking;
             btnOutput.Enabled = !bIsPortWorking;
 
             btnStart.Text = bIsPortWorking ? "Stop" : "Start";
             
+        }
+
+        private bool IsPortWorking(IPort port)
+        {
+            bool bIsPortWorking = false;
+            if (port != null && port.IsOpen())
+            {
+                bIsPortWorking = true;
+            }
+
+            return bIsPortWorking;
+        }
+
+        private void StartProxy()
+        {
+            if (portRedt != null)
+            {
+                portRedt.Dispose();
+                portRedt = null;
+            }
+
+            portRedt = new PortRedirector(inPort, outPort);
+            portRedt.Start();
+        }
+
+        private void StopProxy()
+        {
+            if (portRedt != null)
+            {
+                portRedt.Stop();
+                portRedt.Dispose();
+                portRedt = null;
+            }
+        }        
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            StopProxy();
         }
     }
 }

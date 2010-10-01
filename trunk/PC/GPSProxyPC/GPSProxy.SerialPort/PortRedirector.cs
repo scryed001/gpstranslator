@@ -35,16 +35,7 @@ namespace GPSProxy.SerialPort
 			{
 				if (disposing)
 				{
-					if (in_port != null)
-					{
-						in_port.Dispose();
-						in_port = null;
-					}
-					if (out_port != null)
-					{
-						out_port.Dispose();
-						out_port = null;
-					}
+                    // do nothing
 				}
 
 				disposed = true;
@@ -81,12 +72,11 @@ namespace GPSProxy.SerialPort
                 if (in_port != null)
                 {
                     in_port.Close();
-                    in_port.Dispose();                    
+                 
                 }
                 if (out_port != null)
                 {
                     out_port.Close();
-                    out_port.Dispose();
                 }
                 throw;
             }
@@ -99,15 +89,13 @@ namespace GPSProxy.SerialPort
 
             if (in_port != null)
             {
-                in_port.Close();
-                in_port.Dispose();
+                in_port.Close();                
             }
 
 
             if (out_port != null)
             {
-                out_port.Close();
-                out_port.Dispose();
+                out_port.Close();                
             }
         }
 
