@@ -317,43 +317,51 @@ namespace GPSProxy
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.tabControl = new System.Windows.Forms.TabControl();
-			this.mainMenu = new System.Windows.Forms.MainMenu();
-			this.menuItemOK = new System.Windows.Forms.MenuItem();
-			this.menuItemCancel = new System.Windows.Forms.MenuItem();
-			this.inputPanel = new Microsoft.WindowsCE.Forms.InputPanel();
-			// 
-			// tabControl
-			// 
-			this.tabControl.SelectedIndex = 0;
-			this.tabControl.Size = new System.Drawing.Size(240, 272);
-			// 
-			// mainMenu
-			// 
-			this.mainMenu.MenuItems.Add(this.menuItemOK);
-			this.mainMenu.MenuItems.Add(this.menuItemCancel);
-			// 
-			// menuItemOK
-			// 
-			this.menuItemOK.Text = "OK";
-			this.menuItemOK.Click += new System.EventHandler(this.menuItemOK_Click);
-			// 
-			// menuItemCancel
-			// 
-			this.menuItemCancel.Text = "Cancel";
-			this.menuItemCancel.Click += new System.EventHandler(this.menuItemCancel_Click);
-			// 
-			// inputPanel
-			// 
-			this.inputPanel.EnabledChanged += new System.EventHandler(this.inputPanel_EnabledChanged);
-			// 
-			// FormSettings
-			// 
-			this.Controls.Add(this.tabControl);
-			this.Menu = this.mainMenu;
-			this.Text = "Settings";
-			this.Resize += new System.EventHandler(this.FormSettings_Resize);
-			this.Closing += new System.ComponentModel.CancelEventHandler(this.FormSettings_Closing);
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.mainMenu = new System.Windows.Forms.MainMenu();
+            this.menuItemOK = new System.Windows.Forms.MenuItem();
+            this.menuItemCancel = new System.Windows.Forms.MenuItem();
+            this.inputPanel = new Microsoft.WindowsCE.Forms.InputPanel();
+            this.SuspendLayout();
+            // 
+            // tabControl
+            // 
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(240, 272);
+            this.tabControl.TabIndex = 0;
+            // 
+            // mainMenu
+            // 
+            this.mainMenu.MenuItems.Add(this.menuItemOK);
+            this.mainMenu.MenuItems.Add(this.menuItemCancel);
+            // 
+            // menuItemOK
+            // 
+            this.menuItemOK.Text = "OK";
+            this.menuItemOK.Click += new System.EventHandler(this.menuItemOK_Click);
+            // 
+            // menuItemCancel
+            // 
+            this.menuItemCancel.Text = "Cancel";
+            this.menuItemCancel.Click += new System.EventHandler(this.menuItemCancel_Click);
+            // 
+            // inputPanel
+            // 
+            this.inputPanel.EnabledChanged += new System.EventHandler(this.inputPanel_EnabledChanged);
+            // 
+            // FormSettings
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.ClientSize = new System.Drawing.Size(240, 268);
+            this.Controls.Add(this.tabControl);
+            this.Menu = this.mainMenu;
+            this.Name = "FormSettings";
+            this.Text = "Settings";
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.FormSettings_Closing);
+            this.Resize += new System.EventHandler(this.FormSettings_Resize);
+            this.ResumeLayout(false);
 
 		}
 		#endregion
@@ -582,6 +590,10 @@ namespace GPSProxy
 						if (settings.ContainsKey("file_name"))
 							ret = settings["file_name"].ToString();
 						break;
+                    case "webserver":
+                        if (settings.ContainsKey("path_id"))
+                            ret = settings["path_id"].ToString();
+                        break;
 				}
 			}
 			return ret;
