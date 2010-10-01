@@ -4,6 +4,32 @@
         <name>OpenNETCF.Xml</name>
     </assembly>
     <members>
+        <member name="T:OpenNETCF.Xml.XPath">
+            <summary>
+            Replicate the some  Functionality of Xpath for Compact Framework.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Xml.XPath.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Xml.XPath.SelectNodes(System.Xml.XmlNode,System.String)">
+            <summary>
+            Selects child nodes from a parent node satisfying the xpath
+            </summary>
+            <param name="xmlNode"></param>
+            <param name="xpath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Xml.XPath.GetChildNodeFromParent(System.Xml.XmlNode,System.String)">
+            <summary>
+            Gets Child Node for a Parent node.
+            </summary>
+            <param name="parent">Parent XmlNode</param>
+            <param name="xpath">xpath expression of the Child XmlNode</param>
+            <returns>Child XmlNode</returns>
+        </member>
         <member name="T:OpenNETCF.Xml.Serialization.XmlSerializer">
             <summary>
             Serializes and deserializes objects into and from XML documents. The OpenNETCF.Xml.Serialization.XmlSerializer enables you to control how objects are encoded into XML. 
@@ -58,32 +84,6 @@
             <param name="r"></param>
             <param name="t"></param>
             <returns></returns>
-        </member>
-        <member name="T:OpenNETCF.Xml.XPath">
-            <summary>
-            Replicate the some  Functionality of Xpath for Compact Framework.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Xml.XPath.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Xml.XPath.SelectNodes(System.Xml.XmlNode,System.String)">
-            <summary>
-            Selects child nodes from a parent node satisfying the xpath
-            </summary>
-            <param name="xmlNode"></param>
-            <param name="xpath"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Xml.XPath.GetChildNodeFromParent(System.Xml.XmlNode,System.String)">
-            <summary>
-            Gets Child Node for a Parent node.
-            </summary>
-            <param name="parent">Parent XmlNode</param>
-            <param name="xpath">xpath expression of the Child XmlNode</param>
-            <returns>Child XmlNode</returns>
         </member>
     </members>
 </doc>

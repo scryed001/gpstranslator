@@ -15,6 +15,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />
+  <xs:complexType name="ArrayOfPathInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PathInfo" nillable="true" type="tns:PathInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPathInfo" nillable="true" type="tns:ArrayOfPathInfo" />
   <xs:complexType name="GPSUploadData">
     <xs:sequence>
       <xs:element minOccurs="0" name="NMEASentence" nillable="true" type="xs:string" />

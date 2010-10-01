@@ -58,12 +58,12 @@ namespace GPSProxy.SerialPort.ServiceWrapper {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IGPSManager/GetPathList", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
-        public string[] GetPathList([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string searchString, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] UserInfo user) {
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/GPSProxy.GPSService")]
+        public PathInfo[] GetPathList([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string searchString, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] UserInfo user) {
             object[] results = this.Invoke("GetPathList", new object[] {
                         searchString,
                         user});
-            return ((string[])(results[0]));
+            return ((PathInfo[])(results[0]));
         }
         
         /// <remarks/>
@@ -74,9 +74,9 @@ namespace GPSProxy.SerialPort.ServiceWrapper {
         }
         
         /// <remarks/>
-        public string[] EndGetPathList(System.IAsyncResult asyncResult) {
+        public PathInfo[] EndGetPathList(System.IAsyncResult asyncResult) {
             object[] results = this.EndInvoke(asyncResult);
-            return ((string[])(results[0]));
+            return ((PathInfo[])(results[0]));
         }
         
         /// <remarks/>

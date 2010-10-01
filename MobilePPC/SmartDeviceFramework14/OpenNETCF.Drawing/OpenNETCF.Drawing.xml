@@ -74,6 +74,143 @@
             If this value is zero, all colors are required.
             </summary>
         </member>
+        <member name="T:OpenNETCF.Win32.GDI">
+            <summary>
+            GDI P/Invokes and definitions.
+            <para><b>New in v1.3</b></para>
+            </summary>
+            <remarks>Previously part of <see cref="T:OpenNETCF.Win32.Core"/>.</remarks>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.SetTextColor(System.IntPtr,System.Int32)">
+            <summary>
+            Set the forecolor of text in the selected DC
+            </summary>
+            <param name="hdc"></param>
+            <param name="crColor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.GetTextColor(System.IntPtr)">
+            <summary>
+            Get the forecolor of text in the selected DC
+            </summary>
+            <param name="hdc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.SetBkColor(System.IntPtr,System.Int32)">
+            <summary>
+            Set the backcolor in the selected DC
+            </summary>
+            <param name="hdc"></param>
+            <param name="crColor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.SetBkMode(System.IntPtr,OpenNETCF.Win32.GDI.BackgroundMode)">
+            <summary>
+            Set the backmode in the selected DC
+            </summary>
+            <param name="hdc"></param>
+            <param name="iBkMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.SelectObject(System.IntPtr,System.IntPtr)">
+            <summary>
+            Select a system object (FONT, DC, etc.)
+            </summary>
+            <param name="hdc"></param>
+            <param name="hgdiobj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.ReleaseDC(System.IntPtr,System.IntPtr)">
+            <summary>
+            Release a Device Context
+            </summary>
+            <param name="hWnd"></param>
+            <param name="hDC"></param>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.GetWindowDC(System.IntPtr)">
+            <summary>
+            Get the DC for the specified window
+            </summary>
+            <param name="hWnd">Native window handle of the window.</param>
+            <returns>Device Context Handle for specified window.</returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.GetDC(System.IntPtr)">
+            <summary>
+            Get the DC for the specified window handle
+            </summary>
+            <param name="hWnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.Rectangle(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draw a rectangle in a DC
+            </summary>
+            <param name="hdc"></param>
+            <param name="nLeftRect"></param>
+            <param name="nTopRect"></param>
+            <param name="nRightRect"></param>
+            <param name="nBottomRect"></param>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.GetObject(System.IntPtr,System.Int32,System.Byte[])">
+            <summary>
+            This function obtains information about a specified graphics object.
+            </summary>
+            <param name="hObj">Handle to the graphics object of interest.</param>
+            <param name="cb">Specifies the number of bytes of information to be written to the buffer.</param>
+            <param name="objdata">a buffer that is to receive the information about the specified graphics object.</param>
+            <returns>If the function succeeds, and lpvObject is a valid pointer, the return value is the number of bytes stored into the buffer.</returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.GetObject(System.IntPtr,System.Int32,OpenNETCF.Win32.DibSection)">
+            <summary>
+            This function obtains information about a specified graphics object.
+            </summary>
+            <param name="hObj">Handle to the graphics object of interest.</param>
+            <param name="cb">Specifies the number of bytes of information to be written to the buffer.</param>
+            <param name="objdata">a buffer that is to receive the information about the specified graphics object.</param>
+            <returns>If the function succeeds, and lpvObject is a valid pointer, the return value is the number of bytes stored into the buffer.</returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.CreateSolidBrush(System.Int32)">
+            <summary>
+            This function creates a logical brush that has the specified solid color.
+            </summary>
+            <param name="crColor">Specifies the color of the brush.</param>
+            <returns>A handle that identifies a logical brush indicates success.</returns>
+        </member>
+        <member name="T:OpenNETCF.Win32.GDI.RegionFlags">
+            <summary>
+            Region type
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.NULLREGION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.SIMPLEREGION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.COMPLEXREGION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Win32.GDI.BackgroundMode">
+            <summary>
+            Background mode
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.GDI.BackgroundMode.TRANSPARENT">
+            <summary>
+            Background is Transparent.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.GDI.BackgroundMode.OPAQUE">
+            <summary>
+            Background is Opaque.
+            </summary>
+        </member>
         <member name="T:OpenNETCF.Drawing.GDIPlus">
             <summary>
             Summary description for GDIPlus.
@@ -91,6 +228,129 @@
             <summary>
             This structure defines the attributes of a font.
             </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.ContentAlignment">
+            <summary>
+            Specifies alignment of content on the drawing surface.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomCenter">
+            <summary>
+            Content is vertically aligned at the bottom, and horizontally aligned at the center.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomLeft">
+            <summary>
+            Content is vertically aligned at the bottom, and horizontally aligned on the left.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomRight">
+            <summary>
+            Content is vertically aligned at the bottom, and horizontally aligned on the right.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleCenter">
+            <summary>
+            Content is vertically aligned in the middle, and horizontally aligned at the center.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleLeft">
+            <summary>
+            Content is vertically aligned in the middle, and horizontally aligned on the left.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleRight">
+            <summary>
+            Content is vertically aligned in the middle, and horizontally aligned on the right.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopCenter">
+            <summary>
+            Content is vertically aligned at the top, and horizontally aligned at the center.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopLeft">
+            <summary>
+            Content is vertically aligned at the top, and horizontally aligned on the left.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopRight">
+            <summary>
+            Content is vertically aligned at the top, and horizontally aligned on the right.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Win32.DibSection">
+            <summary>
+            Wrapper for WIN32 <b>DIBSECTION</b> structure
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.DibSection.bmType">
+            <summary>
+            Specifies the bitmap type; set to zero.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.DibSection.bmWidth">
+            <summary>
+            Specifies the width, in pixels, of the bitmap.
+            The width must be greater than zero.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.DibSection.bmHeight">
+            <summary>
+            Specifies the height, in pixels, of the bitmap.
+            The height must be greater than zero.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.DibSection.bmWidthBytes">
+            <summary>
+            Specifies the number of bytes in each scan line.
+            This value must be divisible by 2, because the system assumes that the bit values of a bitmap form an array that is word aligned.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.DibSection.bmBits">
+            <summary>
+            Pointer to the location of the bit values for the bitmap.
+            The bmBits member must be a long pointer to an array of character (1-byte) values.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.ColorTranslator">
+            <summary>
+            Translates colors to and from <see cref="T:System.Drawing.Color"/> structures.
+            </summary>
+            <seealso cref="T:System.Drawing.ColorTranslator">System.Drawing.ColorTranslator Class</seealso>
+        </member>
+        <member name="M:OpenNETCF.Drawing.ColorTranslator.ToHtml(System.Drawing.Color)">
+            <summary>
+            Translates the specified <see cref="T:System.Drawing.Color"/> structure to an HTML string color representation.
+            </summary>
+            <param name="c">The <see cref="T:System.Drawing.Color"/> structure to translate.</param>
+            <returns>The string that represents the HTML color.</returns>
+            <remarks>Unlike the desktop version of this function it does not check for named colors but instead always returns the hex notation values - e.g. Color.Red = "#FF0000"</remarks>
+            <seealso cref="M:System.Drawing.ColorTranslator.ToHtml(System.Drawing.Color)">System.Drawing.ColorTranslator.ToHtml Method</seealso>
+        </member>
+        <member name="M:OpenNETCF.Drawing.ColorTranslator.ToWin32(System.Drawing.Color)">
+            <summary>
+            Translates the specified <see cref="T:System.Drawing.Color"/> structure to a Windows color.
+            </summary>
+            <param name="c">The <see cref="T:System.Drawing.Color"/> structure to translate.</param>
+            <returns>The Windows color value.</returns>
+            <seealso cref="M:System.Drawing.ColorTranslator.ToWin32(System.Drawing.Color)">System.Drawing.ColorTranslator.ToWin32 Method</seealso>
+        </member>
+        <member name="M:OpenNETCF.Drawing.ColorTranslator.FromHtml(System.String)">
+            <summary>
+            Translates an HTML color representation to a <see cref="T:System.Drawing.Color"/> structure.
+            </summary>
+            <param name="htmlColor">The string representation of the Html color to translate.</param>
+            <returns>The <see cref="T:System.Drawing.Color"/> structure that represents the translated HTML color.</returns>
+            <seealso cref="M:System.Drawing.ColorTranslator.FromHtml(System.String)">System.Drawing.ColorTranslator.FromHtml Method</seealso>
+        </member>
+        <member name="M:OpenNETCF.Drawing.ColorTranslator.FromWin32(System.Int32)">
+            <summary>
+            Translates a Windows color value to a <see cref="T:System.Drawing.Color"/> structure.
+            </summary>
+            <param name="win32Color">The Windows color to translate.</param>
+            <returns>The <see cref="T:System.Drawing.Color"/> structure that represents the translated Windows color.</returns>
+            <seealso cref="M:System.Drawing.ColorTranslator.FromWin32(System.Int32)">System.Drawing.ColorTranslator.FromWin32 Method</seealso>
         </member>
         <member name="T:OpenNETCF.Drawing.BitmapEx">
             <summary>
@@ -171,54 +431,65 @@
             Gets or sets the pixel height of the BitmapEx object. 
             </summary>
         </member>
-        <member name="T:OpenNETCF.Drawing.ContentAlignment">
+        <member name="T:OpenNETCF.Drawing.PenEx">
             <summary>
-            Specifies alignment of content on the drawing surface.
+            Defines an object used to draw lines and curves.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomCenter">
+        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color)">
             <summary>
-            Content is vertically aligned at the bottom, and horizontally aligned at the center.
+            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.Color"/>.  
+            </summary>
+            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the Width.  
+            </summary>
+            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+            <param name="width"></param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,OpenNETCF.Drawing.Drawing2D.DashStyle)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.DashStyle"/>.
+            </summary>
+            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+            <param name="style"></param>
+        </member>
+        <member name="P:OpenNETCF.Drawing.PenEx.Color">
+            <summary>
+            Gets or sets the color of this object.  
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomLeft">
+        <member name="P:OpenNETCF.Drawing.PenEx.DashStyle">
             <summary>
-            Content is vertically aligned at the bottom, and horizontally aligned on the left.
+            Gets or sets the style used for dashed lines drawn with this <see cref="T:OpenNETCF.Drawing.PenEx"/> object.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.BottomRight">
+        <member name="P:OpenNETCF.Drawing.PenEx.Width">
             <summary>
-            Content is vertically aligned at the bottom, and horizontally aligned on the right.
+            Gets or sets the Width of this object.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleCenter">
+        <member name="T:OpenNETCF.Win32.BitmapFileHeader">
             <summary>
-            Content is vertically aligned in the middle, and horizontally aligned at the center.
+            This structure contains information about the type, size, and layout of a file that containing a device-independent bitmap (DIB).
+            </summary>
+            <remarks>Wraps the native <b>BITMAPFILEHEADER</b> structure</remarks>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Type">
+            <summary>
+            Specifies the file type. It must be BM.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleLeft">
+        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Size">
             <summary>
-            Content is vertically aligned in the middle, and horizontally aligned on the left.
+            Specifies the size, in bytes, of the bitmap file.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.MiddleRight">
+        <member name="P:OpenNETCF.Win32.BitmapFileHeader.OffBits">
             <summary>
-            Content is vertically aligned in the middle, and horizontally aligned on the right.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopCenter">
-            <summary>
-            Content is vertically aligned at the top, and horizontally aligned at the center.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopLeft">
-            <summary>
-            Content is vertically aligned at the top, and horizontally aligned on the left.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment.TopRight">
-            <summary>
-            Content is vertically aligned at the top, and horizontally aligned on the right.
+            Specifies the offset, in bytes, from the <b>BitmapFileHeader</b> structure to the bitmap bits.
             </summary>
         </member>
         <member name="T:OpenNETCF.Drawing.FontEx">
@@ -267,140 +538,6 @@
         <member name="P:OpenNETCF.Drawing.FontEx.ClearType">
             <summary>
             Gets or sets a clear type for FontEx object.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.ColorTranslator">
-            <summary>
-            Translates colors to and from <see cref="T:System.Drawing.Color"/> structures.
-            </summary>
-            <seealso cref="T:System.Drawing.ColorTranslator">System.Drawing.ColorTranslator Class</seealso>
-        </member>
-        <member name="M:OpenNETCF.Drawing.ColorTranslator.ToHtml(System.Drawing.Color)">
-            <summary>
-            Translates the specified <see cref="T:System.Drawing.Color"/> structure to an HTML string color representation.
-            </summary>
-            <param name="c">The <see cref="T:System.Drawing.Color"/> structure to translate.</param>
-            <returns>The string that represents the HTML color.</returns>
-            <remarks>Unlike the desktop version of this function it does not check for named colors but instead always returns the hex notation values - e.g. Color.Red = "#FF0000"</remarks>
-            <seealso cref="M:System.Drawing.ColorTranslator.ToHtml(System.Drawing.Color)">System.Drawing.ColorTranslator.ToHtml Method</seealso>
-        </member>
-        <member name="M:OpenNETCF.Drawing.ColorTranslator.ToWin32(System.Drawing.Color)">
-            <summary>
-            Translates the specified <see cref="T:System.Drawing.Color"/> structure to a Windows color.
-            </summary>
-            <param name="c">The <see cref="T:System.Drawing.Color"/> structure to translate.</param>
-            <returns>The Windows color value.</returns>
-            <seealso cref="M:System.Drawing.ColorTranslator.ToWin32(System.Drawing.Color)">System.Drawing.ColorTranslator.ToWin32 Method</seealso>
-        </member>
-        <member name="M:OpenNETCF.Drawing.ColorTranslator.FromHtml(System.String)">
-            <summary>
-            Translates an HTML color representation to a <see cref="T:System.Drawing.Color"/> structure.
-            </summary>
-            <param name="htmlColor">The string representation of the Html color to translate.</param>
-            <returns>The <see cref="T:System.Drawing.Color"/> structure that represents the translated HTML color.</returns>
-            <seealso cref="M:System.Drawing.ColorTranslator.FromHtml(System.String)">System.Drawing.ColorTranslator.FromHtml Method</seealso>
-        </member>
-        <member name="M:OpenNETCF.Drawing.ColorTranslator.FromWin32(System.Int32)">
-            <summary>
-            Translates a Windows color value to a <see cref="T:System.Drawing.Color"/> structure.
-            </summary>
-            <param name="win32Color">The Windows color to translate.</param>
-            <returns>The <see cref="T:System.Drawing.Color"/> structure that represents the translated Windows color.</returns>
-            <seealso cref="M:System.Drawing.ColorTranslator.FromWin32(System.Int32)">System.Drawing.ColorTranslator.FromWin32 Method</seealso>
-        </member>
-        <member name="T:OpenNETCF.Win32.DibSection">
-            <summary>
-            Wrapper for WIN32 <b>DIBSECTION</b> structure
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.DibSection.bmType">
-            <summary>
-            Specifies the bitmap type; set to zero.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.DibSection.bmWidth">
-            <summary>
-            Specifies the width, in pixels, of the bitmap.
-            The width must be greater than zero.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.DibSection.bmHeight">
-            <summary>
-            Specifies the height, in pixels, of the bitmap.
-            The height must be greater than zero.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.DibSection.bmWidthBytes">
-            <summary>
-            Specifies the number of bytes in each scan line.
-            This value must be divisible by 2, because the system assumes that the bit values of a bitmap form an array that is word aligned.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.DibSection.bmBits">
-            <summary>
-            Pointer to the location of the bit values for the bitmap.
-            The bmBits member must be a long pointer to an array of character (1-byte) values.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Win32.BitmapFileHeader">
-            <summary>
-            This structure contains information about the type, size, and layout of a file that containing a device-independent bitmap (DIB).
-            </summary>
-            <remarks>Wraps the native <b>BITMAPFILEHEADER</b> structure</remarks>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Type">
-            <summary>
-            Specifies the file type. It must be BM.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Size">
-            <summary>
-            Specifies the size, in bytes, of the bitmap file.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapFileHeader.OffBits">
-            <summary>
-            Specifies the offset, in bytes, from the <b>BitmapFileHeader</b> structure to the bitmap bits.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.PenEx">
-            <summary>
-            Defines an object used to draw lines and curves.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.Color"/>.  
-            </summary>
-            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the Width.  
-            </summary>
-            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-            <param name="width"></param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,OpenNETCF.Drawing.Drawing2D.DashStyle)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.DashStyle"/>.
-            </summary>
-            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-            <param name="style"></param>
-        </member>
-        <member name="P:OpenNETCF.Drawing.PenEx.Color">
-            <summary>
-            Gets or sets the color of this object.  
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.PenEx.DashStyle">
-            <summary>
-            Gets or sets the style used for dashed lines drawn with this <see cref="T:OpenNETCF.Drawing.PenEx"/> object.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.PenEx.Width">
-            <summary>
-            Gets or sets the Width of this object.
             </summary>
         </member>
         <member name="T:OpenNETCF.Drawing.GraphicsEx">
@@ -588,143 +725,6 @@
         <member name="F:OpenNETCF.Drawing.Drawing2D.DashStyle.Solid">
             <summary>
             Specifies a solid line.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Win32.GDI">
-            <summary>
-            GDI P/Invokes and definitions.
-            <para><b>New in v1.3</b></para>
-            </summary>
-            <remarks>Previously part of <see cref="T:OpenNETCF.Win32.Core"/>.</remarks>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.SetTextColor(System.IntPtr,System.Int32)">
-            <summary>
-            Set the forecolor of text in the selected DC
-            </summary>
-            <param name="hdc"></param>
-            <param name="crColor"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.GetTextColor(System.IntPtr)">
-            <summary>
-            Get the forecolor of text in the selected DC
-            </summary>
-            <param name="hdc"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.SetBkColor(System.IntPtr,System.Int32)">
-            <summary>
-            Set the backcolor in the selected DC
-            </summary>
-            <param name="hdc"></param>
-            <param name="crColor"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.SetBkMode(System.IntPtr,OpenNETCF.Win32.GDI.BackgroundMode)">
-            <summary>
-            Set the backmode in the selected DC
-            </summary>
-            <param name="hdc"></param>
-            <param name="iBkMode"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.SelectObject(System.IntPtr,System.IntPtr)">
-            <summary>
-            Select a system object (FONT, DC, etc.)
-            </summary>
-            <param name="hdc"></param>
-            <param name="hgdiobj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.ReleaseDC(System.IntPtr,System.IntPtr)">
-            <summary>
-            Release a Device Context
-            </summary>
-            <param name="hWnd"></param>
-            <param name="hDC"></param>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.GetWindowDC(System.IntPtr)">
-            <summary>
-            Get the DC for the specified window
-            </summary>
-            <param name="hWnd">Native window handle of the window.</param>
-            <returns>Device Context Handle for specified window.</returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.GetDC(System.IntPtr)">
-            <summary>
-            Get the DC for the specified window handle
-            </summary>
-            <param name="hWnd"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.Rectangle(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Draw a rectangle in a DC
-            </summary>
-            <param name="hdc"></param>
-            <param name="nLeftRect"></param>
-            <param name="nTopRect"></param>
-            <param name="nRightRect"></param>
-            <param name="nBottomRect"></param>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.GetObject(System.IntPtr,System.Int32,System.Byte[])">
-            <summary>
-            This function obtains information about a specified graphics object.
-            </summary>
-            <param name="hObj">Handle to the graphics object of interest.</param>
-            <param name="cb">Specifies the number of bytes of information to be written to the buffer.</param>
-            <param name="objdata">a buffer that is to receive the information about the specified graphics object.</param>
-            <returns>If the function succeeds, and lpvObject is a valid pointer, the return value is the number of bytes stored into the buffer.</returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.GetObject(System.IntPtr,System.Int32,OpenNETCF.Win32.DibSection)">
-            <summary>
-            This function obtains information about a specified graphics object.
-            </summary>
-            <param name="hObj">Handle to the graphics object of interest.</param>
-            <param name="cb">Specifies the number of bytes of information to be written to the buffer.</param>
-            <param name="objdata">a buffer that is to receive the information about the specified graphics object.</param>
-            <returns>If the function succeeds, and lpvObject is a valid pointer, the return value is the number of bytes stored into the buffer.</returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.CreateSolidBrush(System.Int32)">
-            <summary>
-            This function creates a logical brush that has the specified solid color.
-            </summary>
-            <param name="crColor">Specifies the color of the brush.</param>
-            <returns>A handle that identifies a logical brush indicates success.</returns>
-        </member>
-        <member name="T:OpenNETCF.Win32.GDI.RegionFlags">
-            <summary>
-            Region type
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.NULLREGION">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.SIMPLEREGION">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.COMPLEXREGION">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Win32.GDI.BackgroundMode">
-            <summary>
-            Background mode
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.GDI.BackgroundMode.TRANSPARENT">
-            <summary>
-            Background is Transparent.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.GDI.BackgroundMode.OPAQUE">
-            <summary>
-            Background is Opaque.
             </summary>
         </member>
     </members>

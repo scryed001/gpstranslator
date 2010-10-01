@@ -4,63 +4,279 @@
         <name>OpenNETCF.Net</name>
     </assembly>
     <members>
-        <member name="T:OpenNETCF.Net.Ftp.FtpDataStream">
+        <member name="T:OpenNETCF.Net.NetworkInformation.InterfaceType">
             <summary>
-            An FTP connection has got two streams, one for sending control commands an another one for "data" retrieval and "sending"
-            This stream is the Control Stream of the FTP connection, meaning it will be used to transmit control commands and
-            also for checking if transmissions of those control commands was ok.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.Ftp.FtpStream">
-            <summary>
-            Summary description for FtpStream.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.Ftp.FtpCommandType">
-            <summary>
-            Summary description for FtpMethod.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.OperationalStatus">
-            <summary>
-            Specifies the operational state of a network interface.
+            Specifies types of network interfaces.
             <para><b>New in v1.3</b></para>
             </summary>
         </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.Dormant">
+        <member name="T:OpenNETCF.Net.DestinationInfo">
             <summary>
-            The network interface is not in a condition to transmit data packets; it is waiting for an external event.
+            Contains information about a specific network.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.Down">
+        <member name="F:OpenNETCF.Net.DestinationInfo.NativeSize">
             <summary>
-            The network interface is unable to transmit data packets.
+            Size of the DestinationInfo structure in unmanaged memory.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.LowerLayerDown">
+        <member name="F:OpenNETCF.Net.DestinationInfo.guid">
             <summary>
-            The network interface is unable to transmit data packets because it runs on top of one or more other interfaces, and at least one of these "lower layer" interfaces is down.
+            The destination's GUID identifier.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.NotPresent">
+        <member name="F:OpenNETCF.Net.DestinationInfo.description">
             <summary>
-            The network interface is unable to transmit data packets because of a missing component, typically a hardware component.
+            The destination's description.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.Testing">
+        <member name="M:OpenNETCF.Net.DestinationInfo.#ctor">
             <summary>
-            The network interface is running tests.
+            Default constructor.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.Unknown">
+        <member name="M:OpenNETCF.Net.DestinationInfo.#ctor(System.IntPtr)">
             <summary>
-            The network interface status is not known.
+            Creates a new instance of DestinationInfo at the specific memory address.
+            </summary>
+            <param name="baseAddr">Memory address where the DestinationInfo object should be created.</param>
+        </member>
+        <member name="T:OpenNETCF.Net.ConnectionInfo">
+            <summary>
+            Summary description for ConnectionInfo.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.Up">
+        <member name="M:OpenNETCF.Net.ConnectionInfo.ToPtr">
             <summary>
-            The network interface is up; it can transmit data packets.
+            Writes the ConnectionInfo data to unmanaged memory.
             </summary>
+            <returns>A pointer to the unmanaged memory block storing the ConnectionInfo data</returns>		
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionInfo.Dispose">
+            <summary>
+            Disposes of the ConnectionInfo object.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics">
+            <summary>
+            Provides statistical data for a network interface on the local computer.
+            <para><b>New in v1.3</b></para>
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.BytesReceived">
+            <summary>
+            Gets the number of bytes received on the interface.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.BytesSent">
+            <summary>
+            Gets the number of bytes sent on the interface.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.IncomingPacketsDiscarded">
+            <summary>
+            Gets the number of incoming packets discarded.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.IncomingPacketsWithErrors">
+            <summary>
+            Gets the number of incoming packets with errors.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.IncomingUnknownProtocolPackets">
+            <summary>
+            Gets the number of incoming packets with an unknown protocol.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.NonUnicastPacketsReceived">
+            <summary>
+            Gets the number of non-unicast packets received on the interface.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.NonUnicastPacketsSent">
+            <summary>
+            Gets the number of non-unicast packets sent on the interface.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.OutgoingPacketsDiscarded">
+            <summary>
+            Gets the number of outgoing packets that were discarded.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.OutgoingPacketsWithErrors">
+            <summary>
+            Gets the number of outgoing packets with errors.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.OutputQueueLength">
+            <summary>
+            Gets the length of the output queue.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.UnicastPacketsReceived">
+            <summary>
+            Gets the number of unicast packets received on the interface.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.UnicastPacketsSent">
+            <summary>
+            Gets the number of unicast packets sent on the interface.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.NetworkInformation.PingOptions">
+            <summary>
+            Used to control how Ping data packets are transmitted.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.PingOptions.#ctor">
+            <summary>
+            Initializes a new instance of the PingOptions class.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.PingOptions.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the PingOptions class and sets the Time to Live and fragmentation values.
+            </summary>
+            <param name="ttl">Specifies the number of times the Ping data packets can be forwarded.</param>
+            <param name="dontFragment">True to prevent data sent to the remote host from being fragmented; otherwise, false.</param>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.PingOptions.Ttl">
+            <summary>
+            Gets or sets the number of routing nodes that can forward the Ping data before it is discarded.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.PingOptions.DontFragment">
+            <summary>
+            Gets or sets a Boolean value that controls fragmentation of the data sent to the remote host.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.NetworkInformation.NetworkInformationException">
+            <summary>
+            The exception that is thrown when an error occurs while retrieving network information.
+            <para><b>New in v1.3</b></para>
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.NetworkInformationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.Net.NetworkInformation.NetworkInformationException"/> class.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.NetworkInformationException.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.Net.NetworkInformation.NetworkInformationException"/> class.
+            </summary>
+            <param name="errorCode">A Win32 error code.</param>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.NetworkInformationException.ErrorCode">
+            <summary>
+            Gets the Win32 error code for this exception.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.NetworkInformation.Ping">
+            <summary>
+            Allows an application to determine whether a remote computer is accessible over the network.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.Ping.#ctor">
+            <summary>
+            Initializes a new instance of the Ping class.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.Ping.Send(System.String)">
+            <summary>
+            Attempts to send an Internet Control Message Protocol (<c>ICMP</c>) echo message.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.Ping.Send(System.String,System.Int32)">
+            <summary>
+            Attempts to send an Internet Control Message Protocol (<c>ICMP</c>) echo message.
+            </summary>
+            <param name="hostNameOrAddress"></param>
+            <param name="timeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.Ping.Send(System.String,System.Byte[],System.Int32,OpenNETCF.Net.NetworkInformation.PingOptions)">
+            <summary>
+            Attempts to send an Internet Control Message Protocol (<c>ICMP</c>) echo message.
+            </summary>
+            <param name="hostNameOrAddress"></param>
+            <param name="buffer"></param>
+            <param name="timeout"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.Ping.Send(System.Net.IPAddress,System.Byte[],System.Int32,OpenNETCF.Net.NetworkInformation.PingOptions)">
+            <summary>
+            Attempts to send an Internet Control Message Protocol (<c>ICMP</c>) echo message.
+            </summary>
+            <param name="address"></param>
+            <param name="buffer"></param>
+            <param name="timeout"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="T:OpenNETCF.Net.AdapterType">
+            <summary>
+            Different NIC adapter types
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.AdapterType.Other">
+            <summary>
+            Adapter type not known at compile time
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.AdapterType.Ethernet">
+            <summary>
+            Ethernet adapter.  Also includes RF Ethernet
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.AdapterType.TokenRing">
+            <summary>
+            Token ring adapter
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.AdapterType.FDDI">
+            <summary>
+            Fiber optic adapter
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.AdapterType.PPP">
+            <summary>
+            Dial-up/serial adapter using PPP protocol
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.AdapterType.Loopback">
+            <summary>
+            Loopback adapter
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.AdapterType.SLIP">
+            <summary>
+            Dial-up/serial adapter using SLIP protocol
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Ftp.X509CertificateCollection">
+            <summary>
+            Summary description for X509CertificateCollection.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.NetworkInformation.NetworkInterface">
+            <summary>
+            Provides configuration and statistical information for a network interface.
+            <para><b>New in v1.3</b></para>
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces">
+            <summary>
+            Returns objects that describe the network interfaces on the local computer.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.NetworkInterface.GetIPInterfaceProperties">
+            <summary>
+            Returns an object that describes the configuration of this network interface.
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:OpenNETCF.Net.NetworkInformation.IPInterfaceProperties">
             <summary>
@@ -74,10 +290,162 @@
             </summary>
             <returns>An <see cref="T:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics"/> object that provides traffic statistics for this network interface.</returns>
         </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.InterfaceType">
+        <member name="T:OpenNETCF.Net.Ftp.FtpControlStream">
             <summary>
-            Specifies types of network interfaces.
-            <para><b>New in v1.3</b></para>
+            An FTP connection has got two streams, one for sending control commands an another one for "data" retrieval and "sending"
+            This stream is the Control Stream of the FTP connection, meaning it will be used to transmit control commands and
+            also for checking if transmissions of those control commands was ok.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Ftp.FtpStream">
+            <summary>
+            Summary description for FtpStream.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.DestinationInfoCollection">
+            <summary>
+            Summary description for DestinationInfoCollection.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.NetworkInformation.PingReply">
+            <summary>
+            Provides information about the status and data resulting from a Send operation.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.PingReply.Options">
+            <summary>
+            Gets the options used to transmit the reply to an Internet Control Message Protocol (ICMP) echo request.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.PingReply.Address">
+            <summary>
+            Gets the address of the host that sends the Internet Control Message Protocol (ICMP) echo reply.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.PingReply.Buffer">
+            <summary>
+            Gets the buffer of data received in an Internet Control Message Protocol (ICMP) echo reply message.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.PingReply.RoundTripTime">
+            <summary>
+            Gets the number of milliseconds taken to send an Internet Control Message Protocol (ICMP) echo request and receive the corresponding ICMP echo reply message.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkInformation.PingReply.Status">
+            <summary>
+            Gets the status of an attempt to send an Internet Control Message Protocol (ICMP) echo request and receive the corresponding ICMP echo reply message.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Ftp.FtpWebResponse">
+            <summary>
+            Summary description for FtpWebResponse.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Ftp.CommandResponse">
+            <summary>
+            Summary description for CommandResponse.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.NdisNotificationType">
+            <summary>
+            The NdisNotificationType enumeration defines the types
+            of notifications which can be requested from NDIS.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisResetStart">
+            <summary>
+            NdisResetStart is set when an adapter is being
+            reset.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisResetEnd">
+            <summary>
+            NdisResetEnd is sent when the reset process on an
+            adapter is complete and the adapter is ready to be
+            rebound.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisMediaConnect">
+            <summary>
+            NdisMediaConnect is set when the communications
+            media, an Ethernet cable for example, is connected
+            to the adapter.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisMediaDisconnect">
+            <summary>
+            NdisMediaDisconnect is set when the communciations
+            media, an Ethernet cable for example, is disconnected
+            from the adapter.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisBind">
+            <summary>
+            NdisBind is set when one or more protocols, TCP/IP
+            typically, is bound to the adapter.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisUnbind">
+            <summary>
+            NdisUnbind is set when the adapter is unbound from
+            one or more protocols.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisMediaSpecific">
+            <summary>
+            NdisMediaSpecific is set when some notification not
+            generally defined for all adapter types occurred.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.AdapterStatusMonitor">
+            <summary>
+            Class giving the ability to monitor NDIS adapters for changes
+            in their state.  When a change is detected, an event is fired
+            to all interested parties.  The parameters of the event indicate
+            the type of status change and the name of the adapter which
+            changed.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.AdapterStatusMonitor.StartStatusMonitoring">
+            <summary>
+            Initiates a worker thread to listen for NDIS-reported
+            changes to the status of the adapter.  Listeners can
+            register for notification of these changes, which the
+            thread will send.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.AdapterStatusMonitor.StopStatusMonitoring">
+            <summary>
+            Stops the worker thread which monitors for changes of status
+            of the adapter.  This must be done, if monitoring has been
+            started, before the object is destroyed.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.AdapterStatusMonitor.OnAdapterNotification(System.EventArgs)">
+            <summary>
+            Raises the AdapterNotification event.
+            </summary>
+            <param name="e">
+            An EventArgs that contains the event data.
+            </param>
+        </member>
+        <member name="P:OpenNETCF.Net.AdapterStatusMonitor.Active">
+            <summary>
+            The Active property is true when the status is
+            being monitored.  If status monitoring is not
+            occurring, Active is false.
+            </summary>
+        </member>
+        <member name="E:OpenNETCF.Net.AdapterStatusMonitor.AdapterNotification">
+            <summary>
+            Event fired when some aspect of the adapter's configuration
+            or state has changed.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Ftp.FtpStatusCode">
+            <summary>
+            Summary description for FtpStatusCode.
             </summary>
         </member>
         <member name="T:OpenNETCF.Net.DeviceNotificationArgs">
@@ -215,31 +583,142 @@
             has changed.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.PingOptions">
+        <member name="T:OpenNETCF.Net.SelfMarshalledStruct">
             <summary>
-            Used to control how Ping data packets are transmitted.
+            Summary description for SelfMarshalledStruct.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.PingOptions.#ctor">
+        <member name="T:OpenNETCF.Net.Ftp.FtpWebRequest">
             <summary>
-            Initializes a new instance of the PingOptions class.
+            Summary description for FtpWebRequest.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.PingOptions.#ctor(System.Int32,System.Boolean)">
+        <member name="M:OpenNETCF.Net.Ftp.FtpWebRequest.GetRequestStream">
             <summary>
-            Initializes a new instance of the PingOptions class and sets the Time to Live and fragmentation values.
+            Gets a stream instance which youu can use to WRITE request data to.
+            Once the stream has been returned you can use the Write method to send data
             </summary>
-            <param name="ttl">Specifies the number of times the Ping data packets can be forwarded.</param>
-            <param name="dontFragment">True to prevent data sent to the remote host from being fragmented; otherwise, false.</param>
+            <returns>FtpDataStream</returns>
         </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.PingOptions.Ttl">
+        <member name="M:OpenNETCF.Net.Ftp.FtpWebRequest.GetResponse">
             <summary>
-            Gets or sets the number of routing nodes that can forward the Ping data before it is discarded.
+            Sends the request to the server and returns the response
+            </summary>
+            <returns>Returns an FtpWebResponse which can be used to access the response from the request</returns>
+        </member>
+        <member name="T:OpenNETCF.Net.Ftp.FtpCommandType">
+            <summary>
+            Summary description for FtpMethod.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.PingOptions.DontFragment">
+        <member name="T:OpenNETCF.Net.AdapterCollection">
             <summary>
-            Gets or sets a Boolean value that controls fragmentation of the data sent to the remote host.
+            Class that represents a collection of network adapters 
+            connected to the Windows CE device.  Each adapter can 
+            be queried for information such as the signal strength 
+            (RF only), the activity state, etc.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.AdapterCollection.#ctor">
+            <summary>
+            Constructor loads the list by querying the 
+            operating system for the list of adapters which
+            are currently connected.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.AdapterCollection.Refresh">
+            <summary>
+            Clears and reconstructs the list of adapters,
+            based on the current hardware connections to the
+            device.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.AdapterCollection.Item(System.Int32)">
+            <summary>
+            Indexer for contained Adapters
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.NetworkInformation.PingException">
+            <summary>
+            The exception that is thrown when a Send method calls a method that throws an exception.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.PingException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the PingException class using the specified message.
+            </summary>
+            <param name="message">A String that describes the error.</param>
+        </member>
+        <member name="M:OpenNETCF.Net.NetworkInformation.PingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the PingException class using the specified message and inner exception.
+            </summary>
+            <param name="message">A String that describes the error.</param>
+            <param name="innerException">The exception that causes the current exception.</param>
+        </member>
+        <member name="T:OpenNETCF.Net.WZC_WLAN_CONFIG_LIST">
+            <summary>
+            This class represents the data returned by the 
+            WZCQueryInterface() call to WZC.  There are several
+            values in the INTF_ENTRY struct returned by that
+            query, including a couple of SSID lists (those SSID
+            values currently 'audible' to the adapter and the
+            preferred list).  This type is how those lists are
+            returned.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.AccessPointCollection">
+            <summary>
+            Class that represents a collection of the SSID values
+            that a given network adapter can hear over the 
+            airwaves.  For each SSID, you can get the signal
+            strength and random other information.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.AccessPointCollection.Refresh">
+            <summary>
+            Refresh the list of SSID values, asking the 
+            adapter to scan for new ones, also.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.AccessPointCollection.FindBySSID(System.String)">
+            <summary>
+            Find a given access point in the collection by
+            looking for a matching SSID value.
+            </summary>
+            <param name="ssid">
+            String SSID to search for.
+            </param>
+            <returns>
+            First AccessPoint in the collection with the 
+            indicated SSID, or null, if none was found.
+            </returns>
+        </member>
+        <member name="P:OpenNETCF.Net.AccessPointCollection.AssociatedAdapter">
+            <summary>
+            The Adapter instance with which the SSID instance
+            is associated.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.AccessPointCollection.Item(System.Int32)">
+            <summary>
+            Indexer for contained Adapters
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.NetworkInformation.NetworkInterfaceComponent">
+            <summary>
+            Specifies the Internet Protocols supported by a network interface.
+            <para><b>New in v1.3</b></para>
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NetworkInformation.NetworkInterfaceComponent.IPv4">
+            <summary>
+            Internet Protocol version 4.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NetworkInformation.NetworkInterfaceComponent.IPv6">
+            <summary>
+            Internet Protocol version 6.
             </summary>
         </member>
         <member name="P:OpenNETCF.Net.NetworkInformation.MibIfRow.Index">
@@ -317,690 +796,78 @@
             Specifies outgoing queue length.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Net.AdapterType">
-            <summary>
-            Different NIC adapter types
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.AdapterType.Other">
-            <summary>
-            Adapter type not known at compile time
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.AdapterType.Ethernet">
-            <summary>
-            Ethernet adapter.  Also includes RF Ethernet
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.AdapterType.TokenRing">
-            <summary>
-            Token ring adapter
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.AdapterType.FDDI">
-            <summary>
-            Fiber optic adapter
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.AdapterType.PPP">
-            <summary>
-            Dial-up/serial adapter using PPP protocol
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.AdapterType.Loopback">
-            <summary>
-            Loopback adapter
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.AdapterType.SLIP">
-            <summary>
-            Dial-up/serial adapter using SLIP protocol
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.ConnectionManagerState">
-            <summary>
-            Specifies the network connection state.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.ConnectionStatus">
-            <summary>
-            Describes the current status of the connection
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.Unknown">
-            <summary>
-            Unknown status
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.Connected">
-            <summary>
-            Connection is up
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.Disconnected">
-            <summary>
-            Connection is disconnected
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.ConnectionFailed">
-            <summary>
-            Connection failed and cannot not be re-established
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.ConnectionCancelled">
-            <summary>
-            User aborted connection
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.ConnectionDisabled">
-            <summary>
-            Connection is ready to connect but disabled
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.NoPathToDestination">
-            <summary>
-            No path could be found to destination
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingForPath">
-            <summary>
-            Waiting for a path to the destination
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingForPhone">
-            <summary>
-            Voice call is in progress
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingConnection">
-            <summary>
-            Attempting to connect
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingForResource">
-            <summary>
-            Resource is in use by another connection
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingForNetwork">
-            <summary>
-            No path could be found to destination
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingDisconnection">
-            <summary>
-            Connection is being brought down
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingConnectionAbort">
-            <summary>
-            Aborting connection attempt
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.ConnectionManager">
-            <summary>
-            A class that handles opening and closing of network connections. 
-            <para>
-            It is important to remember that when connecting asynchronous, 
-            you must poll the connection status in your code.
-            </para>
-            <example>
-            <code>
-            bool connected = false;
-            ConnectionManger connMgr = new ConnectionManager();
-            connMgr.Connect(true, ConnectionMode.Asynchronous);
-            while(!connected)
-            {
-                if(connMgr.Status != ConnectionStatus.Connected)
-                {
-            	    Thread.Sleep(1000);
-            	    continue;
-                }
-                connected = true;
-            }
-            // Now we are connected and can do something... 
-            </code>
-            </example>
-            <para>
-            It is also important to note that creating a non-exclusive 
-            connection will result in your application being unable to 
-            programmatically disconnect.
-            </para>
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.#ctor">
-            <summary>
-            Creates a new instance of the Connection Manager object.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.ConnectEvent(System.EventArgs)">
-            <summary>
-            Raises the OpenNETCF.Net.ConnectionManager.OnConnect event.
-            </summary>
-            <param name="e">A System.EventArgs object that contains the event data.</param>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.DisconnectEvent(System.EventArgs)">
-            <summary>
-            Raises the OpenNETCF.Net.ConnectionManager.Disconnected event.
-            </summary>
-            <param name="e">A System.EventArgs object that contains the event data.</param>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.ConnectionStateChangedEvent(System.EventArgs)">
-            <summary>
-            Raises the OpenNETCF.Net.ConnectionManager.ConnectionStateChanged event.
-            </summary>
-            <param name="e">A System.EventArgs object that contains the event data.</param>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.ConnectionFailedEvent(System.EventArgs)">
-            <summary>
-            Raises the OpenNETCF.Net.ConnectionManager.ConnectionFailed event.
-            </summary>
-            <param name="e">A System.EventArgs object that contains the event data.</param>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.Connect">
-            <summary>
-            Makes an exclusive, asynchronous connection with Connection Manager using the system default destination. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.Connect(System.Boolean)">
-            <summary>
-            Makes an asynchronous connection with Connection Manager using the system default destination.
-            </summary>
-            <param name="exclusive">True creates an exclusive connection; false creates a non-exclusive connection.</param>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.Connect(OpenNETCF.Net.ConnectionMode)">
-            <summary>
-            Makes an exclusive connection with Connection Manager using the system default destination.
-            </summary>
-            <param name="mode">States how the connection is to be made: either Synchronous or Asynchronous</param>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.Connect(System.Boolean,OpenNETCF.Net.ConnectionMode)">
-            <summary>
-            Makes a connection with Connection Manager using the system default destination.
-            </summary>
-            <param name="exclusive">True creates an exclusive connection; false creates a non-exclusive connection.</param>
-            <param name="mode">States how the connection is to be made: either Synchronous or Asynchronous</param>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.Connect(System.Guid,System.Boolean,OpenNETCF.Net.ConnectionMode)">
-            <summary>
-            Makes a connection with Connection Manager using the specified destination.
-            </summary>
-            <param name="destGuid">The destination to connect to.</param>
-            <param name="exclusive">Determines whether the connection should be exclusive or not.</param>
-            <param name="mode">Determines how the connection is to be made: either Synchronous or Asynchronous</param>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.MapUrl(System.String)">
-            <summary>
-            Maps a URL to a destination GUID.
-            </summary>
-            <param name="Url">The URL to map.</param>
-            <returns>The GUID the URL is mapped to.</returns>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.Disconnect">
-            <summary>
-            Disconnection the current connection.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.Disconnect(System.IntPtr)">
-            <summary>
-            Disconnection the connection whose handle is hConnection.
-            </summary>
-            <param name="hConnection">The handle of the connection to close.</param>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionManager.EnumDestinations">
-            <summary>
-            Returns a collection of destinations specified within the system.
-            </summary>
-            <returns>A DestinationInfo collection with details of all the destinations in the system.</returns>
-        </member>
-        <member name="P:OpenNETCF.Net.ConnectionManager.State">
-            <summary>
-            The current connection state of Connection Manager
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.ConnectionManager.Handle">
-            <summary>
-            Returns a handle to the current connection.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.ConnectionManager.Status">
-            <summary>
-            Describes the current state of the connection
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.ConnectionManager.Timeout">
-            <summary>
-            Specifies the timeout for a synchronous connection attempt
-            </summary>
-        </member>
-        <member name="E:OpenNETCF.Net.ConnectionManager.OnConnect">
-            <summary>
-            Occurs when a connection is opened.
-            </summary>
-        </member>
-        <member name="E:OpenNETCF.Net.ConnectionManager.OnDisconnect">
-            <summary>
-            Occurs when a connection is closed.
-            </summary>
-        </member>
-        <member name="E:OpenNETCF.Net.ConnectionManager.OnConnectionStateChanged">
-            <summary>
-            Occurs when the connection state is changed.
-            </summary>
-        </member>
-        <member name="E:OpenNETCF.Net.ConnectionManager.OnConnectionFailed">
-            <summary>
-            Occurs when a connection fails.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.Networking">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.Networking.GetAdapters">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.IPStatus">
-            <summary>
-            Reports the status of sending an Internet Control Message Protocol (ICMP) echo message to a computer.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.Ftp.FtpControlStream">
+        <member name="T:OpenNETCF.Net.Ftp.FtpDataStream">
             <summary>
             An FTP connection has got two streams, one for sending control commands an another one for "data" retrieval and "sending"
             This stream is the Control Stream of the FTP connection, meaning it will be used to transmit control commands and
             also for checking if transmissions of those control commands was ok.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Net.Ftp.CommandResponse">
+        <member name="T:OpenNETCF.Net.AdapterException">
             <summary>
-            Summary description for CommandResponse.
+            The AdapterException class indicates an exception during
+            an adapter query, modification, or other operation.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Net.Ftp.X509CertificateCollection">
+        <member name="M:OpenNETCF.Net.AdapterException.#ctor">
             <summary>
-            Summary description for X509CertificateCollection.
+            Basic constructor.  No message or error code number.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Net.DestinationInfoCollection">
+        <member name="M:OpenNETCF.Net.AdapterException.#ctor(System.String)">
             <summary>
-            Summary description for DestinationInfoCollection.
+            Basic constructor using the message string of the base
+            class.
             </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.NdisNotificationType">
-            <summary>
-            The NdisNotificationType enumeration defines the types
-            of notifications which can be requested from NDIS.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisResetStart">
-            <summary>
-            NdisResetStart is set when an adapter is being
-            reset.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisResetEnd">
-            <summary>
-            NdisResetEnd is sent when the reset process on an
-            adapter is complete and the adapter is ready to be
-            rebound.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisMediaConnect">
-            <summary>
-            NdisMediaConnect is set when the communications
-            media, an Ethernet cable for example, is connected
-            to the adapter.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisMediaDisconnect">
-            <summary>
-            NdisMediaDisconnect is set when the communciations
-            media, an Ethernet cable for example, is disconnected
-            from the adapter.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisBind">
-            <summary>
-            NdisBind is set when one or more protocols, TCP/IP
-            typically, is bound to the adapter.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisUnbind">
-            <summary>
-            NdisUnbind is set when the adapter is unbound from
-            one or more protocols.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NdisNotificationType.NdisMediaSpecific">
-            <summary>
-            NdisMediaSpecific is set when some notification not
-            generally defined for all adapter types occurred.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.AdapterStatusMonitor">
-            <summary>
-            Class giving the ability to monitor NDIS adapters for changes
-            in their state.  When a change is detected, an event is fired
-            to all interested parties.  The parameters of the event indicate
-            the type of status change and the name of the adapter which
-            changed.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.AdapterStatusMonitor.StartStatusMonitoring">
-            <summary>
-            Initiates a worker thread to listen for NDIS-reported
-            changes to the status of the adapter.  Listeners can
-            register for notification of these changes, which the
-            thread will send.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.AdapterStatusMonitor.StopStatusMonitoring">
-            <summary>
-            Stops the worker thread which monitors for changes of status
-            of the adapter.  This must be done, if monitoring has been
-            started, before the object is destroyed.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.AdapterStatusMonitor.OnAdapterNotification(System.EventArgs)">
-            <summary>
-            Raises the AdapterNotification event.
-            </summary>
-            <param name="e">
-            An EventArgs that contains the event data.
+            <param name="message">
+            Message string for base class
             </param>
         </member>
-        <member name="P:OpenNETCF.Net.AdapterStatusMonitor.Active">
+        <member name="M:OpenNETCF.Net.AdapterException.#ctor(System.UInt32)">
             <summary>
-            The Active property is true when the status is
-            being monitored.  If status monitoring is not
-            occurring, Active is false.
+            Constructor to which additional error code information,
+            perhaps from a Windows Zero Config call, might be passed.
             </summary>
+            <param name="errcode">
+            Error code, available for return from HRESULT member.
+            </param>
         </member>
-        <member name="E:OpenNETCF.Net.AdapterStatusMonitor.AdapterNotification">
+        <member name="M:OpenNETCF.Net.AdapterException.#ctor(System.Int32)">
             <summary>
-            Event fired when some aspect of the adapter's configuration
-            or state has changed.
+            Constructor to which additional error code information,
+            perhaps from a Windows Zero Config call, might be passed.
             </summary>
+            <param name="errcode">
+            Error code, available for return from HRESULT member.
+            </param>
         </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.Ping">
+        <member name="M:OpenNETCF.Net.AdapterException.#ctor(System.UInt32,System.String)">
             <summary>
-            Allows an application to determine whether a remote computer is accessible over the network.
+            Constructor which takes both string message (passed to
+            base Exception class), and error code value.
             </summary>
+            <param name="errcode">
+            Error code, available for return from HRESULT member.
+            </param>
+            <param name="message">
+            Message string for base class
+            </param>
         </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.Ping.#ctor">
+        <member name="M:OpenNETCF.Net.AdapterException.#ctor(System.Int32,System.String)">
             <summary>
-            Initializes a new instance of the Ping class.
+            Constructor which takes both string message (passed to
+            base Exception class), and error code value.
             </summary>
+            <param name="errcode">
+            Error code, available for return from HRESULT member.
+            </param>
+            <param name="message">
+            Message string for base class
+            </param>
         </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.Ping.Send(System.String)">
+        <member name="P:OpenNETCF.Net.AdapterException.HRESULT">
             <summary>
-            Attempts to send an Internet Control Message Protocol (<c>ICMP</c>) echo message.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.Ping.Send(System.String,System.Int32)">
-            <summary>
-            Attempts to send an Internet Control Message Protocol (<c>ICMP</c>) echo message.
-            </summary>
-            <param name="hostNameOrAddress"></param>
-            <param name="timeout"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.Ping.Send(System.String,System.Byte[],System.Int32,OpenNETCF.Net.NetworkInformation.PingOptions)">
-            <summary>
-            Attempts to send an Internet Control Message Protocol (<c>ICMP</c>) echo message.
-            </summary>
-            <param name="hostNameOrAddress"></param>
-            <param name="buffer"></param>
-            <param name="timeout"></param>
-            <param name="options"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.Ping.Send(System.Net.IPAddress,System.Byte[],System.Int32,OpenNETCF.Net.NetworkInformation.PingOptions)">
-            <summary>
-            Attempts to send an Internet Control Message Protocol (<c>ICMP</c>) echo message.
-            </summary>
-            <param name="address"></param>
-            <param name="buffer"></param>
-            <param name="timeout"></param>
-            <param name="options"></param>
-            <returns></returns>
-        </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.NetworkInterfaceComponent">
-            <summary>
-            Specifies the Internet Protocols supported by a network interface.
-            <para><b>New in v1.3</b></para>
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.NetworkInterfaceComponent.IPv4">
-            <summary>
-            Internet Protocol version 4.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.NetworkInterfaceComponent.IPv6">
-            <summary>
-            Internet Protocol version 6.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.SelfMarshalledStruct">
-            <summary>
-            Summary description for SelfMarshalledStruct.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics">
-            <summary>
-            Provides statistical data for a network interface on the local computer.
-            <para><b>New in v1.3</b></para>
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.BytesReceived">
-            <summary>
-            Gets the number of bytes received on the interface.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.BytesSent">
-            <summary>
-            Gets the number of bytes sent on the interface.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.IncomingPacketsDiscarded">
-            <summary>
-            Gets the number of incoming packets discarded.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.IncomingPacketsWithErrors">
-            <summary>
-            Gets the number of incoming packets with errors.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.IncomingUnknownProtocolPackets">
-            <summary>
-            Gets the number of incoming packets with an unknown protocol.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.NonUnicastPacketsReceived">
-            <summary>
-            Gets the number of non-unicast packets received on the interface.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.NonUnicastPacketsSent">
-            <summary>
-            Gets the number of non-unicast packets sent on the interface.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.OutgoingPacketsDiscarded">
-            <summary>
-            Gets the number of outgoing packets that were discarded.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.OutgoingPacketsWithErrors">
-            <summary>
-            Gets the number of outgoing packets with errors.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.OutputQueueLength">
-            <summary>
-            Gets the length of the output queue.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.UnicastPacketsReceived">
-            <summary>
-            Gets the number of unicast packets received on the interface.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.IPInterfaceStatistics.UnicastPacketsSent">
-            <summary>
-            Gets the number of unicast packets sent on the interface.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.IPOptions">
-            <summary>
-            The ip_option_information structure describes the options to be
-            included in the header of an IP packet. The TTL, TOS, and Flags
-            values are carried in specific fields in the header. The OptionsData
-            bytes are carried in the options area following the standard IP header.
-            With the exception of source route options, this data must be in the
-            format to be transmitted on the wire as specified in RFC 791. A source
-            route option should contain the full route - first hop thru final
-            destination - in the route data. The first hop will be pulled out of the
-            data and the option will be reformatted accordingly. Otherwise, the route
-            option should be formatted as specified in RFC 791.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.IPOptions.ttl">
-            <summary>
-            Time To Live.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.IPOptions.tos">
-            <summary>
-            Type Of Service.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.IPOptions.flags">
-            <summary>
-            IP header flags.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NetworkInformation.IPOptions.optionsSize">
-            <summary>
-            Size in bytes of options data.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.NetworkType">
-            <summary>
-            Enumeration returned in the NetworkTypeInUse property.
-            Indicates the general type of radio network in use.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NetworkType.FH">
-            <summary>
-            Indicates the physical layer of the frequency hopping spread-spectrum radio
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NetworkType.DS">
-            <summary>
-            Indicates the physical layer of the direct sequencing spread-spectrum radio
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NetworkType.OFDM5">
-            <summary>
-            Indicates the physical layer for 5-GHz Orthagonal Frequency Division Multiplexing radios
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.NetworkType.OFDM24">
-            <summary>
-            Indicates the physical layer for 24-GHz Orthagonal Frequency Division Multiplexing radios
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.InfrastructureMode">
-            <summary>
-            Define the general network infrastructure mode in
-            which the selected network is presently operating.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.InfrastructureMode.AdHoc">
-            <summary>
-            Specifies the independent basic service set (IBSS) mode. This mode is also known as ad hoc mode
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.InfrastructureMode.Infrastructure">
-            <summary>
-            Specifies the infrastructure mode.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.InfrastructureMode.AutoUnknown">
-            <summary>
-            The infrastructure mode is either set to automatic or cannot be determined.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.AuthenticationMode">
-            <summary>
-            Define authentication types for an adapter.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.WEPStatus">
-            <summary>
-            Define WEP authentication state for the adapter.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.WEPStatus.Ndis802_11WEPEnabled">
-            <summary>
-            WEP encryption enabled
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.WEPStatus.Ndis802_11Encryption1Enabled">
-            <summary>
-            WEP encryption enabled
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.WEPStatus.Ndis802_11WEPDisabled">
-            <summary>
-            No WEP encryption
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.WEPStatus.Ndis802_11EncryptionDisabled">
-            <summary>
-            No WEP encryption
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.WZCCTL">
-            <summary>
-            Control flags for Windows Zero Config
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_WEPK_PRESENT">
-            <summary>
-            specifies whether the configuration includes or not a WEP key
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_WEPK_XFORMAT">
-            <summary>
-            the WEP Key material (if any) is entered as hexadecimal digits
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_VOLATILE">
-            <summary>
-            this configuration should not be stored
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_POLICY">
-            <summary>
-            this configuration is enforced by the policy
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_ONEX_ENABLED">
-            <summary>
-            for this configuration 802.1X should be enabled
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_WEPK_40BLEN">
-            <summary>
-            Key is 40 bit
+            32-bit error code value returned with exception
             </summary>
         </member>
         <member name="T:OpenNETCF.Net.StrengthType">
@@ -1125,79 +992,6 @@
             <summary>
             Strength of signal as enumerated type.
             </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.NetworkInterface">
-            <summary>
-            Provides configuration and statistical information for a network interface.
-            <para><b>New in v1.3</b></para>
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces">
-            <summary>
-            Returns objects that describe the network interfaces on the local computer.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.NetworkInterface.GetIPInterfaceProperties">
-            <summary>
-            Returns an object that describes the configuration of this network interface.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:OpenNETCF.Net.NDIS_802_11_CONFIGURATION_FH.DwellTime">
-            <summary>
-            Amount of time dwelling in each frequency (in kusec).
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.NDIS_802_11_BSSID_LIST">
-            <summary>
-            This class represents the data returned by the 
-            OID_802_11_BSSID_LIST query to an RF Ethernet adapter.
-            It is just used during parsing of the returned data
-            and really should not persist.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.StrengthAddon">
-            <summary>
-            Abstract class representing a 'different' method of
-            finding the signal strength for a network adapter. 
-            You might need to provide a subclass of this class
-            when your code runs on Windows CE 3.0 or earlier or
-            when the signal strength is not retrievable via the
-            Windows CE.NET NDISUIO driver in the standard 802.11
-            manner.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.StrengthAddon.RFSignalStrengthDB(OpenNETCF.Net.Adapter)">
-            <summary>
-            Abstract method.  Your subclass of StrengthAddon
-            must implement this method and do whatever is 
-            needed to get the RF signal strength in dB from
-            the indicated adapter.  Return 0 if the adapter
-            is not an RF adapter or there is an error.
-            </summary>
-            <param name="a">
-            Instance of Adapter class for which signal strength is to be returned
-            </param>
-            <returns>
-            int signal strength in dB or zero for error
-            </returns>
-        </member>
-        <member name="M:OpenNETCF.Net.StrengthAddon.RFSSID(OpenNETCF.Net.Adapter)">
-            <summary>
-            Abstract method.  Your subclass of StrengthAddon
-            must implement this method and do whatever is 
-            needed to get the current SSID from the indicated 
-            adapter.  Return null if the adapter is not an RF 
-            adapter, if it is not presently associated, or 
-            there is an error.
-            </summary>
-            <param name="a">
-            Instance of Adapter class for which SSID is to be returned
-            </param>
-            <returns>
-            String SSID string or null for error or unassociated
-            </returns>
         </member>
         <member name="T:OpenNETCF.Net.PointToPointMsgQueue">
             <summary>
@@ -1350,111 +1144,228 @@
             in the queue.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.NetworkInformationException">
+        <member name="P:OpenNETCF.Net.NDIS_802_11_CONFIGURATION_FH.DwellTime">
             <summary>
-            The exception that is thrown when an error occurs while retrieving network information.
+            Amount of time dwelling in each frequency (in kusec).
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.NDIS_802_11_BSSID_LIST">
+            <summary>
+            This class represents the data returned by the 
+            OID_802_11_BSSID_LIST query to an RF Ethernet adapter.
+            It is just used during parsing of the returned data
+            and really should not persist.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.StrengthAddon">
+            <summary>
+            Abstract class representing a 'different' method of
+            finding the signal strength for a network adapter. 
+            You might need to provide a subclass of this class
+            when your code runs on Windows CE 3.0 or earlier or
+            when the signal strength is not retrievable via the
+            Windows CE.NET NDISUIO driver in the standard 802.11
+            manner.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.StrengthAddon.RFSignalStrengthDB(OpenNETCF.Net.Adapter)">
+            <summary>
+            Abstract method.  Your subclass of StrengthAddon
+            must implement this method and do whatever is 
+            needed to get the RF signal strength in dB from
+            the indicated adapter.  Return 0 if the adapter
+            is not an RF adapter or there is an error.
+            </summary>
+            <param name="a">
+            Instance of Adapter class for which signal strength is to be returned
+            </param>
+            <returns>
+            int signal strength in dB or zero for error
+            </returns>
+        </member>
+        <member name="M:OpenNETCF.Net.StrengthAddon.RFSSID(OpenNETCF.Net.Adapter)">
+            <summary>
+            Abstract method.  Your subclass of StrengthAddon
+            must implement this method and do whatever is 
+            needed to get the current SSID from the indicated 
+            adapter.  Return null if the adapter is not an RF 
+            adapter, if it is not presently associated, or 
+            there is an error.
+            </summary>
+            <param name="a">
+            Instance of Adapter class for which SSID is to be returned
+            </param>
+            <returns>
+            String SSID string or null for error or unassociated
+            </returns>
+        </member>
+        <member name="T:OpenNETCF.Net.Networking">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.Networking.GetAdapters">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:OpenNETCF.Net.NetworkInformation.OperationalStatus">
+            <summary>
+            Specifies the operational state of a network interface.
             <para><b>New in v1.3</b></para>
             </summary>
         </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.NetworkInformationException.#ctor">
+        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.Dormant">
             <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Net.NetworkInformation.NetworkInformationException"/> class.
+            The network interface is not in a condition to transmit data packets; it is waiting for an external event.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.NetworkInformationException.#ctor(System.Int32)">
+        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.Down">
             <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Net.NetworkInformation.NetworkInformationException"/> class.
-            </summary>
-            <param name="errorCode">A Win32 error code.</param>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.NetworkInformationException.ErrorCode">
-            <summary>
-            Gets the Win32 error code for this exception.
+            The network interface is unable to transmit data packets.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.PingException">
+        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.LowerLayerDown">
             <summary>
-            The exception that is thrown when a Send method calls a method that throws an exception.
+            The network interface is unable to transmit data packets because it runs on top of one or more other interfaces, and at least one of these "lower layer" interfaces is down.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.PingException.#ctor(System.String)">
+        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.NotPresent">
             <summary>
-            Initializes a new instance of the PingException class using the specified message.
-            </summary>
-            <param name="message">A String that describes the error.</param>
-        </member>
-        <member name="M:OpenNETCF.Net.NetworkInformation.PingException.#ctor(System.String,System.Exception)">
-            <summary>
-            Initializes a new instance of the PingException class using the specified message and inner exception.
-            </summary>
-            <param name="message">A String that describes the error.</param>
-            <param name="innerException">The exception that causes the current exception.</param>
-        </member>
-        <member name="T:OpenNETCF.Net.AdapterException">
-            <summary>
-            The AdapterException class indicates an exception during
-            an adapter query, modification, or other operation.
+            The network interface is unable to transmit data packets because of a missing component, typically a hardware component.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Net.AdapterException.#ctor">
+        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.Testing">
             <summary>
-            Basic constructor.  No message or error code number.
+            The network interface is running tests.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Net.AdapterException.#ctor(System.String)">
+        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.Unknown">
             <summary>
-            Basic constructor using the message string of the base
-            class.
+            The network interface status is not known.
             </summary>
-            <param name="message">
-            Message string for base class
-            </param>
         </member>
-        <member name="M:OpenNETCF.Net.AdapterException.#ctor(System.UInt32)">
+        <member name="F:OpenNETCF.Net.NetworkInformation.OperationalStatus.Up">
             <summary>
-            Constructor to which additional error code information,
-            perhaps from a Windows Zero Config call, might be passed.
+            The network interface is up; it can transmit data packets.
             </summary>
-            <param name="errcode">
-            Error code, available for return from HRESULT member.
-            </param>
         </member>
-        <member name="M:OpenNETCF.Net.AdapterException.#ctor(System.Int32)">
+        <member name="T:OpenNETCF.Net.NetworkInformation.IPStatus">
             <summary>
-            Constructor to which additional error code information,
-            perhaps from a Windows Zero Config call, might be passed.
+            Reports the status of sending an Internet Control Message Protocol (ICMP) echo message to a computer.
             </summary>
-            <param name="errcode">
-            Error code, available for return from HRESULT member.
-            </param>
         </member>
-        <member name="M:OpenNETCF.Net.AdapterException.#ctor(System.UInt32,System.String)">
+        <member name="T:OpenNETCF.Net.NetworkType">
             <summary>
-            Constructor which takes both string message (passed to
-            base Exception class), and error code value.
+            Enumeration returned in the NetworkTypeInUse property.
+            Indicates the general type of radio network in use.
             </summary>
-            <param name="errcode">
-            Error code, available for return from HRESULT member.
-            </param>
-            <param name="message">
-            Message string for base class
-            </param>
         </member>
-        <member name="M:OpenNETCF.Net.AdapterException.#ctor(System.Int32,System.String)">
+        <member name="F:OpenNETCF.Net.NetworkType.FH">
             <summary>
-            Constructor which takes both string message (passed to
-            base Exception class), and error code value.
+            Indicates the physical layer of the frequency hopping spread-spectrum radio
             </summary>
-            <param name="errcode">
-            Error code, available for return from HRESULT member.
-            </param>
-            <param name="message">
-            Message string for base class
-            </param>
         </member>
-        <member name="P:OpenNETCF.Net.AdapterException.HRESULT">
+        <member name="F:OpenNETCF.Net.NetworkType.DS">
             <summary>
-            32-bit error code value returned with exception
+            Indicates the physical layer of the direct sequencing spread-spectrum radio
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NetworkType.OFDM5">
+            <summary>
+            Indicates the physical layer for 5-GHz Orthagonal Frequency Division Multiplexing radios
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NetworkType.OFDM24">
+            <summary>
+            Indicates the physical layer for 24-GHz Orthagonal Frequency Division Multiplexing radios
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.InfrastructureMode">
+            <summary>
+            Define the general network infrastructure mode in
+            which the selected network is presently operating.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.InfrastructureMode.AdHoc">
+            <summary>
+            Specifies the independent basic service set (IBSS) mode. This mode is also known as ad hoc mode
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.InfrastructureMode.Infrastructure">
+            <summary>
+            Specifies the infrastructure mode.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.InfrastructureMode.AutoUnknown">
+            <summary>
+            The infrastructure mode is either set to automatic or cannot be determined.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.AuthenticationMode">
+            <summary>
+            Define authentication types for an adapter.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.WEPStatus">
+            <summary>
+            Define WEP authentication state for the adapter.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.WEPStatus.Ndis802_11WEPEnabled">
+            <summary>
+            WEP encryption enabled
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.WEPStatus.Ndis802_11Encryption1Enabled">
+            <summary>
+            WEP encryption enabled
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.WEPStatus.Ndis802_11WEPDisabled">
+            <summary>
+            No WEP encryption
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.WEPStatus.Ndis802_11EncryptionDisabled">
+            <summary>
+            No WEP encryption
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.WZCCTL">
+            <summary>
+            Control flags for Windows Zero Config
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_WEPK_PRESENT">
+            <summary>
+            specifies whether the configuration includes or not a WEP key
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_WEPK_XFORMAT">
+            <summary>
+            the WEP Key material (if any) is entered as hexadecimal digits
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_VOLATILE">
+            <summary>
+            this configuration should not be stored
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_POLICY">
+            <summary>
+            this configuration is enforced by the policy
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_ONEX_ENABLED">
+            <summary>
+            for this configuration 802.1X should be enabled
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.WZCCTL.WZCCTL_WEPK_40BLEN">
+            <summary>
+            Key is 40 bit
             </summary>
         </member>
         <member name="T:OpenNETCF.Net.NetworkAdapter">
@@ -1556,37 +1467,6 @@
             Description:
             Implementation of custom marshaller for IPHLPAPI IP_ADDRESS_STRING
             </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.DestinationInfo">
-            <summary>
-            Contains information about a specific network.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.DestinationInfo.NativeSize">
-            <summary>
-            Size of the DestinationInfo structure in unmanaged memory.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.DestinationInfo.guid">
-            <summary>
-            The destination's GUID identifier.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.DestinationInfo.description">
-            <summary>
-            The destination's description.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.DestinationInfo.#ctor">
-            <summary>
-            Default constructor.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.DestinationInfo.#ctor(System.IntPtr)">
-            <summary>
-            Creates a new instance of DestinationInfo at the specific memory address.
-            </summary>
-            <param name="baseAddr">Memory address where the DestinationInfo object should be created.</param>
         </member>
         <member name="T:OpenNETCF.Net.INTF_ENTRY">
             <summary>
@@ -2095,213 +1975,6 @@
             P/Invoke definitions for WZC API
             </summary>
         </member>
-        <member name="T:OpenNETCF.Net.Ftp.FtpWebRequest">
-            <summary>
-            Summary description for FtpWebRequest.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.Ftp.FtpWebRequest.GetRequestStream">
-            <summary>
-            Gets a stream instance which youu can use to WRITE request data to.
-            Once the stream has been returned you can use the Write method to send data
-            </summary>
-            <returns>FtpDataStream</returns>
-        </member>
-        <member name="M:OpenNETCF.Net.Ftp.FtpWebRequest.GetResponse">
-            <summary>
-            Sends the request to the server and returns the response
-            </summary>
-            <returns>Returns an FtpWebResponse which can be used to access the response from the request</returns>
-        </member>
-        <member name="T:OpenNETCF.Net.Ftp.FtpStatusCode">
-            <summary>
-            Summary description for FtpStatusCode.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.WZC_WLAN_CONFIG_LIST">
-            <summary>
-            This class represents the data returned by the 
-            WZCQueryInterface() call to WZC.  There are several
-            values in the INTF_ENTRY struct returned by that
-            query, including a couple of SSID lists (those SSID
-            values currently 'audible' to the adapter and the
-            preferred list).  This type is how those lists are
-            returned.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.AccessPointCollection">
-            <summary>
-            Class that represents a collection of the SSID values
-            that a given network adapter can hear over the 
-            airwaves.  For each SSID, you can get the signal
-            strength and random other information.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.AccessPointCollection.Refresh">
-            <summary>
-            Refresh the list of SSID values, asking the 
-            adapter to scan for new ones, also.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.AccessPointCollection.FindBySSID(System.String)">
-            <summary>
-            Find a given access point in the collection by
-            looking for a matching SSID value.
-            </summary>
-            <param name="ssid">
-            String SSID to search for.
-            </param>
-            <returns>
-            First AccessPoint in the collection with the 
-            indicated SSID, or null, if none was found.
-            </returns>
-        </member>
-        <member name="P:OpenNETCF.Net.AccessPointCollection.AssociatedAdapter">
-            <summary>
-            The Adapter instance with which the SSID instance
-            is associated.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.AccessPointCollection.Item(System.Int32)">
-            <summary>
-            Indexer for contained Adapters
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.NetworkInformation.PingReply">
-            <summary>
-            Provides information about the status and data resulting from a Send operation.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.PingReply.Options">
-            <summary>
-            Gets the options used to transmit the reply to an Internet Control Message Protocol (ICMP) echo request.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.PingReply.Address">
-            <summary>
-            Gets the address of the host that sends the Internet Control Message Protocol (ICMP) echo reply.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.PingReply.Buffer">
-            <summary>
-            Gets the buffer of data received in an Internet Control Message Protocol (ICMP) echo reply message.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.PingReply.RoundTripTime">
-            <summary>
-            Gets the number of milliseconds taken to send an Internet Control Message Protocol (ICMP) echo request and receive the corresponding ICMP echo reply message.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkInformation.PingReply.Status">
-            <summary>
-            Gets the status of an attempt to send an Internet Control Message Protocol (ICMP) echo request and receive the corresponding ICMP echo reply message.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.Ftp.FtpWebResponse">
-            <summary>
-            Summary description for FtpWebResponse.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.ConnectionInfo">
-            <summary>
-            Summary description for ConnectionInfo.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionInfo.ToPtr">
-            <summary>
-            Writes the ConnectionInfo data to unmanaged memory.
-            </summary>
-            <returns>A pointer to the unmanaged memory block storing the ConnectionInfo data</returns>		
-        </member>
-        <member name="M:OpenNETCF.Net.ConnectionInfo.Dispose">
-            <summary>
-            Disposes of the ConnectionInfo object.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.AdapterCollection">
-            <summary>
-            Class that represents a collection of network adapters 
-            connected to the Windows CE device.  Each adapter can 
-            be queried for information such as the signal strength 
-            (RF only), the activity state, etc.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.AdapterCollection.#ctor">
-            <summary>
-            Constructor loads the list by querying the 
-            operating system for the list of adapters which
-            are currently connected.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.AdapterCollection.Refresh">
-            <summary>
-            Clears and reconstructs the list of adapters,
-            based on the current hardware connections to the
-            device.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.AdapterCollection.Item(System.Int32)">
-            <summary>
-            Indexer for contained Adapters
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.Network">
-            <summary>
-            Summary description for Network.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.Network.MapDrive(System.IntPtr,System.String,System.String,System.String,System.String)">
-            <summary>
-            Maps the network resouce to the specified share name
-            </summary>
-            <param name="hwnd">Owner window handle</param>
-            <param name="netRes">Network resource to connect</param>
-            <param name="shareName">Share name</param>
-            <param name="userName">User name</param>
-            <param name="password">Password</param>
-        </member>
-        <member name="M:OpenNETCF.Net.Network.Disconnect(System.String,System.Boolean)">
-            <summary>
-            Disconnects the network resource
-            </summary>
-            <param name="shareName">Local share or remote name</param>
-            <param name="force">Force disconnect</param>
-        </member>
-        <member name="M:OpenNETCF.Net.Network.GetRemoteName(System.String)">
-            <summary>
-            Returns name of the network resource
-            </summary>
-            <param name="shareName"></param>
-            <returns>Network resource</returns>
-        </member>
-        <member name="M:OpenNETCF.Net.Network.GetConnectedResources">
-            <summary>
-            Enumerates and returns all connected network resources.
-            </summary>
-            <returns>Array of NetworkResource class</returns>
-        </member>
-        <member name="M:OpenNETCF.Net.Network.GetNetworkResources(System.String)">
-            <summary>
-            Enumerates network resources.
-            </summary>
-            <param name="remoteName">The name of the server</param>
-            <returns>Array of NetworkResource class</returns>
-        </member>
-        <member name="T:OpenNETCF.Net.NetworkResource">
-            <summary>
-            Implements NetworkResouce class
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkResource.ShareName">
-            <summary>
-            Gets ShareName
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Net.NetworkResource.RemoteName">
-            <summary>
-            Gets Remote name.
-            </summary>
-        </member>
         <member name="T:OpenNETCF.Net.AccessPoint">
             <summary>
             The SSID class represents a single SSID value which
@@ -2387,6 +2060,333 @@
             <returns>
             Ndis80211NetworkInfrastructure type
             </returns>
+        </member>
+        <member name="T:OpenNETCF.Net.ConnectionManagerState">
+            <summary>
+            Specifies the network connection state.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.ConnectionStatus">
+            <summary>
+            Describes the current status of the connection
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.Unknown">
+            <summary>
+            Unknown status
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.Connected">
+            <summary>
+            Connection is up
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.Disconnected">
+            <summary>
+            Connection is disconnected
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.ConnectionFailed">
+            <summary>
+            Connection failed and cannot not be re-established
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.ConnectionCancelled">
+            <summary>
+            User aborted connection
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.ConnectionDisabled">
+            <summary>
+            Connection is ready to connect but disabled
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.NoPathToDestination">
+            <summary>
+            No path could be found to destination
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingForPath">
+            <summary>
+            Waiting for a path to the destination
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingForPhone">
+            <summary>
+            Voice call is in progress
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingConnection">
+            <summary>
+            Attempting to connect
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingForResource">
+            <summary>
+            Resource is in use by another connection
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingForNetwork">
+            <summary>
+            No path could be found to destination
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingDisconnection">
+            <summary>
+            Connection is being brought down
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.ConnectionStatus.WaitingConnectionAbort">
+            <summary>
+            Aborting connection attempt
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.ConnectionManager">
+            <summary>
+            A class that handles opening and closing of network connections. 
+            <para>
+            It is important to remember that when connecting asynchronous, 
+            you must poll the connection status in your code.
+            </para>
+            <example>
+            <code>
+            bool connected = false;
+            ConnectionManger connMgr = new ConnectionManager();
+            connMgr.Connect(true, ConnectionMode.Asynchronous);
+            while(!connected)
+            {
+                if(connMgr.Status != ConnectionStatus.Connected)
+                {
+            	    Thread.Sleep(1000);
+            	    continue;
+                }
+                connected = true;
+            }
+            // Now we are connected and can do something... 
+            </code>
+            </example>
+            <para>
+            It is also important to note that creating a non-exclusive 
+            connection will result in your application being unable to 
+            programmatically disconnect.
+            </para>
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.#ctor">
+            <summary>
+            Creates a new instance of the Connection Manager object.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.ConnectEvent(System.EventArgs)">
+            <summary>
+            Raises the OpenNETCF.Net.ConnectionManager.OnConnect event.
+            </summary>
+            <param name="e">A System.EventArgs object that contains the event data.</param>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.DisconnectEvent(System.EventArgs)">
+            <summary>
+            Raises the OpenNETCF.Net.ConnectionManager.Disconnected event.
+            </summary>
+            <param name="e">A System.EventArgs object that contains the event data.</param>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.ConnectionStateChangedEvent(System.EventArgs)">
+            <summary>
+            Raises the OpenNETCF.Net.ConnectionManager.ConnectionStateChanged event.
+            </summary>
+            <param name="e">A System.EventArgs object that contains the event data.</param>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.ConnectionFailedEvent(System.EventArgs)">
+            <summary>
+            Raises the OpenNETCF.Net.ConnectionManager.ConnectionFailed event.
+            </summary>
+            <param name="e">A System.EventArgs object that contains the event data.</param>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.Connect">
+            <summary>
+            Makes an exclusive, asynchronous connection with Connection Manager using the system default destination. 
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.Connect(System.Boolean)">
+            <summary>
+            Makes an asynchronous connection with Connection Manager using the system default destination.
+            </summary>
+            <param name="exclusive">True creates an exclusive connection; false creates a non-exclusive connection.</param>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.Connect(OpenNETCF.Net.ConnectionMode)">
+            <summary>
+            Makes an exclusive connection with Connection Manager using the system default destination.
+            </summary>
+            <param name="mode">States how the connection is to be made: either Synchronous or Asynchronous</param>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.Connect(System.Boolean,OpenNETCF.Net.ConnectionMode)">
+            <summary>
+            Makes a connection with Connection Manager using the system default destination.
+            </summary>
+            <param name="exclusive">True creates an exclusive connection; false creates a non-exclusive connection.</param>
+            <param name="mode">States how the connection is to be made: either Synchronous or Asynchronous</param>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.Connect(System.Guid,System.Boolean,OpenNETCF.Net.ConnectionMode)">
+            <summary>
+            Makes a connection with Connection Manager using the specified destination.
+            </summary>
+            <param name="destGuid">The destination to connect to.</param>
+            <param name="exclusive">Determines whether the connection should be exclusive or not.</param>
+            <param name="mode">Determines how the connection is to be made: either Synchronous or Asynchronous</param>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.MapUrl(System.String)">
+            <summary>
+            Maps a URL to a destination GUID.
+            </summary>
+            <param name="Url">The URL to map.</param>
+            <returns>The GUID the URL is mapped to.</returns>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.Disconnect">
+            <summary>
+            Disconnection the current connection.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.Disconnect(System.IntPtr)">
+            <summary>
+            Disconnection the connection whose handle is hConnection.
+            </summary>
+            <param name="hConnection">The handle of the connection to close.</param>
+        </member>
+        <member name="M:OpenNETCF.Net.ConnectionManager.EnumDestinations">
+            <summary>
+            Returns a collection of destinations specified within the system.
+            </summary>
+            <returns>A DestinationInfo collection with details of all the destinations in the system.</returns>
+        </member>
+        <member name="P:OpenNETCF.Net.ConnectionManager.State">
+            <summary>
+            The current connection state of Connection Manager
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.ConnectionManager.Handle">
+            <summary>
+            Returns a handle to the current connection.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.ConnectionManager.Status">
+            <summary>
+            Describes the current state of the connection
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.ConnectionManager.Timeout">
+            <summary>
+            Specifies the timeout for a synchronous connection attempt
+            </summary>
+        </member>
+        <member name="E:OpenNETCF.Net.ConnectionManager.OnConnect">
+            <summary>
+            Occurs when a connection is opened.
+            </summary>
+        </member>
+        <member name="E:OpenNETCF.Net.ConnectionManager.OnDisconnect">
+            <summary>
+            Occurs when a connection is closed.
+            </summary>
+        </member>
+        <member name="E:OpenNETCF.Net.ConnectionManager.OnConnectionStateChanged">
+            <summary>
+            Occurs when the connection state is changed.
+            </summary>
+        </member>
+        <member name="E:OpenNETCF.Net.ConnectionManager.OnConnectionFailed">
+            <summary>
+            Occurs when a connection fails.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.NetworkInformation.IPOptions">
+            <summary>
+            The ip_option_information structure describes the options to be
+            included in the header of an IP packet. The TTL, TOS, and Flags
+            values are carried in specific fields in the header. The OptionsData
+            bytes are carried in the options area following the standard IP header.
+            With the exception of source route options, this data must be in the
+            format to be transmitted on the wire as specified in RFC 791. A source
+            route option should contain the full route - first hop thru final
+            destination - in the route data. The first hop will be pulled out of the
+            data and the option will be reformatted accordingly. Otherwise, the route
+            option should be formatted as specified in RFC 791.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NetworkInformation.IPOptions.ttl">
+            <summary>
+            Time To Live.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NetworkInformation.IPOptions.tos">
+            <summary>
+            Type Of Service.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NetworkInformation.IPOptions.flags">
+            <summary>
+            IP header flags.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.NetworkInformation.IPOptions.optionsSize">
+            <summary>
+            Size in bytes of options data.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Network">
+            <summary>
+            Summary description for Network.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.Network.MapDrive(System.IntPtr,System.String,System.String,System.String,System.String)">
+            <summary>
+            Maps the network resouce to the specified share name
+            </summary>
+            <param name="hwnd">Owner window handle</param>
+            <param name="netRes">Network resource to connect</param>
+            <param name="shareName">Share name</param>
+            <param name="userName">User name</param>
+            <param name="password">Password</param>
+        </member>
+        <member name="M:OpenNETCF.Net.Network.Disconnect(System.String,System.Boolean)">
+            <summary>
+            Disconnects the network resource
+            </summary>
+            <param name="shareName">Local share or remote name</param>
+            <param name="force">Force disconnect</param>
+        </member>
+        <member name="M:OpenNETCF.Net.Network.GetRemoteName(System.String)">
+            <summary>
+            Returns name of the network resource
+            </summary>
+            <param name="shareName"></param>
+            <returns>Network resource</returns>
+        </member>
+        <member name="M:OpenNETCF.Net.Network.GetConnectedResources">
+            <summary>
+            Enumerates and returns all connected network resources.
+            </summary>
+            <returns>Array of NetworkResource class</returns>
+        </member>
+        <member name="M:OpenNETCF.Net.Network.GetNetworkResources(System.String)">
+            <summary>
+            Enumerates network resources.
+            </summary>
+            <param name="remoteName">The name of the server</param>
+            <returns>Array of NetworkResource class</returns>
+        </member>
+        <member name="T:OpenNETCF.Net.NetworkResource">
+            <summary>
+            Implements NetworkResouce class
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkResource.ShareName">
+            <summary>
+            Gets ShareName
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.NetworkResource.RemoteName">
+            <summary>
+            Gets Remote name.
+            </summary>
         </member>
     </members>
 </doc>

@@ -4,72 +4,10 @@
         <name>OpenNETCF.Web.Services2</name>
     </assembly>
     <members>
-        <member name="T:OpenNETCF.Web.Services2.Dime.IDimeAttachmentContainer">
+        <member name="T:OpenNETCF.Web.Services2.Dime.DimeExtensionAttribute">
             <summary>
-            IDimeAttachmentContainer is an interface used by the DimeExtension to
-            get and set unreferenced DIME attachments. This interface can be implemented
-            on the service or proxy to add support for unreferenced attachments.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Web.Services2.Dime.DimeAttachmentCollection">
-            <summary>
-            A collection of DimeAttachment objects.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Web.Services2.Dime.DimeExtension">
-            <summary>
-            A soap extension that provides DIME encapsulation of SOAP messages and sending
-            and receiving of DIME attachments.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BeforeSerialize(System.Web.Services.Protocols.SoapMessage)">
-            <summary>
-            Collects the the set of DimeAttachment objects to send in the message.
-            For referenced attachments these are collected from the parameter list or return value.
-            For unreferenced attachments these are collected from the IDimeAttachmentContainter
-            collections. The SOAP envelope and attachments are written into the network stream
-            in the AfterSerialize method.
-            If an exception has been thrown, the soap message containing the exception is 
-            not encapsulated.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.AfterSerialize(System.Web.Services.Protocols.SoapMessage)">
-            <summary>
-            Encapsulates the SOAP message into a DIME message.  The stored attachments are added as DIME records.
-            If an exception has been thrown, the soap message containing the exception is 
-            not encapsulated.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BeforeDeserialize(System.Web.Services.Protocols.SoapMessage)">
-            <summary>
-            Retrieves the SOAP message from the DIME message.  DIME attachments
-            are removed from the stream and stored for future use by the AfterDeserialize
-            method.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.AfterDeSerialize(System.Web.Services.Protocols.SoapMessage)">
-            <summary>
-            Sets the method's DimeAttachment parameters and return value to the stored values. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.CheckAttachment(OpenNETCF.Web.Services2.Dime.DimeAttachment)">
-            <summary>
-            Validates the attachment.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BinaryCopy(System.IO.Stream,System.IO.Stream)">
-            <summary>
-            Binary copy from one stream to another.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Web.Services2.CryptoEx">
-            <summary>
-            for stuff that was in bNb.Sec and hid in OpenNET
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Web.Services2.SecConvHandler">
-            <summary>
-            Summary description for SecConvHandler.
+            Attribute to be used on the web method on the server and client proxy
+            to enable the DimeExtension.
             </summary>
         </member>
         <member name="T:OpenNETCF.Web.Services2.Dime.TypeFormatEnum">
@@ -118,26 +56,17 @@
             The stream for reading and writing the attachment payload data.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Web.Services2.pathHeader">
+        <member name="T:OpenNETCF.Web.Services2.Dime.IDimeAttachmentContainer">
             <summary>
-            WS-Routing is a simple, stateless, SOAP-based protocol for routing SOAP messages 
-            over a variety of transports like TCP, UDP, and HTTP. With WS-Routing, the entire 
-            message path for a SOAP message (as well as its return path) can be described 
-            directly within the SOAP envelope. It supports one-way messaging, 
-            two-way messaging such as request/response and peer-to-peer conversations, 
-            and long running dialogs.
+            IDimeAttachmentContainer is an interface used by the DimeExtension to
+            get and set unreferenced DIME attachments. This interface can be implemented
+            on the service or proxy to add support for unreferenced attachments.
             </summary>
-            <remarks>just keeping this around for WSE 1.0.
-            WSE 2.0 uses WS-Addressing</remarks>
         </member>
-        <member name="M:OpenNETCF.Web.Services2.pathHeader.#ctor(System.String,System.String,System.String)">
+        <member name="T:OpenNETCF.Web.Services2.Dime.DimeAttachmentCollection">
             <summary>
-            
+            A collection of DimeAttachment objects.
             </summary>
-            <param name="action">Element that indicates the intent of the message in a manner 
-            akin to the SOAPAction HTTP header field defined for SOAP (required).</param>
-            <param name="to">The ultimate receiver (required).</param>
-            <param name="relatesTo">Element that indicates a relation with another message (optional).</param>
         </member>
         <member name="T:OpenNETCF.Web.Services2.Dime.DimeStream">
             <summary>
@@ -190,10 +119,59 @@
             Summary description for Ns.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Web.Services2.Dime.DimeExtensionAttribute">
+        <member name="T:OpenNETCF.Web.Services2.SecConvHandler">
             <summary>
-            Attribute to be used on the web method on the server and client proxy
-            to enable the DimeExtension.
+            Summary description for SecConvHandler.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Web.Services2.pathHeader">
+            <summary>
+            WS-Routing is a simple, stateless, SOAP-based protocol for routing SOAP messages 
+            over a variety of transports like TCP, UDP, and HTTP. With WS-Routing, the entire 
+            message path for a SOAP message (as well as its return path) can be described 
+            directly within the SOAP envelope. It supports one-way messaging, 
+            two-way messaging such as request/response and peer-to-peer conversations, 
+            and long running dialogs.
+            </summary>
+            <remarks>just keeping this around for WSE 1.0.
+            WSE 2.0 uses WS-Addressing</remarks>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.pathHeader.#ctor(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="action">Element that indicates the intent of the message in a manner 
+            akin to the SOAPAction HTTP header field defined for SOAP (required).</param>
+            <param name="to">The ultimate receiver (required).</param>
+            <param name="relatesTo">Element that indicates a relation with another message (optional).</param>
+        </member>
+        <member name="T:OpenNETCF.Web.Services2.Dime.DimeReader">
+            <summary>
+            Reads DIME messages from a stream as a series of DIME records.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeReader.#ctor(System.IO.Stream)">
+            <summary>
+            Creates a DimeMessageReader object 
+            </summary>
+            <param name="stream">Must be an open readable stream.</param>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeReader.ReadRecord">
+            <summary>
+            Returns the next record in the DIME message in read-only mode. If the DimeReader is closed then
+            an InvalidOperationException will occur. When the end of
+            the message is reached ReadRecord will return null. ReadRecord is a blocking i/o call in that the 
+            DIME record header is read before the method returns.
+            </summary>
+            <returns>
+            A read-only DimeRecord, or null if it's the end of the DIME message. If the record has TNF=None
+            and it is the last record in the message null is also returned.
+            </returns>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeReader.Close">
+            <summary>
+            Close discards the remaining records in the message before closing.
+            Close is a blocking call if all records haven't been read since it will
             </summary>
         </member>
         <member name="T:OpenNETCF.Web.Services2.Dime.DimeWriter">
@@ -350,33 +328,55 @@
             The id of the DIME record. Should be unique for all DIME records
             </summary>
         </member>
-        <member name="T:OpenNETCF.Web.Services2.Dime.DimeReader">
+        <member name="T:OpenNETCF.Web.Services2.Dime.DimeExtension">
             <summary>
-            Reads DIME messages from a stream as a series of DIME records.
+            A soap extension that provides DIME encapsulation of SOAP messages and sending
+            and receiving of DIME attachments.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeReader.#ctor(System.IO.Stream)">
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BeforeSerialize(System.Web.Services.Protocols.SoapMessage)">
             <summary>
-            Creates a DimeMessageReader object 
+            Collects the the set of DimeAttachment objects to send in the message.
+            For referenced attachments these are collected from the parameter list or return value.
+            For unreferenced attachments these are collected from the IDimeAttachmentContainter
+            collections. The SOAP envelope and attachments are written into the network stream
+            in the AfterSerialize method.
+            If an exception has been thrown, the soap message containing the exception is 
+            not encapsulated.
             </summary>
-            <param name="stream">Must be an open readable stream.</param>
         </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeReader.ReadRecord">
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.AfterSerialize(System.Web.Services.Protocols.SoapMessage)">
             <summary>
-            Returns the next record in the DIME message in read-only mode. If the DimeReader is closed then
-            an InvalidOperationException will occur. When the end of
-            the message is reached ReadRecord will return null. ReadRecord is a blocking i/o call in that the 
-            DIME record header is read before the method returns.
+            Encapsulates the SOAP message into a DIME message.  The stored attachments are added as DIME records.
+            If an exception has been thrown, the soap message containing the exception is 
+            not encapsulated.
             </summary>
-            <returns>
-            A read-only DimeRecord, or null if it's the end of the DIME message. If the record has TNF=None
-            and it is the last record in the message null is also returned.
-            </returns>
         </member>
-        <member name="M:OpenNETCF.Web.Services2.Dime.DimeReader.Close">
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BeforeDeserialize(System.Web.Services.Protocols.SoapMessage)">
             <summary>
-            Close discards the remaining records in the message before closing.
-            Close is a blocking call if all records haven't been read since it will
+            Retrieves the SOAP message from the DIME message.  DIME attachments
+            are removed from the stream and stored for future use by the AfterDeserialize
+            method.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.AfterDeSerialize(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+            Sets the method's DimeAttachment parameters and return value to the stored values. 
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.CheckAttachment(OpenNETCF.Web.Services2.Dime.DimeAttachment)">
+            <summary>
+            Validates the attachment.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Web.Services2.Dime.DimeExtension.BinaryCopy(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Binary copy from one stream to another.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Web.Services2.CryptoEx">
+            <summary>
+            for stuff that was in bNb.Sec and hid in OpenNET
             </summary>
         </member>
     </members>
