@@ -78,13 +78,15 @@
     <None Include="Service References\ServiceWrapper\GPSManager.disco" />
     <None Include="Service References\ServiceWrapper\GPSManager.wsdl" />
     <None Include="Service References\ServiceWrapper\GPSManager2.xsd" />
-    <None Include="Service References\ServiceWrapper\GPSManager3.xsd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceWrapper\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceWrapper\GPSProxy.SerialPort.ServiceWrapper.GPSDownloadData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceWrapper\GPSProxy.SerialPort.ServiceWrapper.PathInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceWrapper\Reference.svcmap">

@@ -25,7 +25,6 @@
     <MetadataFile FileName="GPSManager.disco" MetadataType="Disco" ID="53b44346-55fc-4465-ab2c-76b5e2dec51a" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?disco" />
     <MetadataFile FileName="GPSManager.wsdl" MetadataType="Wsdl" ID="b50a21a5-5b38-459a-b4db-18a51b9ca64c" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?wsdl" />
     <MetadataFile FileName="GPSManager2.xsd" MetadataType="Schema" ID="c6f8a587-8d0f-43dd-b979-e7486120a3c3" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?xsd=xsd2" />
-    <MetadataFile FileName="GPSManager3.xsd" MetadataType="Schema" ID="9bfbbeaf-a3e6-452c-a6f4-5d38818f3d84" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
