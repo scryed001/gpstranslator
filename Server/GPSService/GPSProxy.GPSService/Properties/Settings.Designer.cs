@@ -32,5 +32,15 @@ namespace GPSProxy.GPSService.Properties {
                 return ((string)(this["GPSConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SUNZHONGKUI\\SQLEXPRESS;Initial Catalog=GPS;Integrated Security=True")]
+        public string GPSConnectionString1 {
+            get {
+                return ((string)(this["GPSConnectionString1"]));
+            }
+        }
     }
 }

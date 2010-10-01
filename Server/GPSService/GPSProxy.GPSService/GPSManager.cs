@@ -34,6 +34,7 @@ namespace GPSProxy.GPSService
             // Create path
 
             return mDataAccesser.AddNewPath(pathName, pathPassword, user.Name);
+            //return true;
         }
 
         public List<String> GetPathList(String searchString, UserInfo user)
@@ -47,6 +48,7 @@ namespace GPSProxy.GPSService
             // Get the valid path list
 
             return mDataAccesser.GetPathList(searchString);
+            //return null;
         }
 
         public Int32 GetPathID(PathInfo path)
@@ -65,6 +67,7 @@ namespace GPSProxy.GPSService
                 pathPwd = path.Password;
 
             return mDataAccesser.GetPathID(pathName, pathPwd);
+            //return 5;
         }
 
         public bool UploadGPSData(GPSUploadData data)
@@ -85,6 +88,7 @@ namespace GPSProxy.GPSService
 
             // Save the gps data.
             return mDataAccesser.AddGPSSentence(data.NMEASentence, data.Provider, data.PathID);
+            //return true;
         }
 
         /// <summary>
@@ -110,7 +114,7 @@ namespace GPSProxy.GPSService
             // Get the gps data.
 
             return mDataAccesser.GetGPSData(para);
-
+            //return null;
         }
     }
 }
