@@ -25,6 +25,9 @@ namespace GPSProxy.GPSService
 
         [OperationContract]
         Int32 GetPathID(PathInfo path);
+
+        [OperationContract]
+        bool IsServiceAvailable(String msg); // Used to test the connection.
     }
 
     [DataContract]
@@ -48,6 +51,7 @@ namespace GPSProxy.GPSService
             set { mPassword = value; }
         }
 
+        [DataMember]
         public Int32 ID
         {
             get { return mID; }

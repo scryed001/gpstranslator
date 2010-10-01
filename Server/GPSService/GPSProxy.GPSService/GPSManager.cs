@@ -116,5 +116,10 @@ namespace GPSProxy.GPSService
             return mDataAccesser.GetGPSData(para);
             //return null;
         }
+
+        public bool IsServiceAvailable(String msg)
+        {
+            return true;
+        }
     }
 }
