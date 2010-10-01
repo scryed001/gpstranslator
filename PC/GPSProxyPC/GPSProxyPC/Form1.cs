@@ -25,6 +25,8 @@ namespace GPSProxyPC
             inPortWebService = new WebServiceBasedPort(2, "", "PC", true, false);
             outPortCOM7 = new MSPort("COM7", 9600);
             portRedtDownload = new PortRedirector(inPortWebService, outPortCOM7);
+
+            UpdateControls();
         }
 
         // upload the gps data
@@ -36,6 +38,9 @@ namespace GPSProxyPC
         IPort inPortWebService;
         IPort outPortCOM7;
         PortRedirector portRedtDownload;
+
+        IPort inPort;
+        IPort outPort;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -61,6 +66,86 @@ namespace GPSProxyPC
             {
 
             }
+        }
+
+        private void btnInput_Click(object sender, EventArgs e)
+        {
+            FormComSelect comDlg = new FormComSelect();
+            comDlg.IsInputPort = true;
+            DialogResult ret = comDlg.ShowDialog();
+            if(DialogResult.OK == ret)
+            {
+                IPort newPort = comDlg.GetPort();
+                if(newPort != null)
+                {
+                    if (inPort != null)
+                        inPort.Dispose();
+
+                    inPort = newPort;
+
+                    textBoxInputPort.Text = comDlg.GetDisplayString();
+                }
+            }
+        }
+
+        private void btnOutput_Click(object sender, EventArgs e)
+        {
+            FormComSelect comDlg = new FormComSelect();
+            comDlg.IsInputPort = false;
+            DialogResult ret = comDlg.ShowDialog();
+            if (DialogResult.OK == ret)
+            {
+                IPort newPort = comDlg.GetPort();
+                if (newPort != null)
+                {
+                    if (outPort != null)
+                        outPort.Dispose();
+
+                    outPort = newPort;
+
+                    textBoxOutputPort.Text = comDlg.GetDisplayString();
+                }
+            }
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            if(inPort !=null)
+            {
+                if (inPort.IsOpen())
+                    inPort.Close();
+
+                inPort.Open();
+            }
+
+            if (outPort != null)
+            {
+                if (outPort.IsOpen())
+                    outPort.Close();
+
+                outPort.Open();
+            }
+
+            UpdateControls();
+        }
+
+  
+
+
+        private void UpdateControls()
+        {
+            bool bIsPortWorking = false;
+
+            if(inPort != null && inPort.IsOpen())
+            {
+                bIsPortWorking = true;
+            }
+
+            btnInput.Enabled = !bIsPortWorking;
+            btnOutput.Enabled = !bIsPortWorking;
+
+            btnStart.Text = bIsPortWorking ? "Stop" : "Start";
+            
         }
     }
 }
