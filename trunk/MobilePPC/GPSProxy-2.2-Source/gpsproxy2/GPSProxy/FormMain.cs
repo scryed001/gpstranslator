@@ -448,11 +448,6 @@ namespace GPSProxy
 			{
 				// Regular COM port.
 				case "comport":
-                    // Begin test code ToDO - just for test. delete the code later
-                    return new WebServiceBasedPort(3, "", "WM", true, true);
-
-                    // End test code
-
 					if (! settings.ContainsKey("port_name"))
 						throw new Exception("No COM port name specified");
 					if (! settings.ContainsKey("baud_rate"))
@@ -461,13 +456,22 @@ namespace GPSProxy
 
 				// File
 				case "file":
-
-
 					if (! settings.ContainsKey("file_name"))
 						throw new Exception("No file name specified");
 					if (! settings.ContainsKey("file_mode"))
 						throw new Exception("No file mode specified");
 					return new FileBasedPort((string)settings["file_name"], (string)settings["file_mode"]);
+
+                // web server
+                case "webserver":
+                    if (!settings.ContainsKey("path_id"))
+                        throw new Exception("Path id specified");
+                    if (!settings.ContainsKey("is_inputport"))
+                        throw new Exception("Path id specified");
+
+                    Int32 pathID = Int32.Parse(settings["path_id"].ToString());
+                    bool bIsInput = bool.Parse(settings["is_inputport"].ToString());
+                    return new WebServiceBasedPort(pathID, "", "WM", bIsInput, false);
 
 				// Oops!
 				default:
