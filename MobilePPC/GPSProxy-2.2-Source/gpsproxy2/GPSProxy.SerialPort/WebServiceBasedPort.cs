@@ -20,6 +20,8 @@ namespace GPSProxy.SerialPort
 
         private bool bIsRead;
         private Timer readTimer;
+
+        private bool bIsPortOpened;
         #endregion
 
         #region Ctor
@@ -36,6 +38,7 @@ namespace GPSProxy.SerialPort
 
             readTimer = new Timer(new TimerCallback(ReadTimerCallback), null, Timeout.Infinite, Timeout.Infinite);
 
+            bIsPortOpened = false;
         }
 
         ~WebServiceBasedPort()
@@ -153,6 +156,9 @@ namespace GPSProxy.SerialPort
                     {
                         readTimer.Change(0, Timeout.Infinite);
                     }
+
+                    bIsPortOpened = true;
+
                     return true;
                 }
             }
@@ -170,6 +176,8 @@ namespace GPSProxy.SerialPort
                 throw new ObjectDisposedException(GetType().Name);
 
             readTimer.Change(Timeout.Infinite, Timeout.Infinite);
+
+            bIsPortOpened = false;
 
             return true;
         }
@@ -189,7 +197,7 @@ namespace GPSProxy.SerialPort
                 bRet = false;
             }
 
-            return bRet;
+            return bRet && bIsPortOpened;
         }
 
         public int Write(byte[] data)
