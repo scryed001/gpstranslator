@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPSProxy.Extension.NMEAInpu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPSProxy.Extension.SatelliteInfo", "GPSProxy.Extension.SatelliteInfo\GPSProxy.Extension.SatelliteInfo.csproj", "{AAE84572-86A2-4E79-AAE1-51A0FD25E284}"
 EndProject
-Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "SmartDeviceCab1", "SmartDeviceCab1\SmartDeviceCab1.vddproj", "{5634EB8D-A4C4-4B3F-A04B-07234CF94E2E}"
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "GPSProxy_3.1_PPC_WM5", "GPSProxy_3.1_PPC_WM5\GPSProxy_3.1_PPC_WM5.vddproj", "{EBB8DC63-65A3-4FF7-B3EF-D06670BC71E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,8 +77,8 @@ Global
 		{AAE84572-86A2-4E79-AAE1-51A0FD25E284}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAE84572-86A2-4E79-AAE1-51A0FD25E284}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AAE84572-86A2-4E79-AAE1-51A0FD25E284}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{5634EB8D-A4C4-4B3F-A04B-07234CF94E2E}.Debug|Any CPU.ActiveCfg = Debug
-		{5634EB8D-A4C4-4B3F-A04B-07234CF94E2E}.Release|Any CPU.ActiveCfg = Release
+		{EBB8DC63-65A3-4FF7-B3EF-D06670BC71E6}.Debug|Any CPU.ActiveCfg = Debug
+		{EBB8DC63-65A3-4FF7-B3EF-D06670BC71E6}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
