@@ -110,7 +110,7 @@ namespace GPSProxy.SerialPort
                         }
                     }
                 }
-                catch (System.Exception e)
+                catch (System.Exception)
                 {
                     // Don't exit if failed. 
                 }   
@@ -192,7 +192,7 @@ namespace GPSProxy.SerialPort
                 bool bRetSpecified = false;
                 serviceClient.IsServiceAvailable("WinMobileClient", out bRet, out bRetSpecified);
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
                 bRet = false;
             }
@@ -225,7 +225,7 @@ namespace GPSProxy.SerialPort
                 }
 
             }
-            catch (System.Exception e)
+            catch (System.Exception)
             {
                 // Don't exit if failed. 
             }

@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CFFB7D13-C1EB-4D72-9E20-A050E660C892}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -21,16 +21,16 @@
     </StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <OSVersion>4.20</OSVersion>
+    <OSVersion>5.01</OSVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>0.0</OldToolsVersion>
-    <NativePlatformName>Pocket PC 2003</NativePlatformName>
+    <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
   </PropertyGroup>
   <PropertyGroup>
-    <PlatformID>3C41C503-53EF-4c2a-8DD4-A8217CAD115E</PlatformID>
+    <PlatformID>4118C335-430C-497f-BE48-11C3316B135E</PlatformID>
     <PlatformFamilyName>PocketPC</PlatformFamilyName>
     <DeployDirSuffix>$(AssemblyName)</DeployDirSuffix>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
@@ -140,9 +140,6 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FileBasedPort.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="FormAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,16 +167,10 @@
     <Compile Include="NiniIConfigWrapper.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="OpenNETCFSerialPort.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="ScrollablePanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="StorableHashtable.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="VirtualComPort.cs">
       <SubType>Code</SubType>
     </Compile>
     <Content Include="EARTH.ICO">

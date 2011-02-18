@@ -927,6 +927,12 @@ namespace GPSProxy
 
 		private void LoadExtensions()
 		{
+            if (!Directory.Exists(extensionPath))
+            {
+                LogMessage("GPSProxy: There is no extensions.");
+                return;
+            }
+
 			Type extensionAttributeType = typeof(GPSProxyExtensionAttribute);
 			Type extensionInterfaceType = typeof(IExtension);
 			ArrayList extensionList = new ArrayList();
@@ -1001,6 +1007,9 @@ namespace GPSProxy
 
 		private ExtensionDetails GetExtensionDetails(Type extensionType)
 		{
+            if(null == providerExtensionDetails)
+                throw new Exception("There is no extension loaded ");
+
 			int i = 0;
 			while ((i < providerExtensionDetails.Length) && ! providerExtensionDetails[i].ExtensionType.Equals(extensionType))
 				i++;

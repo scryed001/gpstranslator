@@ -24,7 +24,7 @@ using System;
 using OpenNETCF.IO.Serial;
 using GPSProxy.Extension;
 
-namespace GPSProxy
+namespace GPSProxy.SerialPort
 {
 	/// <summary>
 	/// Summary description for OpenNETCFSerialPort.
