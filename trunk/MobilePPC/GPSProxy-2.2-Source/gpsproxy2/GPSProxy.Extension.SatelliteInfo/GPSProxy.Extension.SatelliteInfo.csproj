@@ -22,18 +22,18 @@
     </StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <OSVersion>4.20</OSVersion>
+    <OSVersion>5.01</OSVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>0.0</OldToolsVersion>
-    <NativePlatformName>Pocket PC 2003</NativePlatformName>
+    <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
   </PropertyGroup>
   <PropertyGroup>
-    <PlatformID>3C41C503-53EF-4c2a-8DD4-A8217CAD115E</PlatformID>
+    <PlatformID>4118C335-430C-497f-BE48-11C3316B135E</PlatformID>
     <PlatformFamilyName>PocketPC</PlatformFamilyName>
-    <DeployDirSuffix>$(AssemblyName)</DeployDirSuffix>
+    <DeployDirSuffix>GPSProxy\Extensions</DeployDirSuffix>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

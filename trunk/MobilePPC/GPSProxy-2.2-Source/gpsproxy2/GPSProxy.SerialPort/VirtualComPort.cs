@@ -25,7 +25,7 @@ using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
 using OpenNETCF.Win32;
 
-namespace GPSProxy
+namespace GPSProxy.SerialPort
 {
 	/// <summary>
 	/// Summary description for VirtualComPort.
