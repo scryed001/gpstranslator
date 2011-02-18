@@ -1,0 +1,17 @@
+[Settings]
+Num Active Extensions = 2
+GPS Provider Dll = GPSProxy.Extension.NMEAInput.dll
+[Extension 1]
+[Active Extension 0]
+Extension ID = 1
+Extension Dll = GPSProxy.Extension.FixInfo.dll
+[GPSProxy.Extension.NMEAInput.dll]
+GPS COM Port = type=comport|port_name=COM9:|baud_rate=4800
+Log Input = True
+Mirror GPS Input to Output Port = False
+Output COM Port = 
+Movement Threshold = 1
+[Extension 2]
+[Active Extension 1]
+Extension ID = 2
+Extension Dll = GPSProxy.Extension.SatelliteInfo.dll
