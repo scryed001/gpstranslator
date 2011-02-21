@@ -21,7 +21,7 @@ namespace GPSProxy.GPSService.DBWrapper
     {
         public DataAccesser()
         {
-            mGPSDB = new GPSLinqWrapperDataContext();
+            mGPSDB = new GPSLinqWrapperDataContext("Data Source=shacng6120067,5013\\SQLEXPRESS;Initial Catalog=GPS;Persist Security Info=True;User ID=gpsuser;Password=gpsuser");
         }
 
         private GPSLinqWrapperDataContext mGPSDB;      
