@@ -124,7 +124,7 @@ namespace GPSProxy.GPSService.DBWrapper
 
                 mGPSDB.SubmitChanges();
             }
-            catch (System.Exception ex)
+            catch (System.Exception )
             {
                 return false;
             }

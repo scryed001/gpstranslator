@@ -67,8 +67,15 @@ namespace GPSProxyPC
             }
             else
             {
-                Int32 pathID = Int32.Parse(textBoxPathID.Text);
-                newPort = new WebServiceBasedPort(pathID, "", "PC", IsInputPort, false);
+                try
+                {
+                    Int32 pathID = Int32.Parse(textBoxPathID.Text);
+                    newPort = new WebServiceBasedPort(pathID, "", "PC", IsInputPort, false);
+                }
+                catch (System.Exception )
+                {
+                    // There is exception when the textBoxPathID.Text isn't a number.
+                }
             }
             return newPort;
         }

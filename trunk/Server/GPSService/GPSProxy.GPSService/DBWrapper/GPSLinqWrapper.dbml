@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="GPS" Class="GPSLinqWrapperDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=SUNZHONGKUI\SQLEXPRESS;Initial Catalog=GPS;Integrated Security=True" SettingsObjectName="GPSProxy.GPSService.Properties.Settings" SettingsPropertyName="GPSConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=shacng6120067,5013\SQLEXPRESS;Initial Catalog=GPS;Persist Security Info=True;User ID=gpsuser;Password=gpsuser" SettingsObjectName="GPSProxy.GPSService.Properties.Settings" SettingsPropertyName="GPSConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Path" Member="Paths">
     <Type Name="Path">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
