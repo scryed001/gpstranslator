@@ -1,0 +1,4 @@
+﻿
+Create a virtual dictionary and set the local path to be the folder GPSProxy.WebService.
+
+The WCF assembly GPSProxy.GPSService is referenced  by the GPSProxy.WebService, and it will be compiled to the bin folder. So we don't need to do anything for it when deployment.
