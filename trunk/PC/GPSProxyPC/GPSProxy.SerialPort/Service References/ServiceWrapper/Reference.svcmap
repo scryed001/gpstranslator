@@ -17,16 +17,17 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:2481/GPSManager.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.148.135.117/GPS/GPSManager.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GPSManager.xsd" MetadataType="Schema" ID="272f8989-e4cc-4dad-bd01-8fe075944267" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?xsd=xsd1" />
-    <MetadataFile FileName="GPSManager1.xsd" MetadataType="Schema" ID="eb5c19c1-b628-4e3e-947f-60688867d59b" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?xsd=xsd0" />
-    <MetadataFile FileName="GPSManager.disco" MetadataType="Disco" ID="53b44346-55fc-4465-ab2c-76b5e2dec51a" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?disco" />
-    <MetadataFile FileName="GPSManager.wsdl" MetadataType="Wsdl" ID="b50a21a5-5b38-459a-b4db-18a51b9ca64c" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?wsdl" />
-    <MetadataFile FileName="GPSManager2.xsd" MetadataType="Schema" ID="c6f8a587-8d0f-43dd-b979-e7486120a3c3" SourceId="1" SourceUrl="http://localhost:2481/GPSManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="GPSManager1.disco" MetadataType="Disco" ID="bcdec657-e06b-45fa-b1ab-6b01fc9855bf" SourceId="1" SourceUrl="http://shacng6120067.ads.autodesk.com/GPS/GPSManager.svc?disco" />
+    <MetadataFile FileName="GPSManager3.xsd" MetadataType="Schema" ID="b7fe5fbb-e0d4-43d7-b264-9252a37a6c41" SourceId="1" SourceUrl="http://shacng6120067.ads.autodesk.com/GPS/GPSManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="GPSManager31.xsd" MetadataType="Schema" ID="333bd283-20be-4e8b-9f8e-217a436bdd59" SourceId="1" SourceUrl="http://shacng6120067.ads.autodesk.com/GPS/GPSManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="GPSManager32.xsd" MetadataType="Schema" ID="b26f4c32-2422-4fb9-8877-6b3f1eb94d48" SourceId="1" SourceUrl="http://shacng6120067.ads.autodesk.com/GPS/GPSManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="GPSManager1.wsdl" MetadataType="Wsdl" ID="211a646d-28bc-4acc-ad6f-3361e5e936d7" SourceId="1" SourceUrl="http://shacng6120067.ads.autodesk.com/GPS/GPSManager.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
   </Extensions>
 </ReferenceGroup>
