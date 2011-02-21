@@ -175,8 +175,15 @@ namespace GPSProxy.SerialPort
         {
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
-
-            return serviceClient.IsServiceAvailable("PCClient") && bIsPortOpened;
+            try
+            {
+                return serviceClient.IsServiceAvailable("PCClient") && bIsPortOpened;
+            }
+            catch (System.Exception)
+            {
+                // There will be exception if the server address isn't available.
+                return false;
+            }
         }
 
         public int Write(byte[] data)
