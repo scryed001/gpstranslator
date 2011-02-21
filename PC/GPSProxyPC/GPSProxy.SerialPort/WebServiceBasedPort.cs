@@ -205,6 +205,13 @@ namespace GPSProxy.SerialPort
 
                     if (ret)
                         return data.Length;
+                    else
+                    {
+                        if(Error != null)
+                        {
+                            Error(this, "Failed to upload gps data.");
+                        }
+                    }
                 }
             }
             catch (System.Exception e)

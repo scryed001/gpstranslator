@@ -44,6 +44,9 @@ namespace GPSProxy.SerialPort
 
         #endregion
 
+        public delegate void ErrorEvent(string error);
+        public event ErrorEvent Error;
+
         #region start and stop
         public void Start()
         {
@@ -119,6 +122,8 @@ namespace GPSProxy.SerialPort
         private void out_port_Error(IPort sender, string error)
         {
             // do nothing
+            if (Error != null)
+                Error("Out error: " + error);
         }
         #endregion
     }

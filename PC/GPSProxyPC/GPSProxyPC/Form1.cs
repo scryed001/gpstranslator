@@ -129,7 +129,13 @@ namespace GPSProxyPC
             }
 
             portRedt = new PortRedirector(inPort, outPort);
+            portRedt.Error += new PortRedirector.ErrorEvent(portRedt_Error);
             portRedt.Start();
+        }
+
+        void portRedt_Error(string error)
+        {
+            AppendLog(error + "\n");
         }
 
         private void StopProxy()
